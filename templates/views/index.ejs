@@ -12,7 +12,7 @@
 
         <style>
         #chart {
-            height: 300px;
+            height:300px;
             width: 300px;
         }
     </style>
@@ -25,18 +25,24 @@
 <body>
 
         <h1>Dehaat Employees</h1>
-
+    <% let count = 0; %>
         <!-- EJS loop through employees returned from MongoDB -->
-        <ul>
+    <!--     <ul>
 
-              <!-- inserts each employee name/age from MongoDB to list -->
+              
               <% employees.forEach(employee=> { %>
                   <li>
-                <%= `Age: ${employee.age}, Name: ${employee.name} ` %>
+                <%= `Age: ${employee.age}, Name: ${employee.name}` %>
+
             </li>
+            <% count++ %>
                   <% }); %>
 
-                    </ul>
+                    </ul> -->
+               <h2>
+                <%=`Total: ${count}` %>
+                
+               </h2> 
 
         <!-- chart container -->
         <div id="chart"></div>
@@ -47,6 +53,7 @@
          <input type="number" name="age" placeholder="Age" id="">
          <input type="submit" value="Register"name="" id="">
         </form>
+        <a href="/form"><button type="button">Download CSV</button></a>
 
         <!-- fetches data from api/data page & renders chart from data returned -->
         

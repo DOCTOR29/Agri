@@ -9,7 +9,8 @@ const formSchema = new mongoose.Schema({
     age: {
         type: Number,
         // required: true,
-    }
+    },
+    
 })
 
 const Register = new mongoose.model("Register", formSchema)
