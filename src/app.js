@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path')
 require('./db/conn.js');
-const {Register, Csvbuff} = require('./models/Formreg.js')
+const Register = require('./models/Formreg.js')
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const fs = require('fs')
