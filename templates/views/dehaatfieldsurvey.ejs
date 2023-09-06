@@ -1,0 +1,57 @@
+<!DOCTYPE hmtl>
+
+<html>
+<head>
+    <link rel="stylesheet" href="./css/style.css">      
+</head>
+<body>
+
+
+        
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+        <h1>Dehaat Field Survey</h1>
+
+        <form action="/form/dfs" method="POST">
+            <label for="surveys">No of field surveys conducted:</label>
+            <input type="number" id="noOfFieldsurveysConducted" name="noOfFieldsurveysConducted" required>
+            
+            <label for="date">Date of Survey Completion:</label>
+            <input type="date" id="dateOfSurveyCompletion" name="dateOfSurveyCompletion" required>
+            
+            <label for="districts">APART Districts:</label>
+            <input type="text" id="apartDistricts" name="apartDistricts" required>
+            
+            <label for="blocks">APART Blocks:</label>
+            <input type="text" id="apartBlocks" name="apartBlocks" required>
+            
+            <label for="village">Village:</label>
+            <input type="text" id="village" name="village" required>
+            
+            <label for="fpos">FPOs Covered:</label>
+            <input type="number" id="fposCovered" name="fposCovered" required>
+            
+            <label for="members">Members/Farmers covered:</label>
+            <input type="number" id="membersCovered" name="membersCovered" required>
+            
+            <label for="nonmembers">Non members covered:</label>
+            <input type="number" id="nonMembersCovered" name="nonMembersCovered" required>
+            
+            <input class="submit-btn" type="submit" value="Submit">
+        </form>
+        <h2>Or Upload Bulk (CSV)</h2>
+        <form action="/form/dfs/bulk" method="POST" enctype="multipart/form-data">
+            <input type="file" name="DFS" id="file">
+            <input class="submit-btn" type="submit" name="Submit" id="">
+        </form>
+        <a href="/form/dfs"> <button class="submit-btn">Dowload CSV</button></a>
+
+
+    </div>
+
+      
+</body>
+
+</html>

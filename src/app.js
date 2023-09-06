@@ -1,33 +1,17 @@
 const express = require('express');
 const path = require('path')
 require('./db/conn.js');
-const csvupload = require('./controllers/csvupload.js')
 const Register = require('./models/Formreg.js')
+const DFF = require('./models/modelDff.js')
 const hbs = require('hbs');
-const bodyParser = require('body-parser');
-
-const  { createReadStream } = require( 'fs');
-const { parse } = require( 'fast-csv');
 const json2csv = require('json2csv').parse 
-const multer = require('multer')
+const DFFRouter = require('./routers/DFFRouter.js')
+const DFSRouter = require('./routers/DFSRouter.js')
 const uploadFile = require('./middleware/upload.js');
-const csvController = require('./controllers/csv.controller.js');
-const csvPath = path.resolve(__dirname, '../formData', 'agridb.csv')
-const csvPathtxt = path.join(__dirname, '../formData/agridb.csv')
+const csvController = require('./controllers/dffcsv.js');
+const flash  = require('connect-flash')
+const session = require('express-session');
 
-// const upload = multer({
-    
-    // limits: {
-    //     fileSize: 1000000,
-
-    // },
-    // fileFilter(req, file, cb) {
-    //     if (!file.originalname.match(/\.(csv)$/)){
-    //         return cb(new Error('Please upload a csv file'))
-    //     }
-    //     cb(undefined, true)
-    // }
-// })
 
 
 
@@ -37,7 +21,13 @@ const port = process.env.PORT
 const staticPath = path.join(__dirname, '../public')
 const templatePath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
-
+app.use(flash());
+app.use(session({
+    secret: 'secret key',
+    resave: false,
+    saveUninitialized: false
+  }));
+  
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
@@ -112,6 +102,13 @@ app.get('/form', async (req, res) => {
 //upload csv
 
 app.post('/csvform', uploadFile.single('file'), csvController.upload);
+
+//DFF
+app.use(DFFRouter)
+
+//DFS
+app.use(DFSRouter)
+
 
 
 app.get('*', (req, res) => {

@@ -1,0 +1,60 @@
+<!DOCTYPE hmtl>
+
+<html>
+<head>
+    <link rel="stylesheet" href="./css/style.css">      
+</head>
+<body>
+
+
+        
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+        <h1>Dehaat Financing Farmers</h1>
+
+        <form action="/form/dff" method="POST" id="form">
+            <label for="dateOfDisbursement">Date of Disbursement:</label>
+            <input type="date" name="dateOfDisbursement" id="dateOfDisbursement" placeholder="Date of Disbursement">
+            <input type="text" name="AAPRTDistrict" placeholder="AAPRT District">
+            <input type="text" name="APARTBlock" placeholder="APARTBlock">
+            <input type="text" name="nameOfFarmer" placeholder="nameOfFarmer">
+            <label for="whetherAssociatedWithFPOFPC">Whether Associated With FPO/FPC:</label>
+            <label>Yes
+                <input type="radio" id="yes" name="whetherAssociatedWithFPOFPC" value="true"></label>
+            <label>No
+                <input class="radi" type="radio" id="no" name="whetherAssociatedWithFPOFPC" value="false"></label>
+            <input type="text" name="nameOfFPOFPC" placeholder="Name Of FPO/FPC">
+            <input type="text" name="CINOfTheFPC" placeholder="CIN Of The FPC">
+            <label for="guaranteeProvidedByFPOFPC">Guarantee Provided By FPO/FPC:</label>
+            <label>Yes
+                <input type="radio" name="guaranteeProvidedByFPOFPC" id="yes" value="true"></label>
+            <label>No
+                <input type="radio" name="guaranteeProvidedByFPOFPC" id="no" value="false"> </label>
+
+            <input type="number" name="loanAmount" id="loanAmount" placeholder="Loan Amount">
+            <input type="number" name="tenure" id="tenure" placeholder="Tenure">
+            <label for="whetherLoanTakenForFirstTime">Whether Loan Taken For First Time</label>
+            <label>Yes
+                <input type="radio" name="whetherLoanTakenForFirstTime" id="yes" value="true"></label>
+
+            <label>No
+                <input type="radio" name="whetherLoanTakenForFirstTime" id="no" value="false"> </label>
+            <input type="text" name="valueChain" id="valueChain" placeholder="Value Chain">
+            <input class="submit-btn" type="submit" value="Register" id="submit">
+        </form>
+        <h2>Or Upload Bulk (CSV)</h2>
+        <form action="/form/dff/bulk" method="POST" enctype="multipart/form-data">
+            <input type="file" name="DFF" id="file">
+            <input class="submit-btn" type="submit" name="Submit" id="">
+        </form>
+        <a href="/form/dff"> <button class="submit-btn">Dowload CSV</button></a>
+
+
+    </div>
+
+      
+</body>
+
+</html>

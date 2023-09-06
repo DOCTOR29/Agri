@@ -41,15 +41,36 @@ form .input-group-files {
     margin-bottom: 15px;
 }
 form label {
+    
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    /* float: left; */
+    margin-top: 20px;
+    margin-right: 5px;
+    
+}
+input[type=date],
+input.date {
+    /* float:left; */
+    /* clear: none; */
+    margin: 2px 0 0 2px;
+    width: auto;
+}
+input[type=radio],
+input.radio {
+    float:left;
+    /* clear: none; */
+    margin: 2px 0 0 2px;
+    width: 21px;
 }
 form input {
     padding: 12px 20px;
     width: 100%;
     border: 1px solid #ccc;
 }
+
 .submit-btn {
+    margin-top: 20px;
     width: 100%;
     border: none;
     background: rgb(37, 83, 3);
@@ -60,3 +81,4 @@ form input {
     text-align: center;
     cursor: pointer
 }
+
