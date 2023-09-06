@@ -1,15 +1,33 @@
 const express = require('express');
 const path = require('path')
 require('./db/conn.js');
+const csvupload = require('./controllers/csvupload.js')
 const Register = require('./models/Formreg.js')
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
-const fs = require('fs')
-const json2csv = require('json2csv').parse 
 
+const  { createReadStream } = require( 'fs');
+const { parse } = require( 'fast-csv');
+const json2csv = require('json2csv').parse 
+const multer = require('multer')
+const uploadFile = require('./middleware/upload.js');
+const csvController = require('./controllers/csv.controller.js');
 const csvPath = path.resolve(__dirname, '../formData', 'agridb.csv')
 const csvPathtxt = path.join(__dirname, '../formData/agridb.csv')
 
+// const upload = multer({
+    
+    // limits: {
+    //     fileSize: 1000000,
+
+    // },
+    // fileFilter(req, file, cb) {
+    //     if (!file.originalname.match(/\.(csv)$/)){
+    //         return cb(new Error('Please upload a csv file'))
+    //     }
+    //     cb(undefined, true)
+    // }
+// })
 
 
 
@@ -33,7 +51,8 @@ app.get('/', async (req, res) => {
         formData = await Register.find()
         
         res.render('index', {
-            employees: formData }) 
+            employees: formData,message: '' }) 
+            
     } catch (error) {
         res.status(500).send()
         console.log(error)
@@ -55,11 +74,7 @@ app.post('/add/form', async (req, res) => {
 
         res.redirect('/')
         // console.log(regForm)
-        const formData = await Register.find()
-
-        res.status(201).render("index",{
-            employees: formData });
-        const number = req.body.number 
+ 
         
     } catch (error) {
         res.status(400).send(error)
@@ -81,20 +96,11 @@ app.get('/form', async (req, res) => {
     try {
         const formData = await Register.find()
 
-        const fields = [{ label: "Name", value: 'name' },
-                        { label: "Age", value: 'age' }]
+        const fields = [{ label: "Name", value: 'Name' },
+                        { label: "Age", value: 'Age' }]
         const csv = json2csv(formData, { fields })
 
-        // fs.writeFile(csvPath, csv, (err) => {
-        //     if (err) throw new Error('canno save csv',err)
-        //     console.log('csv saved successfully')
-
-        // })
-        // const buffCsv = csv.toBuffer()
-        // const newcsv = new Csvbuff({
-        //     csv
-        // })
-        // await newcsv.save()
+       
         res.attachment('details.csv').send(csv)
         // res.status(200).download(csvPathtxt,'agridb.csv')
     } catch (error) {
@@ -103,6 +109,10 @@ app.get('/form', async (req, res) => {
     }
     
 })
+//upload csv
+
+app.post('/csvform', uploadFile.single('file'), csvController.upload);
+
 
 app.get('*', (req, res) => {
     res.send("error")

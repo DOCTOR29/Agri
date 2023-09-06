@@ -1,9 +1,62 @@
-h1{
-    color: rgb(158, 242, 215);
+/* style.css */
+body {
+    background-color: rgb(6, 26, 27);
 }
-span{
-    color:azure
+* {
+    box-sizing: border-box;
 }
-body{
-    background-color: #080808;
+.alert {
+    text-align: center;
+    color: white;
+}
+.alert h1 {
+    font-weight: 100;
+    font-size:larger;
+}
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+}
+.container h1 {
+    text-align: center;
+    color: white;
+}
+.container h2 {
+    text-align: left;
+    color: white;
+}
+#chart {
+    max-width: 500px;
+    margin: 60px auto;
+}
+form {
+    background-color: white;
+    padding: 30px;
+}
+form .input-group {
+    margin-bottom: 15px;
+}
+form .input-group-files {
+    margin-top:  15px;
+    margin-bottom: 15px;
+}
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+form input {
+    padding: 12px 20px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+.submit-btn {
+    width: 100%;
+    border: none;
+    background: rgb(37, 83, 3);
+    font-size: 18px;
+    color: white;
+    border-radius: 3px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer
 }

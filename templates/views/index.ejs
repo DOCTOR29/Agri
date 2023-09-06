@@ -16,6 +16,7 @@
             width: 300px;
         }
     </style>
+    <link rel="stylesheet" href="./css/style.css">
 
       
 </head>
@@ -23,8 +24,10 @@
   
 
 <body>
+    
+     
 
-        <h1>Dehaat Employees</h1>
+    
     <% let count = 0; %>
         <!-- EJS loop through employees returned from MongoDB -->
     <!--     <ul>
@@ -39,24 +42,48 @@
                   <% }); %>
 
                     </ul> -->
-               <h2>
+
+             
+
+        <!-- chart container -->
+    <div class="alert"> <h1>
+        <%=` ${message}` %>
+    </h1> 
+</div>
+       
+<div class = "container">
+    
+        <h1>Dehaat Employees</h1>
+        <form id="form" action="/add/form" method="POST">
+            <div class="input-group">
+            <!-- <label for="name">Name</label> -->
+             <input type="text" name="name" placeholder="Enter a name" id="">
+            </div>
+            <div class = "input-group">
+             <input type="number" name="age" placeholder="Age" id="">
+            </div>
+            
+             <input class="submit-btn" type="submit" value="Register"name="" id="">
+        </form>
+           <form id="form" action="/csvform" method="POST" enctype='multipart/form-data'>
+             <div class="input-group-files">
+                <label for='file'>Select files</label>
+                <input id='file' type="file"  name="file">
+            </div>
+            <input class="submit-btn" type="submit" value="Upload CSV"name="" id="">
+            </form>
+            <a href="/form"><button class="submit-btn" type="button" >Download CSV</button></a>
+
+            <div id="chart"></div>
+            <h2>
                 <%=`Total: ${count}` %>
                 
                </h2> 
-
-        <!-- chart container -->
-        <div id="chart"></div>
+    </div>
     
-    <form action="/add/form" method="POST">
-        <span>Enter details</span>
-         <input type="text" name="name" placeholder="Enter a name" id="">
-         <input type="number" name="age" placeholder="Age" id="">
-         <input type="submit" value="Register"name="" id="">
-        </form>
-        <a href="/form"><button type="button">Download CSV</button></a>
 
         <!-- fetches data from api/data page & renders chart from data returned -->
-        
+   
     <script>
 
         // creates variable for url we want to fetch
@@ -94,7 +121,7 @@
                 employees.forEach(employee => {
 
                     // pushes values from employees variable to empty employeeInfo array
-                    employeeInfo.push([employee.name, parseInt(employee.age)]);
+                    employeeInfo.push([employee.Name, parseInt(employee.Age)]);
 
                 });
 
@@ -122,6 +149,8 @@
             .catch(error => console.log('fetch error'));
 
     </script>
+    
+
 
       
 </body>
