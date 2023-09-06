@@ -1,96 +1,17 @@
-<!DOCTYPE hmtl>
-
-<html>
-
-  
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
-        <!-- ZingChart CDN script -->
-        
-    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-
-        <style>
-        #chart {
-            height:300px;
-            width: 300px;
-        }
-    </style>
-    <link rel="stylesheet" href="./css/style.css">
-
-      
-</head>
-
-  
-
-<body>
-    
-     
-
-    
-    <% let count = 0; %>
-        <!-- EJS loop through employees returned from MongoDB -->
-    <!--     <ul>
-
-              
-              <% employees.forEach(employee=> { %>
-                  <li>
-                <%= `Age: ${employee.age}, Name: ${employee.name}` %>
-
-            </li>
-            <% count++ %>
-                  <% }); %>
-
-                    </ul> -->
-
-             
-
-        <!-- chart coEntainer -->
-    <div class="alert"> <h1>
-        <%=` ${message}` %>
-    </h1> 
-</div>
-       
-<div class = "container">
-    
-        <h1>Dehaat Employees</h1>
-        <form id="form" action="/add/form" method="POST">
-            <div class="input-group">
-            <!-- <label for="name">Name</label> -->
-             <input type="text" name="Name" placeholder="Enter a name" id="">
-            </div>
-            <div class = "input-group">
-             <input type="number" name="Age" placeholder="Age" id="">
-            </div>
-            
-             <input class="submit-btn" type="submit" value="Register"name="" id="">
-        </form>
-           <form id="form" action="/csvform" method="POST" enctype='multipart/form-data'>
-             <div class="input-group-files">
-                <label for='file'>Select files</label>
-                <input id='file' type="file"  name="file">
-            </div>
-            <input class="submit-btn" type="submit" value="Upload CSV"name="" id="">
-            </form>
-            <a href="/form"><button class="submit-btn" type="button" >Download CSV</button></a>
-
-            <div id="chart"></div>
-            <h2>
-                <%=`Total: ${count}` %>
-                
-               </h2> 
-    </div>
-    
-
-        <!-- fetches data from api/data page & renders chart from data returned -->
-   
-    <script>
-
-        // creates variable for url we want to fetch
-        const url = '/api/data';
-
-        // fetch call to our /api/data page
-        fetch(url)
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        let employeeInfo = [];
+        let employees = {}
+        fetch('/form/data')
 
             // creates promise to work with response from /api/data
             .then(res => {
@@ -100,59 +21,47 @@
 
                     // returns error with response text of error
                     throw new Error(res.statusText);
-
                 }
-
-                // returns data from /api/data page in json format to next promise
                 return res.json();
 
-            })
-
-            // creates promise with returned data from previous promise
-            .then(data => {
+            }).then(data => {
 
                 // creates employees variable to store JSON data form /api/data
-                let employees = data;
+                employees = data;
 
                 // creates empty employeeInfo array
-                let employeeInfo = [];
 
-                // loops through data from employee variable
-                employees.forEach(employee => {
 
-                    // pushes values from employees variable to empty employeeInfo array
-                    employeeInfo.push([employee.Name, parseInt(employee.Age)]);
-
-                });
-
-                // creates chart const with employeeInfo array
-                const chart = {
-                    type: 'bar',
-                    series: [
-                        {
-                            values: employeeInfo
-                        }
-                    ]
-                };
-
-                // renders zingchart to the page
-                zingchart.render({
-                    id: 'chart',
-                    data: chart,
-                    height: '100%',
-                    width: '100%'
-                });
-
+                // console.log(employeeInfo)
+                // console.log(data)
+                console.log(employees)
             })
 
-            // catches errors in promise chain
-            .catch(error => console.log('fetch error'));
+        async function drawChart() {
+            employeeInfo.push(['Gender', 'Total'])
+            const arrayData = await parseInt(employees.male)
+            employeeInfo.push(['Male', arrayData])
+            employeeInfo.push(['Female', 10])
+            console.log(employeeInfo)
 
+            var data = google.visualization.arrayToDataTable(
+                employeeInfo);
+
+            var options = {
+                title: 'No of Beneficiaries',
+                pieHole: 0.4,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
     </script>
-    
+</head>
+
+<body>
+    <div id="donutchart" style="width: 900px; height: 500px;"></div>
 
 
-      
 </body>
 
 </html>
