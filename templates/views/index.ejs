@@ -33,7 +33,7 @@
 
                 // console.log(employeeInfo)
                 // console.log(data)
-                // console.log(employees)
+                console.log("employees", employees)
             }).then(() => {
                 google.charts.load("current", { packages: ["corechart"] });
                 google.charts.setOnLoadCallback(drawChart);
@@ -43,7 +43,7 @@
                     employeeInfo.push(['Male', arrayData])
 
                     employeeInfo.push(['Female', 10])
-
+                    console.log("employeeInfo", employeeInfo)
 
                     var data = google.visualization.arrayToDataTable(
                         employeeInfo);
