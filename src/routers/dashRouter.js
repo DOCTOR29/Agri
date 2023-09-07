@@ -33,10 +33,10 @@ router.get('/', async (req, res) => {
     var ratioFPO = (((sumLoanAmountFPO)/(sumLoanAmountFPO + sumLoanAmount))*100).toString()
     var ratioLoan = 100 - ratioFPO
     req.flash('ratioFPO', ratioFPO)
-    req.flash('ratio22FPO', ratioLoan)
+    req.flash('ratioLoan', ratioLoan)
 
 
-    // console.log(req.flash("ratio22FPO"))
+    console.log("router ratio: ",req.flash("ratioLoan"))
     res.render('index', {
         countFinancing, sumLoanAmountFPO,
         financingFarmersCount,
