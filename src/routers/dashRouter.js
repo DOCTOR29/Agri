@@ -55,8 +55,7 @@ router.get('/form/data', async (req, res) => {
     formDF.forEach((entry) => {
         sumLoanAmountFPO += entry.loanAmount
     })
-    const ratioFPO = (((sumLoanAmountFPO)/(sumLoanAmountFPO + sumLoanAmount))*100).toString()
-    const ratioLoan = 100 - ratioFPO
+   
     var countMale = 0, countFemale = 0 
     
     formDFF.forEach((form) => {
@@ -67,6 +66,8 @@ router.get('/form/data', async (req, res) => {
         }
      
     });
+    const ratioFPO = (((sumLoanAmountFPO)/(sumLoanAmountFPO + sumLoanAmount))*100).toString()
+    const ratioLoan = 100 - ratioFPO
     
     
     const benefeciaries = { male: countMale, female:countFemale, FPO:ratioFPO, Loan:ratioLoan}
