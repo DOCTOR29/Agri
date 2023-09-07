@@ -45,6 +45,8 @@
                     const arrayDataFemale = parseInt(resdata.female)
                      console.log(resdata)
                     const ratioFPOData = parseInt(resdata.FPO)
+                    const ratioFPO =   parseInt(resdata.sumLoanAmountFPO) /( parseInt(resdata.sumLoanAmountFPO) + parseInt(resdata.sumLoanAmount) )*100
+                    const ratioLoan =   parseInt(resdata.sumLoanAmount) /( parseInt(resdata.sumLoanAmountFPO) + parseInt(resdata.sumLoanAmount) )*100
                     employeeInfo.push(['Female', arrayDataFemale])
                     
                     console.log("ratio fetch",ratioFPOData)
@@ -72,8 +74,8 @@
                    
                     
                     [["Value of Credit to FPO", "Value of credit to individual farmers"],
-                        ["Value of Credit to FPO", 10],
-                        ["Value of credit to individual farmers",  20]]);
+                        ["Value of Credit to FPO", ratioFPO],
+                        ["Value of credit to individual farmers",  ratioLoan]]);
 
                     var optionsCreditGraph = {
                         title: 'Credit Graph',
