@@ -9,7 +9,7 @@
     <script type="text/javascript">
 
         var employeeInfo = [];
-        var employees = {}
+        var resdata = {}
         fetch('/form/data')
 
             // creates promise to work with response from /api/data
@@ -25,24 +25,24 @@
 
             }).then(data => {
 
-                // creates employees variable to store JSON data form /api/data
-                employees = data;
+                // creates resdata variable to store JSON data form /api/data
+                resdata = data;
 
                 // creates empty employeeInfo array
 
 
                 // console.log(employeeInfo)
                 // console.log(data)
-                // console.log("employees", employees)
+                // console.log("resdata", resdata)
             }).then(() => {
                 google.charts.load("current", { packages: ["corechart"] });
                 google.charts.setOnLoadCallback(drawChart);
                 function drawChart() {
                     employeeInfo.push(['Gender', 'Total'])
-                    const arrayDataMale = parseInt(employees.male)
+                    const arrayDataMale = parseInt(resdata.male)
                     employeeInfo.push(['Male', arrayDataMale])
 
-                    const arrayDataFemale = parseInt(employees.female)
+                    const arrayDataFemale = parseInt(resdata.female)
                     employeeInfo.push(['Female', arrayDataFemale])
 
                     console.log("employeeInfo", employeeInfo)
@@ -57,6 +57,7 @@
 
                     var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
                     chart.draw(data, options);
+
                 }
             })
 
@@ -65,7 +66,58 @@
 </head>
 
 <body>
+    
     <div id="donutchart" style="width: 900px; height: 500px;"></div>
+    <h2>Number of FPO Receiving Credit</h2>  
+    <h3>   
+        <%= countFinancing %>    
+    </H3>
+    <h2>Value of Credit to FPOs</h2>  
+    <h3>   
+        <%= sumLoanAmountFPO %>    
+    </H3>
+    <h2>Number of VLEs receiving credit</h2>  
+    <h3>   
+        NA  
+    </H3>
+    <h2>Value of Credit received by VLES</h2>  
+    <h3>   
+        NA  
+    </H3>
+    <h2>Number of FIGs receiving credit</h2>  
+    <h3>   
+        NA  
+    </H3>
+    <h2>Value of credit to FIGs</h2>  
+    <h3>   
+        NA  
+    </H3>
+    <h2>Number of Farmers receiving credit</h2>  
+    <h3>   
+        <%=financingFarmersCount%>  
+    </H3>
+    <h2>Value of Credit to farmers</h2>  
+    <h3>   
+        <%=sumLoanAmount%>  
+    </H3>
+    <h2>Savings Account</h2>  
+    <h3>   
+        NA 
+    </H3>
+    <h2>APY</h2>  
+    <h3>   
+        NA 
+    </H3>
+    <h2>Insurance</h2>  
+    <h3>   
+        <%=insuranceCount%>
+    </H3>
+    <h2>BC Agents</h2>  
+    <h3>   
+        NA
+    </H3>
+    
+
 
 
 </body>
