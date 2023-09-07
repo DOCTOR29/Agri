@@ -11,11 +11,11 @@ router.get('/', async (req, res) => {
 router.get('/form/data', async (req, res) => {
     const formDFF = await DFF.find()
     
-    formDFF.forEach(() => {
-        countMale++
+    // formDFF.forEach(() => {
+    //     countMale++
         
        
-    });
+    // });
     const benefeciaries = { male: 20, female:20}
 
     res.send(benefeciaries)
