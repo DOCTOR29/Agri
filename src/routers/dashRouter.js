@@ -57,7 +57,7 @@ router.get('/form/data', async (req, res) => {
         sumLoanAmountFPO += entry.loanAmount
        
     })
-    console.log("sum",sumLoanAmountFPO)
+
     var countMale = 0, countFemale = 0 
     
     formDFF.forEach((form) => {
@@ -74,7 +74,7 @@ router.get('/form/data', async (req, res) => {
     const benefeciaries = {
         male: countMale, female: countFemale, sumLoanAmountFPO, sumLoanAmount
     }
-    console.log(benefeciaries)
+
     res.send(benefeciaries)
 })
 

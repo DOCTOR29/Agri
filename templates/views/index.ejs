@@ -45,8 +45,8 @@
                     const arrayDataFemale = parseInt(resdata.female)
                      console.log(resdata)
                     const ratioFPOData = parseInt(resdata.FPO)
-                    const ratioFPO =   parseInt(resdata.sumLoanAmountFPO) /( parseInt(resdata.sumLoanAmountFPO) + parseInt(resdata.sumLoanAmount) )*100
-                    const ratioLoan =   parseInt(resdata.sumLoanAmount) /( parseInt(resdata.sumLoanAmountFPO) + parseInt(resdata.sumLoanAmount) )*100
+                    const ratioFPO =   parseInt(resdata.sumLoanAmountFPO)
+                    const ratioLoan =   parseInt(resdata.sumLoanAmount)
                     employeeInfo.push(['Female', arrayDataFemale])
                     
                     console.log("ratio fetch",ratioFPOData)
