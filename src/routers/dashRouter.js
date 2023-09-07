@@ -68,7 +68,7 @@ router.get('/form/data', async (req, res) => {
      
     });
     
-    const benefeciaries = { male: countMale, female:countFemale, ratioFPO, ratioLoan}
+    const benefeciaries = { male: countMale, female:countFemale, FPO:ratioFPO, Loan:ratioLoan}
     // console.log(benefeciaries)
     res.send(benefeciaries)
 })
