@@ -10,15 +10,19 @@ router.get('/', async (req, res) => {
 
 router.get('/form/data', async (req, res) => {
     const formDFF = await DFF.find()
-    var countMale = 0 
-    formDFF.forEach(() => {
-        countMale++
+    var countMale =0, countFemale = 0 
+    formDFF.forEach((form) => {
+        if(form.gender ==='Male')
+        { countMale++ }
+        else {
+            countFemale++
+        }
         
        
     });
-    console.log(countMale)
-    const benefeciaries = { male: countMale, female:20}
-
+    
+    const benefeciaries = { male: countMale, female:countFemale}
+    console.log(benefeciaries)
     res.send(benefeciaries)
 })
 

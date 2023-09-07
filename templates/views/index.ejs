@@ -8,8 +8,8 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
 
-        let employeeInfo = [];
-        let employees = {}
+        var employeeInfo = [];
+        var employees = {}
         fetch('/form/data')
 
             // creates promise to work with response from /api/data
@@ -33,16 +33,18 @@
 
                 // console.log(employeeInfo)
                 // console.log(data)
-                console.log("employees", employees)
+                // console.log("employees", employees)
             }).then(() => {
                 google.charts.load("current", { packages: ["corechart"] });
                 google.charts.setOnLoadCallback(drawChart);
                 function drawChart() {
                     employeeInfo.push(['Gender', 'Total'])
-                    const arrayData = parseInt(employees.male)
-                    employeeInfo.push(['Male', arrayData])
+                    const arrayDataMale = parseInt(employees.male)
+                    employeeInfo.push(['Male', arrayDataMale])
 
-                    employeeInfo.push(['Female', 10])
+                    const arrayDataFemale = parseInt(employees.female)
+                    employeeInfo.push(['Female', arrayDataFemale])
+
                     console.log("employeeInfo", employeeInfo)
 
                     var data = google.visualization.arrayToDataTable(

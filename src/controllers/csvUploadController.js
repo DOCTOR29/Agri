@@ -39,7 +39,7 @@ const upload = async (req, res) => {
           req.flash("message", "The file: "
           + req.file.originalname
           + " got uploaded successfully!!",);
-          res.redirect('/dfs')
+          res.redirect("/" + req.file.fieldname.toLowerCase())
             //   , {
           
             // })

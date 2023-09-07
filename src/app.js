@@ -3,6 +3,10 @@ const path = require('path')
 require('./db/conn.js');
 const DFFRouter = require('./routers/DFFRouter.js')
 const DFSRouter = require('./routers/DFSRouter.js')
+const DBRouter = require('./routers/DBRouter.js')
+const DFRouter = require('./routers/DFRouter.js')
+const DIRouter = require('./routers/DIRouter.js')
+const DTRouter = require('./routers/DTRouter.js')
 const flash  = require('connect-flash')
 const session = require('express-session');
 const dashRouter = require('./routers/dashRouter')
@@ -33,7 +37,10 @@ app.set('views', templatePath);
 app.use(DFFRouter)
 app.use(DFSRouter)
 app.use(dashRouter)
-
+app.use(DBRouter)
+app.use(DFRouter)
+app.use(DIRouter)
+app.use(DTRouter)
 
 
 app.get('*', (req, res) => {

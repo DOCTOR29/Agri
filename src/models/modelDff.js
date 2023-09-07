@@ -18,6 +18,11 @@ const formSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    gender: {
+        type: String,
+        
+
+    },
     whetherAssociatedWithFPOFPC : {
         type: Boolean,
     
