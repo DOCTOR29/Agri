@@ -67,11 +67,11 @@ router.get('/form/data', async (req, res) => {
         }
      
     });
-    const ratioFPO = await (((sumLoanAmountFPO)/(sumLoanAmountFPO + sumLoanAmount))*100).toString()
-    const ratioLoan =   await( 100 - ratioFPO)
+    const ratioFPO =  (((sumLoanAmountFPO)/(sumLoanAmountFPO + sumLoanAmount))*100)
+    const ratioLoan =   ( 100 - ratioFPO)
     
     
-    const benefeciaries = { male: countMale, female:countFemale, FPO:ratioFPO, Loan:ratioLoan}
+    const benefeciaries =  { male: countMale, female:countFemale, FPO:ratioFPO, Loan:ratioLoan}
     console.log(benefeciaries)
     res.send(benefeciaries)
 })
