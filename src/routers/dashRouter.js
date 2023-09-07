@@ -32,11 +32,7 @@ router.get('/', async  (req, res) => {
 
     var ratioFPO = (((sumLoanAmountFPO)/(sumLoanAmountFPO + sumLoanAmount))*100).toString()
     var ratioLoan = 100 - ratioFPO
-    await req.flash('ratioFPO', ratioFPO)
-    await req.flash('ratioLoan', ratioLoan)
-
-
-    console.log("router ratio: ",req.flash('ratioLoan'))
+   
     res.render('index', {
         countFinancing, sumLoanAmountFPO,
         financingFarmersCount,
@@ -46,8 +42,23 @@ router.get('/', async  (req, res) => {
 })
 
 router.get('/form/data', async (req, res) => {
+
+    const formDF = await DF.find()
     const formDFF = await DFF.find()
-       var countMale =0, countFemale = 0 
+    var sumLoanAmount = 0
+    var sumLoanAmountFPO = 0
+    formDFF.forEach((entry) => {
+       
+        sumLoanAmount += entry.loanAmount
+    })
+
+    formDF.forEach((entry) => {
+        sumLoanAmountFPO += entry.loanAmount
+    })
+    var ratioFPO = (((sumLoanAmountFPO)/(sumLoanAmountFPO + sumLoanAmount))*100).toString()
+    var ratioLoan = 100 - ratioFPO
+    var countMale = 0, countFemale = 0 
+    
     formDFF.forEach((form) => {
         if(form.gender ==='Male')
         { countMale++ }
@@ -57,7 +68,7 @@ router.get('/form/data', async (req, res) => {
      
     });
     
-    const benefeciaries = { male: countMale, female:countFemale, ratioFPO: req.flash('ratioFPO'), ratioLoan:req.flash('ratioLoan')}
+    const benefeciaries = { male: countMale, female:countFemale, ratioFPO, ratioLoan}
     // console.log(benefeciaries)
     res.send(benefeciaries)
 })
