@@ -44,8 +44,9 @@
 
                     const arrayDataFemale = parseInt(resdata.female)
                     employeeInfo.push(['Female', arrayDataFemale])
-
-                    console.log("employeeInfo", employeeInfo)
+                    const ratioFPOData = parseInt(resdata.ratioFPO)
+                    const ratioLoanData = 100-ratioFPOData
+                    console.log(ratioLoanData)
 
                     var data = google.visualization.arrayToDataTable(
                         employeeInfo);
@@ -55,10 +56,38 @@
                         pieHole: 0.5,
                     };
 
+                    var dataInsurance = google.visualization.arrayToDataTable(
+                        [["NA", "NA"],["NA",100],["na",0]]);
+                    var optionsInsurance = {
+                        title: 'Insurance Graph',
+                        pieHole: 0.5,
+                    };
+
+
+                    var dataCreditGraph = google.visualization.arrayToDataTable(
+                   
+                    
+                    [["Value of Credit to FPO", "Value of credit to individual farmers"],
+                        ["Value of Credit to FPO", ratioFPOData],
+                        ["Value of credit to individual farmers",  ratioLoanData]]);
+
+                    var optionsCreditGraph = {
+                        title: 'Credit Graph',
+                        pieHole: 0.5,
+                    };
+
                     var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
                     chart.draw(data, options);
+                    var chart = new google.visualization.PieChart(document.getElementById('insuranceGraph'));
+                    chart.draw(dataInsurance, optionsInsurance);
+                    var chart = new google.visualization.PieChart(document.getElementById('creditGraph'));
+                    chart.draw(dataCreditGraph, optionsCreditGraph);
 
                 }
+
+                
+
+
             })
 
 
@@ -66,8 +95,14 @@
 </head>
 
 <body>
-    
+
     <div id="donutchart" style="width: 900px; height: 500px;"></div>
+    <div id="insuranceGraph" style="width: 900px; height: 500px;"></div>
+    <div id="creditGraph" style="width: 900px; height: 500px;"></div>
+    <h2>Transaction Tile</h2>  
+    <h3>   
+        NA    
+    </H3>
     <h2>Number of FPO Receiving Credit</h2>  
     <h3>   
         <%= countFinancing %>    

@@ -12,6 +12,9 @@ router.get('/', async (req, res) => {
     var financingFarmersCount = 0;
     var sumLoanAmount = 0;
     var insuranceCount = 0;
+   
+
+
     const formDF = await DF.find()
     const formDFF = await DFF.find()
     const formDI = await DI.find()
@@ -27,10 +30,18 @@ router.get('/', async (req, res) => {
         sumLoanAmountFPO += entry.loanAmount
     })
 
+    var ratioFPO = (((sumLoanAmountFPO)/(sumLoanAmountFPO + sumLoanAmount))*100).toString()
+    var ratioLoan = 100 - ratioFPO
+    req.flash('ratioFPO', ratioFPO)
+    req.flash('ratio22FPO', ratioLoan)
+
+
+    // console.log(req.flash("ratio22FPO"))
     res.render('index', {
         countFinancing, sumLoanAmountFPO,
         financingFarmersCount,
-        sumLoanAmount, insuranceCount
+        sumLoanAmount, insuranceCount,
+       
     })
 })
 
@@ -48,8 +59,8 @@ router.get('/form/data', async (req, res) => {
        
     });
     
-    const benefeciaries = { male: countMale, female:countFemale}
-    console.log(benefeciaries)
+    const benefeciaries = { male: countMale, female:countFemale, ratioFPO: req.flash('ratioFPO'), ratioLoan:req.flash('ratioLoan')}
+    // console.log(benefeciaries)
     res.send(benefeciaries)
 })
 
