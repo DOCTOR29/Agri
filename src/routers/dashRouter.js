@@ -16,7 +16,7 @@ router.get('/form/data', async (req, res) => {
        
     });
     const benefeciaries = { male: countMale, female: countFemale}
-    console.log(benefeciaries)
+
     res.send(benefeciaries)
 })
 

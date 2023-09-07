@@ -7,8 +7,7 @@
     <title>Dashboard</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load("current", { packages: ["corechart"] });
-        google.charts.setOnLoadCallback(drawChart);
+
         let employeeInfo = [];
         let employees = {}
         fetch('/form/data')
@@ -34,27 +33,32 @@
 
                 // console.log(employeeInfo)
                 // console.log(data)
-                console.log(employees)
+                // console.log(employees)
+            }).then(() => {
+                google.charts.load("current", { packages: ["corechart"] });
+                google.charts.setOnLoadCallback(drawChart);
+                function drawChart() {
+                    employeeInfo.push(['Gender', 'Total'])
+                    const arrayData = parseInt(employees.male)
+                    employeeInfo.push(['Male', arrayData])
+
+                    employeeInfo.push(['Female', 10])
+                    console.log(employeeInfo)
+
+                    var data = google.visualization.arrayToDataTable(
+                        employeeInfo);
+
+                    var options = {
+                        title: 'No of Beneficiaries',
+                        pieHole: 0.5,
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                    chart.draw(data, options);
+                }
             })
 
-        async function drawChart() {
-            employeeInfo.push(['Gender', 'Total'])
-            const arrayData = await parseInt(employees.male)
-            employeeInfo.push(['Male', arrayData])
-            employeeInfo.push(['Female', 10])
-            console.log(employeeInfo)
 
-            var data = google.visualization.arrayToDataTable(
-                employeeInfo);
-
-            var options = {
-                title: 'No of Beneficiaries',
-                pieHole: 0.4,
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-            chart.draw(data, options);
-        }
     </script>
 </head>
 
