@@ -36,7 +36,7 @@ router.get('/', async  (req, res) => {
     await req.flash('ratioLoan', ratioLoan)
 
 
-    console.log("router ratio: ",req.flash("ratioLoan"))
+    console.log("router ratio: ",req.flash('ratioLoan'))
     res.render('index', {
         countFinancing, sumLoanAmountFPO,
         financingFarmersCount,
