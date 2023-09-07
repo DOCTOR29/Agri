@@ -1,6 +1,8 @@
 const express = require('express')
 const DFF = require('../models/modelDff')
 const router = express.Router()
+require('../db/conn.js');
+
 
 router.get('/', async (req, res) => {
      res.render('index', )
