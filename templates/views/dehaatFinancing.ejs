@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dehaat Beneficiaries</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Dehaat Financing FPO/FPC</h1>
+    <form action="/form/df" method="POST">
+        <label for="dateOfDisbursement">Date of Disbursement:</label>
+        <input type="date" id="dateOfDisbursement" name="dateOfDisbursement" required>
+
+        <label for="aaprtDistrict">AAPRT District:</label>
+        <input type="text" id="aaprtDistrict" name="aaprtDistrict" required>
+
+        <label for="aaprtBlock">AAPRT Block:</label>
+        <input type="text" id="aaprtBlock" name="aaprtBlock" required>
+
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village" required>
+
+        <label for="nameOfFPOFPC">Name of FPO/FPC:</label>
+        <input type="text" id="nameOfFPOFPC" name="nameOfFPOFPC" required>
+
+        <label for="cinOfFPC">CIN of FPC (if registered):</label>
+        <input type="text" id="cinOfFPC" name="cinOfFPC">
+
+        <label for="loanAmount">Loan Amount:</label>
+        <input type="number" id="loanAmount" name="loanAmount" required>
+
+        <label for="tenure">Tenure (months):</label>
+        <input type="number" id="tenure" name="tenure" required>
+
+        <label>Whether loan taken for the first time:</label>
+        <input type="radio" id="firstTimeLoanYes" name="isFirstTimeLoan" value="Yes" required>
+        <label for="firstTimeLoanYes">Yes</label>
+        <input type="radio" id="firstTimeLoanNo" name="isFirstTimeLoan" value="No">
+        <label for="firstTimeLoanNo">No</label>
+
+        <label for="valueChain">Value Chain:</label>
+        <input type="text" id="valueChain" name="valueChain" required>
+
+        <input class="submit-btn" type="submit" value="Submit">
+                                                                                        </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/df/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="DF" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/df"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

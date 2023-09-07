@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dehaat Beneficiaries</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Dehaat Insurance</h1>
+    <form action="/form/di" method="POST">
+        <label for="dateOfIssuance">Date of Issuance of Policy:</label>
+        <input type="date" id="dateOfIssuance" name="dateOfIssuance" required>
+
+        <label for="insuranceCompany">Insurance Company:</label>
+        <input type="text" id="insuranceCompany" name="insuranceCompany" required>
+
+        <label for="insuranceType">Insurance Type:</label>
+        <input type="text" id="insuranceType" name="insuranceType" required>
+
+        <label for="aaprtDistrict">APART District:</label>
+        <input type="text" id="aaprtDistrict" name="aaprtDistrict" required>
+
+        <label for="aaprtBlock">APART Block:</label>
+        <input type="text" id="aaprtBlock" name="aaprtBlock" required>
+
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        
+
+        <label for="landHolding">Land Holding:</label>
+        <input type="text" id="landHolding" name="landHolding" required>
+
+        <label>Whether bought insurance for the first time:</label>
+        <input type="radio" id="firstTimeYes" name="isFirstTimeInsurance" value="Yes" required>
+        <label for="firstTimeYes">Yes</label>
+        <input type="radio" id="firstTimeNo" name="isFirstTimeInsurance" value="No">
+        <label for="firstTimeNo">No</label>
+
+        <label>Insurance Type:</label>
+        <input type="radio" id="cropInsuranceYes" name="isCropInsurance" value="Yes" required>
+        <label for="cropInsuranceYes">Yes</label>
+        <input type="radio" id="cropInsuranceNo" name="isCropInsurance" value="No">
+        <label for="cropInsuranceNo">No</label>
+
+        <label for="insurancePremium">Insurance Premium:</label>
+        <input type="number" id="insurancePremium" name="insurancePremium" required>
+
+        <label for="insuranceCoverage">Insurance Coverage:</label>
+        <input type="number" id="insuranceCoverage" name="insuranceCoverage" required>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/di/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="DI" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/di"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>
