@@ -6,7 +6,7 @@ const router = express.Router()
 require('../db/conn.js');
 
 
-router.get('/', async (req, res) => {
+router.get('/', async  (req, res) => {
     var countFinancing = 0;
     var sumLoanAmountFPO = 0;
     var financingFarmersCount = 0;
@@ -32,8 +32,8 @@ router.get('/', async (req, res) => {
 
     var ratioFPO = (((sumLoanAmountFPO)/(sumLoanAmountFPO + sumLoanAmount))*100).toString()
     var ratioLoan = 100 - ratioFPO
-    req.flash('ratioFPO', ratioFPO)
-    req.flash('ratioLoan', ratioLoan)
+    await req.flash('ratioFPO', ratioFPO)
+    await req.flash('ratioLoan', ratioLoan)
 
 
     console.log("router ratio: ",req.flash("ratioLoan"))
@@ -54,9 +54,7 @@ router.get('/form/data', async (req, res) => {
         else {
             countFemale++
         }
-    
-        
-       
+     
     });
     
     const benefeciaries = { male: countMale, female:countFemale, ratioFPO: req.flash('ratioFPO'), ratioLoan:req.flash('ratioLoan')}
