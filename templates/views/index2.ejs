@@ -1,158 +1,730 @@
-<!DOCTYPE hmtl>
+<!--
+=========================================================
+* Soft UI Dashboard - v1.0.7
+=========================================================
 
-<html>
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
 
-  
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <title>
+    Soft UI Dashboard by Creative Tim
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 
-        <!-- ZingChart CDN script -->
-        
-    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
-        <style>
-        #chart {
-            height:300px;
-            width: 300px;
-        }
-    </style>
-    <link rel="stylesheet" href="./css/style.css">
+  <!-- google chart -->
 
-      
-</head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
 
-  
+    var employeeInfo = [];
+    var resdata = {}
+    fetch('/form/data')
 
-<body>
-    
-     
+        // creates promise to work with response from /api/data
+        .then(res => {
 
-    
-    <% let count = 0; %>
-        <!-- EJS loop through employees returned from MongoDB -->
-    <!--     <ul>
+            // throws error if there is a problem fetching page
+            if (!res.ok) {
 
-              
-              <% employees.forEach(employee=> { %>
-                  <li>
-                <%= `Age: ${employee.age}, Name: ${employee.name}` %>
+                // returns error with response text of error
+                throw new Error(res.statusText);
+            }
+            return res.json();
 
-            </li>
-            <% count++ %>
-                  <% }); %>
+        }).then(data => {
 
-                    </ul> -->
+            // creates resdata variable to store JSON data form /api/data
+            resdata = data;
 
-             
+            // creates empty employeeInfo array
 
-        <!-- chart coEntainer -->
-    <div class="alert"> <h1>
-        <%=` ${message}` %>
-    </h1> 
-</div>
-       
-<div class = "container">
-    
-        <h1>Dehaat Employees</h1>
-        <form id="form" action="/add/form" method="POST">
-            <div class="input-group">
-            <!-- <label for="name">Name</label> -->
-             <input type="text" name="Name" placeholder="Enter a name" id="">
-            </div>
-            <div class = "input-group">
-             <input type="number" name="Age" placeholder="Age" id="">
-            </div>
-            
-             <input class="submit-btn" type="submit" value="Register"name="" id="">
-        </form>
-           <form id="form" action="/csvform" method="POST" enctype='multipart/form-data'>
-             <div class="input-group-files">
-                <label for='file'>Select files</label>
-                <input id='file' type="file"  name="file">
-            </div>
-            <input class="submit-btn" type="submit" value="Upload CSV"name="" id="">
-            </form>
-            <a href="/form"><button class="submit-btn" type="button" >Download CSV</button></a>
 
-            <div id="chart"></div>
-            <h2>
-                <%=`Total: ${count}` %>
+            // console.log(employeeInfo)
+            // console.log(data)
+            // console.log("resdata", resdata)
+        }).then(() => {
+            google.charts.load("current", { packages: ["corechart"] });
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                employeeInfo.push(['Gender', 'Total'])
+                const arrayDataMale = parseInt(resdata.male)
+                employeeInfo.push(['Male', arrayDataMale])
+
+                const arrayDataFemale = parseInt(resdata.female)
+                 console.log(resdata)
+                const ratioFPOData = parseInt(resdata.FPO)
+                const ratioFPO =   parseInt(resdata.sumLoanAmountFPO)
+                const ratioLoan =   parseInt(resdata.sumLoanAmount)
+                employeeInfo.push(['Female', arrayDataFemale])
                 
-               </h2> 
-    </div>
-    
+                console.log("ratio fetch",ratioFPOData)
+                const ratioLoanData = 100-ratioFPOData
 
-        <!-- fetches data from api/data page & renders chart from data returned -->
-   
-    <script>
+                // console.log(ratioLoanData)
 
-        // creates variable for url we want to fetch
-        const url = '/';
+                var data = google.visualization.arrayToDataTable(
+                    employeeInfo);
 
-        // fetch call to our /api/data page
-        fetch(url)
-
-            // creates promise to work with response from /api/data
-            .then(res => {
-
-                // throws error if there is a problem fetching page
-                if (!res.ok) {
-
-                    // returns error with response text of error
-                    throw new Error(res.statusText);
-
-                }
-
-                // returns data from /api/data page in json format to next promise
-                return res.json();
-
-            })
-
-            // creates promise with returned data from previous promise
-            .then(data => {
-
-                // creates employees variable to store JSON data form /api/data
-                let employees = data;
-
-                // creates empty employeeInfo array
-                let employeeInfo = [];
-
-                // loops through data from employee variable
-                employees.forEach(employee => {
-
-                    // pushes values from employees variable to empty employeeInfo array
-                    employeeInfo.push([employee.Name, parseInt(employee.Age)]);
-
-                });
-
-                // creates chart const with employeeInfo array
-                const chart = {
-                    type: 'bar',
-                    series: [
-                        {
-                            values: employeeInfo
-                        }
-                    ]
+                var options = {
+                    title: 'No of Beneficiaries',
+                    pieHole: 0.5,
+                    backgroundColor: { fill:'transparent' },
+                   
+                    
                 };
 
-                // renders zingchart to the page
-                zingchart.render({
-                    id: 'chart',
-                    data: chart,
-                    height: '100%',
-                    width: '100%'
-                });
+                var dataInsurance = google.visualization.arrayToDataTable(
+                    [["NA", "NA"],["NA",100],["na",0]]);
+                var optionsInsurance = {
+                    title: 'Insurance Graph',
+                    pieHole: 0.5,
+                };
 
-            })
 
-            // catches errors in promise chain
-            .catch(error => console.log('fetch error'));
+                var dataCreditGraph = google.visualization.arrayToDataTable(
+               
+                
+                [["Value of Credit to FPO", "Value of credit to individual farmers"],
+                    ["Value of Credit to FPO", ratioFPO],
+                    ["Value of credit to individual farmers",  ratioLoan]]);
 
-    </script>
+                var optionsCreditGraph = {
+                    title: 'Credit Graph',
+                    pieHole: 0.5,
+                    
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                chart.draw(data, options);
+                var chart = new google.visualization.PieChart(document.getElementById('insuranceGraph'));
+                chart.draw(dataInsurance, optionsInsurance);
+                var chart = new google.visualization.PieChart(document.getElementById('creditGraph'));
+                chart.draw(dataCreditGraph, optionsCreditGraph);
+
+            }
+
+            
+
+
+        })
+
+
+</script>
+</head>
+
+<body class=" bg-gray-100 p-4">
+    <div class="row mt-1 gap-3">
+        
+            <!-- graph -->
+            <div class="col-4  ">
+                <div class="row mb-4  ">
+                    <div class="card h-100 p-2" style="background-color: rgb(255, 255, 255);">
+                      <div class="overflow-hidden position-relative  border-radius-lg bg-cover h-100" 
+                      style="background-color: rgb(252, 252, 252);">
+                        <!-- <span class="mask bg-gradient-100"></span> -->
+                        <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-1 ">
+                           
+                        <div id="donutchart" class= "card-body " style="height: 250px; width: 450px;"  ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                <div class="row mb-4  ">
+                    <div class="card h-100 p-2" style="background-color: rgb(255, 255, 255);">
+                      <div class="overflow-hidden position-relative  border-radius-lg bg-cover h-100" 
+                      style="background-color: rgb(252, 252, 252);">
+                        <!-- <span class="mask bg-gradient-100"></span> -->
+                        <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-1 ">
+                           
+                        <div id="insuranceGraph" class= "card-body " style="height: 250px; width: 450px;"  ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="row mb-4  ">
+                    <div class="card h-100 p-2" style="background-color: rgb(255, 255, 255);">
+                      <div class="overflow-hidden position-relative  border-radius-lg bg-cover h-100" 
+                      style="background-color: rgb(252, 252, 252);">
+                        <!-- <span class="mask bg-gradient-100"></span> -->
+                        <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-1 ">
+                           
+                        <div id="creditGraph" class= "card-body " style="height: 250px; width: 450px;"  ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3 ">
+                
+                    <div class="col-xl col-sm-6 mb-xl-0 mb-0">
+                      <div class="card" style="height: 100px;">
+                        <div class="card-body p-4">
+                          <div class="row">
+                            <div class="col-8">
+                              <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Transactions</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                  NA
+                                  <span class="text-success text-sm font-weight-bolder"></span>
+                                </h5>
+                              </div>
+                            </div>
+                            <div class="col-4 text-end">
+                              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   
+              </div>
+                  
+            </div>
+            <!-- end graph -->
+            <div class="col ">
+                
+                    
+            <div class="row mb-3 ">
+                <!-- 2 column -->
+                <div class="col-xl col-sm-6 mb-xl-0 mb-3 " >
+                    <div class="card " style="height: 300px;">
+                      <div class="card-body p-6  " style="background-image: url(https://thumbs.dreamstime.com/z/assam-map-political-administrative-districts-name-showing-international-state-boundary-district-vector-illustration-218731966.jpg);
+                      background-size: 400px;
+                      background-repeat: no-repeat;
+                        background-position: 62px;
+                     ">
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xl col-sm-6 mb-xl-0 mb-3 " >
+                    <div class="card " style="height: 300px;">
+                      <div class="card-body p-6 " >
+                        <h2 class="font-weight-bolder mb-4">
+                               Financial Service Offerings
+                              
+                            <span class="text-success text-sm font-weight-bolder"></span>
+                          </h5>
+                        <h7 class="font-weight-bolder mb-0">
+                              1. Savings/micro pension
+                              
+                            <span class="text-success text-sm font-weight-bolder"></span>
+                          </h7> <br>
+                        <h7 class="font-weight-bolder mb-0">
+                              2. Digitization
+                              
+                            <span class="text-success text-sm font-weight-bolder"></span>
+                          </h7>
+                        
+
+
+                      </div>
+                    </div>
+                  </div>
+    
+            </div>
+
+            <div class="row mb-3">
+
+               <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                    <div class="card">
+                      <div class="card-body p-6 ">
+                        <div class="row">
+                          <div class="col-7 p-1">
+                            <div class="numbers">
+                              <p class="text-sm mb-0 text-capitalize font-weight-bold">Number of FPO Receiving Credit</p>
+                              <h5 class="font-weight-bolder mb-0">
+                                
+                                <span class="text-success text-sm font-weight-bolder"></span>
+                              </h5>
+                            </div>
+                          </div>
+                          <div class="col text-end mt-2">
+                            <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                              <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                            
+                              <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                <%= countFinancing %>
+
+                                <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                    <div class="card">
+                      <div class="card-body p-6 ">
+                        <div class="row">
+                          <div class="col-7 p-1">
+                            <div class="numbers">
+                              <p class="text-sm mb-0 text-capitalize font-weight-bold">Number of FIGs receiving credit</p>
+                              <h5 class="font-weight-bolder mb-0">
+                                
+                                <span class="text-success text-sm font-weight-bolder"></span>
+                              </h5>
+                            </div>
+                          </div>
+                          <div class="col text-end mt-2">
+                            <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                              <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                            
+                              <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                NA
+
+                                <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                    <div class="card">
+                      <div class="card-body p-6 ">
+                        <div class="row">
+                          <div class="col-7 p-1">
+                            <div class="numbers">
+                              <p class="text-sm mb-0 text-capitalize font-weight-bold">Value of Credit to FPOs</p>
+                              <h5 class="font-weight-bolder mb-0">
+                                
+                                <span class="text-success text-sm font-weight-bolder"></span>
+                              </h5>
+                            </div>
+                          </div>
+                          <div class="col text-end mt-2">
+                            <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                              <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                            
+                              <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                <%= sumLoanAmountFPO %>  
+
+                                <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                     <div class="card">
+                       <div class="card-body p-5 ">
+                         <div class="row">
+                           <div class="col-7 p-1">
+                             <div class="numbers">
+                               <p class="text-sm mb-0 text-capitalize font-weight-bold">Number of VLEs receiving credit</p>
+                               <h5 class="font-weight-bolder mb-0">
+                                 
+                                 <span class="text-success text-sm font-weight-bolder"></span>
+                               </h5>
+                             </div>
+                           </div>
+                           <div class="col text-end mt-2">
+                             <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                               <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                             
+                               <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                 NA 
+ 
+                                 <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                               </h5>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 
+                   <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                     <div class="card">
+                       <div class="card-body p-5
+             ">
+                         <div class="row">
+                           <div class="col-7 p-1">
+                             <div class="numbers">
+                               <p class="text-sm mb-0 text-capitalize font-weight-bold">Value of Credit received by VLES</p>
+                               <h5 class="font-weight-bolder mb-0">
+                                 
+                                 <span class="text-success text-sm font-weight-bolder"></span>
+                               </h5>
+                             </div>
+                           </div>
+                           <div class="col text-end mt-2">
+                             <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                               <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                             
+                               <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                 NA 
+ 
+                                 <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                               </h5>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 
+                   <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                     <div class="card">
+                       <div class="card-body p-6 ">
+                         <div class="row">
+                           <div class="col-7 p-1">
+                             <div class="numbers">
+                               <p class="text-sm mb-0 text-capitalize font-weight-bold">Value of credit to FIGs</p>
+                               <h5 class="font-weight-bolder mb-0">
+                                 
+                                 <span class="text-success text-sm font-weight-bolder"></span>
+                               </h5>
+                             </div>
+                           </div>
+                           <div class="col text-end mt-2">
+                             <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                               <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                             
+                               <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                NA
+ 
+                                 <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                               </h5>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+             </div>
+
+             <div class="row mb-3">
+
+                <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                     <div class="card">
+                       <div class="card-body p-5 ">
+                         <div class="row">
+                           <div class="col-7 p-1">
+                             <div class="numbers">
+                               <p class="text-sm mb-0 text-capitalize font-weight-bold">Number of Farmers receiving credit</p>
+                               <h5 class="font-weight-bolder mb-0">
+                                 
+                                 <span class="text-success text-sm font-weight-bolder"></span>
+                               </h5>
+                             </div>
+                           </div>
+                           <div class="col text-end mt-2">
+                             <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                               <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                             
+                               <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                <%=financingFarmersCount%>
+ 
+                                 <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                               </h5>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 
+                   <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                     <div class="card">
+                       <div class="card-body p-5 ">
+                         <div class="row">
+                           <div class="col-6 p-1">
+                             <div class="numbers">
+                               <p class="text-sm mb-0 text-capitalize font-weight-bold">Value of Credit to farmers</p>
+                               <h5 class="font-weight-bolder mb-0">
+                                 
+                                 <span class="text-success text-sm font-weight-bolder"></span>
+                               </h5>
+                             </div>
+                           </div>
+                           <div class="col text-end mt-2">
+                             <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                               <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                             
+                               <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                <%=sumLoanAmount%> 
+ 
+                                 <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                               </h5>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 
+                   <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                     <div class="card">
+                       <div class="card-body p-6 ">
+                         <div class="row">
+                           <div class="col-7 p-1">
+                             <div class="numbers">
+                               <p class="text-sm mb-0 text-capitalize font-weight-bold">Savings Account</p>
+                               <h5 class="font-weight-bolder mb-0">
+                                 
+                                 <span class="text-success text-sm font-weight-bolder"></span>
+                               </h5>
+                             </div>
+                           </div>
+                           <div class="col text-end mt-2">
+                             <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                               <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                             
+                               <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                NA 
+ 
+                                 <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                               </h5>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+             </div>
+
+             <div class="row mb-3">
+
+                <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                     <div class="card">
+                       <div class="card-body p-6 ">
+                         <div class="row">
+                           <div class="col-7 p-1">
+                             <div class="numbers">
+                               <p class="text-sm mb-0 text-capitalize font-weight-bold">APY</p>
+                               <h5 class="font-weight-bolder mb-0">
+                                 
+                                 <span class="text-success text-sm font-weight-bolder"></span>
+                               </h5>
+                             </div>
+                           </div>
+                           <div class="col text-end mt-2">
+                             <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                               <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                             
+                               <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                               NA
+                                 <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                               </h5>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 
+                   <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                     <div class="card">
+                       <div class="card-body p-6 ">
+                         <div class="row">
+                           <div class="col-7 p-1">
+                             <div class="numbers">
+                               <p class="text-sm mb-0 text-capitalize font-weight-bold">Insurance</p>
+                               <h5 class="font-weight-bolder mb-0">
+                                 
+                                 <span class="text-success text-sm font-weight-bolder"></span>
+                               </h5>
+                             </div>
+                           </div>
+                           <div class="col text-end mt-2">
+                             <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                               <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                             
+                               <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                <%=insuranceCount%>
+ 
+                                 <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                               </h5>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 
+                   <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+                     <div class="card">
+                       <div class="card-body p-6 ">
+                         <div class="row">
+                           <div class="col-7 p-1">
+                             <div class="numbers">
+                               <p class="text-sm mb-0 text-capitalize font-weight-bold">BC Agents</p>
+                               <h5 class="font-weight-bolder mb-0">
+                                 
+                                 <span class="text-success text-sm font-weight-bolder"></span>
+                               </h5>
+                             </div>
+                           </div>
+                           <div class="col text-end mt-2">
+                             <div class="bg-gradient-primary shadow text-center border-radius-md" >
+                               <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                             
+                               <h5 class="font-weight-bolder p-2 mb-0" style="color: white;">
+                                 NA 
+ 
+                                 <span class="text-success text-sm  font-weight-bolder" style="font-style: white;"></span>
+                               </h5>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+             </div>
+                
+
+            </div>
+            
+            <!-- <div class="col-xl col-sm-6 mb-xl-0 mb-3">
+              <div class="card">
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Users</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          2,300
+                          <span class="text-success text-sm font-weight-bolder">+3%</span>
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                        <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl col-sm-6 mb-xl-0 mb-4">
+              <div class="card">
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">New Clients</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          +3,462
+                          <span class="text-danger text-sm font-weight-bolder">-2%</span>
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl col-sm-6 mb-xl-0 mb-4">
+              <div class="card">
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">New Clients</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          +3,462
+                          <span class="text-danger text-sm font-weight-bolder">-2%</span>
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl col-sm-6 mb-xl-0 mb-4">
+              <div class="card">
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">New Clients</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          +3,462
+                          <span class="text-danger text-sm font-weight-bolder">-2%</span>
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+        </div> -->
+   
+            
+            
+
+            
+            
+         
+    </div>
+     
     
 
 
-      
+     
+    </div>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+
 </body>
+
 
 </html>

@@ -17,10 +17,10 @@
 
         <form action="/form/dff" method="POST" id="form">
             <label for="dateOfDisbursement">Date of Disbursement:</label>
-            <input type="date" name="dateOfDisbursement" id="dateOfDisbursement" placeholder="Date of Disbursement">
-            <input type="text" name="AAPRTDistrict" placeholder="AAPRT District">
-            <input type="text" name="APARTBlock" placeholder="APARTBlock">
-            <input type="text" name="nameOfFarmer" placeholder="nameOfFarmer">
+            <input type="date" name="dateOfDisbursement" id="dateOfDisbursement" placeholder="Date of Disbursement" required>
+            <input type="text" name="AAPRTDistrict" placeholder="AAPRT District" required>
+            <input type="text" name="APARTBlock" placeholder="APARTBlock" required>
+            <input type="text" name="nameOfFarmer" placeholder="nameOfFarmer" required>
 
             <label for="gender">Gender:</label>
             <label>Male
@@ -30,26 +30,26 @@
 
             <label for="whetherAssociatedWithFPOFPC">Whether Associated With FPO/FPC:</label>
             <label>Yes
-                <input type="radio" id="yes" name="whetherAssociatedWithFPOFPC" value="true"></label>
+                <input type="radio" id="yes" name="whetherAssociatedWithFPOFPC" value="true" checked></label>
             <label>No
                 <input class="radi" type="radio" id="no" name="whetherAssociatedWithFPOFPC" value="false"></label>
-            <input type="text" name="nameOfFPOFPC" placeholder="Name Of FPO/FPC">
-            <input type="text" name="CINOfTheFPC" placeholder="CIN Of The FPC">
+            <input type="text" name="nameOfFPOFPC" placeholder="Name Of FPO/FPC" required>
+            <input type="text" name="CINOfTheFPC" placeholder="CIN Of The FPC" required>
             <label for="guaranteeProvidedByFPOFPC">Guarantee Provided By FPO/FPC:</label>
             <label>Yes
                 <input type="radio" name="guaranteeProvidedByFPOFPC" id="yes" value="true"></label>
             <label>No
-                <input type="radio" name="guaranteeProvidedByFPOFPC" id="no" value="false"> </label>
+                <input type="radio" name="guaranteeProvidedByFPOFPC" id="no" value="false" checked> </label>
 
-            <input type="number" name="loanAmount" id="loanAmount" placeholder="Loan Amount">
-            <input type="number" name="tenure" id="tenure" placeholder="Tenure">
+            <input type="number" name="loanAmount" id="loanAmount" placeholder="Loan Amount" required>
+            <input type="number" name="tenure" id="tenure" placeholder="Tenure" required>
             <label for="whetherLoanTakenForFirstTime">Whether Loan Taken For First Time</label>
             <label>Yes
-                <input type="radio" name="whetherLoanTakenForFirstTime" id="yes" value="true"></label>
+                <input type="radio" name="whetherLoanTakenForFirstTime" id="yes" value="true" checked></label>
 
             <label>No
                 <input type="radio" name="whetherLoanTakenForFirstTime" id="no" value="false"> </label>
-            <input type="text" name="valueChain" id="valueChain" placeholder="Value Chain">
+            <input type="text" name="valueChain" id="valueChain" placeholder="Value Chain" required>
             <input class="submit-btn" type="submit" value="Register" id="submit">
         </form>
         <h2>Or Upload Bulk (CSV)</h2>

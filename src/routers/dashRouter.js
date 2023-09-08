@@ -13,8 +13,6 @@ router.get('/', async  (req, res) => {
     var sumLoanAmount = 0;
     var insuranceCount = 0;
    
-
-
     const formDF = await DF.find()
     const formDFF = await DFF.find()
     const formDI = await DI.find()
@@ -25,15 +23,16 @@ router.get('/', async  (req, res) => {
         financingFarmersCount++
         sumLoanAmount += entry.loanAmount
     })
+
     formDF.forEach(() => countFinancing++)
+
     formDF.forEach((entry) => {
         sumLoanAmountFPO += entry.loanAmount
     })
 
-    var ratioFPO = (((sumLoanAmountFPO)/(sumLoanAmountFPO + sumLoanAmount))*100).toString()
-    var ratioLoan = 100 - ratioFPO
+    
    
-    res.render('index', {
+    res.render('index2', {
         countFinancing, sumLoanAmountFPO,
         financingFarmersCount,
         sumLoanAmount, insuranceCount,

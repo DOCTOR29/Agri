@@ -48,6 +48,9 @@ app.use(DFRouter)
 app.use(DIRouter)
 app.use(DTRouter)
 
+app.get('/ui', (req, res) => {
+    res.render('index2')
+})
 
 app.get('*', (req, res) => {
     res.send("error")
