@@ -36,6 +36,7 @@ router.get('/', async  (req, res) => {
         countFinancing, sumLoanAmountFPO,
         financingFarmersCount,
         sumLoanAmount, insuranceCount,
+        dashName: req.params.dash.toUpperCase() || " "
        
     })
 })
