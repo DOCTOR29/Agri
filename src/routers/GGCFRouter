@@ -8,8 +8,9 @@ const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
 const routName = 'ggcf'
+
 const csvName ='Go-Green-Credit_FPC.csv'
-const routNameU = require(`../models/model${routName}`)
+const routNameU = require(`../models/model${routName.toUpperCase()}`)
 
     
 router.get(`/${routName}`, (req, res) => {
