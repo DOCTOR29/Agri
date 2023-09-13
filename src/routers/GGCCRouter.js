@@ -9,7 +9,7 @@ const path = require('path')
 
 const routName = 'ggcc'
 const csvName ='Go-Green-Collection_Center.csv'
-const routNameU = require(`../models/model${routName}`)
+const routNameU = require(`../models/model${routName.toUpperCase()}`)
 
     
 router.get(`/${routName}`, (req, res) => {
