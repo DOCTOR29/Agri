@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Green credit collection</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Go Green credit collection</h1>
+    <form action="/form/ggcc" method="POST">
+        <label for="dateOfEstablishment">Date of establishment of the collection centre:</label>
+        <input type="date" id="dateOfEstablishment" name="dateOfEstablishment" required><br>
+
+        <label for="dateOfClosure">Date of Closure (if Any):</label>
+        <input type="date" id="dateOfClosure" name="dateOfClosure"><br>
+
+        <label for="apartDistrict">APART District:</label>
+        <input type="text" id="apartDistrict" name="apartDistrict" required><br>
+
+        <label for="apartBlock">APART Block:</label>
+        <input type="text" id="apartBlock" name="apartBlock" required><br>
+
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village" required><br>
+
+        <label for="numberOfFarmersAssociated">Number of Farmers Associated:</label>
+        <input type="number" id="numberOfFarmersAssociated" name="numberOfFarmersAssociated" required><br>
+
+        <label for="fpcOrFpoAssociated">FPC/FPO Associated:</label>
+        <input type="text" id="fpcOrFpoAssociated" name="fpcOrFpoAssociated" required><br>
+
+        <label for="volumeHandledMT">Volume handled (MT):</label>
+        <input type="number" id="volumeHandledMT" name="volumeHandledMT" required><br>
+
+        <label for="valueINR">Value (INR):</label>
+        <input type="number" id="valueINR" name="valueINR" required><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/ggcc/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="GGCC" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/ggcc"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>
