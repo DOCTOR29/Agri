@@ -6,7 +6,7 @@ const router = express.Router()
 require('../db/conn.js');
 
 
-router.get('/', async  (req, res) => {
+router.get('/dehaat', async  (req, res) => {
     var countFinancing = 0;
     var sumLoanAmountFPO = 0;
     var financingFarmersCount = 0;
@@ -36,11 +36,11 @@ router.get('/', async  (req, res) => {
         countFinancing, sumLoanAmountFPO,
         financingFarmersCount,
         sumLoanAmount, insuranceCount,
-        dashName: req.params.dash.toUpperCase() || " "
+        dashName:  " "
        
     })
 })
-
+// needs doing
 router.get('/form/data', async (req, res) => {
 
     const formDF = await DF.find()
@@ -78,5 +78,8 @@ router.get('/form/data', async (req, res) => {
     res.send(benefeciaries)
 })
 
+router.get('/go-green', async (req, res) => {
+
+}) 
 
 module.exports = router

@@ -10,6 +10,10 @@ const DTRouter = require('./routers/DTRouter.js')
 const flash  = require('connect-flash')
 const session = require('express-session');
 const dashRouter = require('./routers/dashRouter')
+const GGSRouter = require('./routers/GGSRouter')
+const GGFPORouter = require('./routers/GGFPORouter')
+const GGERouter = require('./routers/GGERouter')
+const GGCIRouter = require('./routers/GGCIRouter')
 
 
 
@@ -18,17 +22,13 @@ const app = express();
 const port = process.env.PORT
 const staticPath = path.join(__dirname, '../public')
 const templatePath = path.join(__dirname, '../templates/views')
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
 
 app.use(flash());
 app.use(session({
     secret: 'secret key',
-    resave: true,
     saveUninitialized: true,
-    proxy: true, // NODE_ENV === 'production'
-    cookie: {
-      secure: true, // NODE_ENV === 'production'
-    },
+    resave: true
 
     
 }));
@@ -47,6 +47,10 @@ app.use(DBRouter)
 app.use(DFRouter)
 app.use(DIRouter)
 app.use(DTRouter)
+app.use(GGSRouter)
+app.use(GGFPORouter)
+app.use(GGERouter)
+app.use(GGCIRouter)
 
 app.get('/ui', (req, res) => {
     res.render('index2')
