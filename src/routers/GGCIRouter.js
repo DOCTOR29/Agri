@@ -8,7 +8,7 @@ const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
 const routName ='ggci'
-const csvName ='Go-Green-Credit_Insurance.csv'
+const csvName ='Go-Green-Credit_Individual.csv'
     
 router.get(`/${routName}`, (req, res) => {
     const dir = path.join(__dirname, '../../resources')

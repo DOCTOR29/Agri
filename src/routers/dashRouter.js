@@ -2,8 +2,9 @@ const express = require('express')
 const DFF = require('../models/modelDff')
 const DF = require('../models/modelDF')
 const DI = require('../models/ModelDI')
+
 const router = express.Router()
-require('../db/conn.js');
+
 
 
 router.get('/dehaat', async  (req, res) => {

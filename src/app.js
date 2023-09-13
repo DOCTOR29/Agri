@@ -15,6 +15,8 @@ const GGFPORouter = require('./routers/GGFPORouter')
 const GGERouter = require('./routers/GGERouter')
 const GGCIRouter = require('./routers/GGCIRouter')
 const GGCFRouter = require('./routers/GGCFRouter')
+const GGCCRouter = require('./routers/GGCCRouter')
+const GoGreenRouter = require('./routers/GoGreenRouter')
 
 
 
@@ -53,6 +55,8 @@ app.use(GGFPORouter)
 app.use(GGERouter)
 app.use(GGCIRouter)
 app.use(GGCFRouter)
+app.use(GGCCRouter)
+app.use(GoGreenRouter)
 
 app.get('/ui', (req, res) => {
     res.render('index2')
