@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Green credit FPC</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Go Green credit FPC</h1>
+    <form action="/form/ggcf" method="POST">
+        <label for="slNo">Sl No:</label>
+        <input type="number" id="slNo" name="slNo" required><br>
+
+        <label for="dateOfDisbursement">Date of Disbursement:</label>
+        <input type="date" id="dateOfDisbursement" name="dateOfDisbursement" required><br>
+
+        <label for="apartDistrict">APART District:</label>
+        <input type="text" id="apartDistrict" name="apartDistrict" required><br>
+
+        <label for="apartBlock">APART Block:</label>
+        <input type="text" id="apartBlock" name="apartBlock" required><br>
+
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village" required><br>
+
+        <label for="nameOfFPOFPC">Name of FPO/FPC:</label>
+        <input type="text" id="nameOfFPOFPC" name="nameOfFPOFPC" required><br>
+
+        <label for="cinOfFPC">CIN of FPC (if registered):</label>
+        <input type="text" id="cinOfFPC" name="cinOfFPC"><br>
+
+        <label for="loanAmount">Loan Amount:</label>
+        <input type="number" id="loanAmount" name="loanAmount" required><br>
+
+        <label for="tenure">Tenure:</label>
+        <input type="number" id="tenure" name="tenure" required><br>
+
+        <label>Whether loan taken for the first time:</label>
+        <input type="radio" id="firstTimeLoanYes" name="isFirstTimeLoan" value="Yes" required>
+        <label for="firstTimeLoanYes">Yes</label>
+        <input type="radio" id="firstTimeLoanNo" name="isFirstTimeLoan" value="No" required>
+        <label for="firstTimeLoanNo">No</label><br>
+
+        <label for="valueChain">Value Chain:</label>
+        <input type="text" id="valueChain" name="valueChain" required><br>
+
+        <label for="loanType">Loan Type (eNWR/Input):</label>
+        <input type="text" id="loanType" name="loanType" required><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/ggcf/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="GGCF" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/ggcf"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

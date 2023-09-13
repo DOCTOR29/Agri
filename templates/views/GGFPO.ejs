@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Green FPO/FPC</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Go Green FPO/FPC</h1>
+    <form action="/form/ggfpo" method="POST">
+        <label for="slNo">SL No:</label>
+        <input type="number" id="slNo" name="slNo" required><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br>
+
+        <label for="district">District:</label>
+        <input type="text" id="district" name="district" required><br>
+
+        <label for="block">Block:</label>
+        <input type="text" id="block" name="block" required><br>
+
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village" required><br>
+
+        <label for="nameOfFPC">Name of FPC:</label>
+        <input type="text" id="nameOfFPC" name="nameOfFPC" required><br>
+
+        <label for="focusCommodity">Focus Commodity:</label>
+        <input type="text" id="focusCommodity" name="focusCommodity" required><br>
+
+        <label for="detailAddressOfFPC">Detail Address of FPC:</label>
+        <input type="text" id="detailAddressOfFPC" name="detailAddressOfFPC" required><br>
+
+        <label for="memberMale">Member Male:</label>
+        <input type="number" id="memberMale" name="memberMale" required><br>
+
+        <label for="memberFemale">Member Female:</label>
+        <input type="number" id="memberFemale" name="memberFemale" required><br>
+
+        <label for="totalMembers">Total Members:</label>
+        <input type="number" id="totalMembers" name="totalMembers" required><br>
+
+        <label for="registrationYear">Registration (Incoporation ) Year:</label>
+        <input type="number" id="registrationYear" name="registrationYear" required><br>
+
+        <label for="corporateIdentificationNumber">Corporate Identification Number (CIN):</label>
+        <input type="number" id="corporateIdentificationNumber" name="corporateIdentificationNumber" required><br>
+
+        <label for="villagesCovered">Nos. of villages covered by the FPC:</label>
+        <input type="number" id="villagesCovered" name="villagesCovered" required><br>
+
+        <label for="officialMailId">Official mail id of FPC:</label>
+        <input type="email" id="officialMailId" name="officialMailId" required><br>
+
+        <label>CEO is in place or not:</label>
+        <input type="radio" id="ceoInPlaceYes" name="ceoInPlace" value="Yes" required>
+        <label for="ceoInPlaceYes">Yes</label>
+        <input type="radio" id="ceoInPlaceNo" name="ceoInPlace" value="No" required>
+        <label for="ceoInPlaceNo">No</label><br>
+
+        <label for="ceoName">If Yes, Name of CEO:</label>
+        <input type="text" id="ceoName" name="ceoName"><br>
+
+        <label for="ceoContactInfo">Contact No. & Mail id of CEO:</label>
+        <input type="text" id="ceoContactInfo" name="ceoContactInfo"><br>
+
+    
+
+        <label>Bank Account of FPC (Yes/No):</label>
+        <input type="radio" id="bankAccount" name="bankAccount" value="Yes" required>
+        <label for="ceoInPlaceYes">Yes</label>
+        <input type="radio" id="bankAccount" name="bankAccount" value="No" required>
+        <label for="bankAccount">No</label><br>
+
+
+        <label for="bankName">Bank Name:</label>
+        <input type="text" id="bankName" name="bankName"><br>
+
+        <label for="branchName">Branch Name:</label>
+        <input type="text" id="branchName" name="branchName"><br>
+
+        <label for="accountType">Type of Account:</label>
+        <input type="text" id="accountType" name="accountType"><br>
+
+        <label for="landArea">Area of Land (bigha):</label>
+        <input type="text" id="landArea" name="landArea"><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/ggfpo/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="GGFPO" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/ggfpo"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>
