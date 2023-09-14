@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBS BENEFICIARIES</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>MBS BENEFICIARIES</h1>
+    <form action="/form/MB" method="POST">
+      <label for="slNo">Sl No:</label>
+     <input type="number" id="slNo" name="SlNo" required><br><br>
+
+     <label for="accountOpeningDate">Account Opening Date:</label>
+     <input type="date" id="accountOpeningDate" name="AccountOpeningDate" required><br><br>
+
+     <label for="apartDistrict">APART District:</label>
+     <input type="text" id="apartDistrict" name="APARTDistrict" required><br><br>
+
+     <label for="apartBlock">APART Block:</label>
+     <input type="text" id="apartBlock" name="APARTBlock" required><br><br>
+
+     <label for="village">Village:</label>
+     <input type="text" id="village" name="Village" required><br><br>
+
+     <label for="name">Name:</label>
+     <input type="text" id="name" name="Name" required><br><br>
+
+     <label for="age">Age:</label>
+     <input type="number" id="age" name="Age" required><br><br>
+
+     <label for="agentCode">Agent Code:</label>
+     <input type="text" id="agentCode" name="AgentCode" required><br><br>
+
+     <label for="gender">Gender:</label>
+     <input type="text" id="gender" name="Gender" required><br><br>
+
+     <label for="exitingBankAccount">Exiting Bank Account (Yes/No):</label>
+     <input type="text" id="exitingBankAccount" name="ExitingBankAccount" required><br><br>
+
+     <label for="savingsAccountNumber">Savings A/c Number (if new account is opened):</label>
+     <input type="number" id="savingsAccountNumber" name="SavingsAccountNumber"><br><br>
+
+     <label for="bankName">Bank Name:</label>
+     <input type="text" id="bankName" name="BankName"><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/MB/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="MB" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/MB"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>
