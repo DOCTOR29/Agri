@@ -1,15 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const {rmdir} = require('fs')
-const GGCI = require('../models/modelGGCI')
+
 const json2csv = require('json2csv').parse
 const uploadiile = require('../middleware/upload.js');
 const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
-const routName ='MC'
-const csvName ='MBS-Credit.csv'
-
+const routName ='MC' //-------------------change this
+const csvName ='MBS-Credit.csv' //-------------------change this
+const MC = require(`../models/model${routName.toUpperCase()}`)
 router.get(`/${routName}`, (req, res) => {
     const dir = path.join(__dirname, '../../resources')
 
@@ -25,13 +25,13 @@ router.get(`/${routName}`, (req, res) => {
 
 router.post(`/form/${routName}`, async(req, res) => {
     try {
-        const regForm = new GGCI({
+        const regForm = new MC({
             ...req.body
         })
         // console.log(req.body)
         await regForm.save();
         req.flash('message', ' Successfully Entry Updated.')
-        res.redirect('/ggci')
+        res.redirect(`/${routName}`)
     } catch (error) {
         console.log(error)
         res.status(400).send(error)
@@ -40,10 +40,10 @@ router.post(`/form/${routName}`, async(req, res) => {
 
 router.get(`/form/${routName}`, async (req, res) => {
     try {
-        const formData = await GGCI.find()
+        const formData = await MC.find()
 
-        const fields = [
-            "SlNo",
+        const fields = [           //-------------------change this
+            "SlNo",                
             "DateOfDisbursement",
              "APARTDistrict",
              "APARTBlock",

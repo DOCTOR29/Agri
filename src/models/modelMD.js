@@ -43,6 +43,6 @@ const yourSchemaName = new mongoose.Schema({
   }
 });
 
-const MD = mongoose.model('MD', yourSchemaName);
+const md = mongoose.model('md', yourSchemaName);
 
-module.exports = MD;
+module.exports = md;

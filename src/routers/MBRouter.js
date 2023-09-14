@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const {rmdir} = require('fs')
-const GGCI = require('../models/modelGGCI')
+
 const json2csv = require('json2csv').parse
 const uploadiile = require('../middleware/upload.js');
 const csvController = require('../controllers/csvUploadController.js');
@@ -9,7 +9,7 @@ const path = require('path')
 
 const routName ='MB'
 const csvName ='MBS-BENEFICIARIES.csv'
-
+const MB = require(`../models/model${routName.toUpperCase()}`) 
 router.get(`/${routName}`, (req, res) => {
     const dir = path.join(__dirname, '../../resources')
 
@@ -25,13 +25,13 @@ router.get(`/${routName}`, (req, res) => {
 
 router.post(`/form/${routName}`, async(req, res) => {
     try {
-        const regForm = new GGCI({
+        const regForm = new MB({
             ...req.body
         })
         // console.log(req.body)
         await regForm.save();
         req.flash('message', ' Successfully Entry Updated.')
-        res.redirect('/ggci')
+        res.redirect('/MB')
     } catch (error) {
         console.log(error)
         res.status(400).send(error)
@@ -40,7 +40,7 @@ router.post(`/form/${routName}`, async(req, res) => {
 
 router.get(`/form/${routName}`, async (req, res) => {
     try {
-        const formData = await GGCI.find()
+        const formData = await MB.find()
 
         const fields = [
             "SlNo",

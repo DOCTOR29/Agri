@@ -7,8 +7,8 @@ const uploadiile = require('../middleware/upload.js');
 const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
-const routName = 'mt'
-const csvName ='MBS-TRANSACTION.csv'
+const routName = 'mt'      //------change this
+const csvName ='MBS-TRANSACTION.csv'   //------change this
 const routNameU = require(`../models/model${routName.toUpperCase()}`)
 
 
@@ -44,7 +44,7 @@ router.get(`/form/${routName}`, async (req, res) => {
     try {
         const formData = await routNameU.find()
 
-        const fields = [
+        const fields = [   //------change this
 
 
             "SlNo",

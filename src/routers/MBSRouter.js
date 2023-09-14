@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const MB = require('../models/modelMB')
 const MC = require('../models/modelMC')
-const MD = require('../models/modelsMD')
+const MD = require('../models/modelMD')
 const MT = require('../models/modelMT')
 
 
