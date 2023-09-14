@@ -42,7 +42,7 @@ router.get('/dehaat', async  (req, res) => {
     })
 })
 // needs doing
-router.get('/form/data', async (req, res) => {
+router.get('/form/data/dehaat', async (req, res) => {
 
     const formDF = await DF.find()
     const formDFF = await DFF.find()

@@ -16,7 +16,12 @@ const GGERouter = require('./routers/GGERouter')
 const GGCIRouter = require('./routers/GGCIRouter')
 const GGCFRouter = require('./routers/GGCFRouter')
 const GGCCRouter = require('./routers/GGCCRouter')
-const GoGreenRouter = require('./routers/GoGreenRouter')
+const MTRouter = require('./routers/MTRouter.js')
+const MBRouter = require('./routers/MBRouter.js')
+const MDRouter = require('./routers/MDRouter.js')
+const MCRouter = require('./routers/MCRouter.js')
+const GoGreenRouter = require('./routers/GoGreenRouter.js')
+const MBSRouter = require('./routers/MBSRouter.js')
 
 
 
@@ -33,9 +38,9 @@ app.use(session({
     saveUninitialized: true,
     resave: true
 
-    
+
 }));
-   
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static(staticPath));
@@ -57,6 +62,12 @@ app.use(GGCIRouter)
 app.use(GGCFRouter)
 app.use(GGCCRouter)
 app.use(GoGreenRouter)
+app.use(MTRouter)
+app.use(MDRouter)
+app.use(MBRouter)
+app.use(MCRouter)
+app.use(MBSRouter)
+
 
 app.get('/ui', (req, res) => {
     res.render('index2')

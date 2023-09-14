@@ -50,7 +50,7 @@ router.get('/gogreen', async  (req, res) => {
     res.render('gogreen', { data })
 })
 // needs doing
-router.get('/form/data', async (req, res) => {
+router.get('/form/data/gogreen', async (req, res) => {
 
     const formGGCI = await GGCI.find()
     const formGGCF = await GGCI.find()
