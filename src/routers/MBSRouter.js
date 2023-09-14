@@ -101,7 +101,7 @@ router.get('/form/data/mbs', async (req, res) => {
     
     
     const benefeciaries = {
-        male: countMale, female: countFemale, sumLoanAmountFPO:0, sumLoanAmount:100
+        male: countMale ||10, female: countFemale||20, sumLoanAmountFPO:0, sumLoanAmount:100
     }
 
     res.send(benefeciaries)
