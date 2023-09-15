@@ -115,7 +115,6 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on ${port}`)
 })
-=======
 const express = require('express');
 const path = require('path')
 require('./db/conn.js');
