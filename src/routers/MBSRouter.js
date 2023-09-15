@@ -15,7 +15,6 @@ router.get('/mbs', async  (req, res) => {
         card4:0,
         card5:0,
         card6:0,
-<<<<<<< HEAD
         card7:1287,
         card8:2000000,
         card9:1236,
@@ -23,15 +22,6 @@ router.get('/mbs', async  (req, res) => {
         card11:0,
         card12: 186,
         card13:1239,
-=======
-        card7:0,
-        card8:0,
-        card9:0,
-        card10:0,
-        card11:0,
-        card12: 0,
-        card13:0,
->>>>>>> 9b122be9a05292188feadee0db0dbd92d5e54ecf
         dashName: 'MBS'
     }
 
@@ -44,15 +34,9 @@ router.get('/mbs', async  (req, res) => {
 
 
     formMT.forEach((entry) => {
-<<<<<<< HEAD
 
         data.card13 +=(entry.CashIn+entry.CashOut)
 
-=======
-        
-        data.card13 +=(entry.CashIn+entry.CashOut)
-        
->>>>>>> 9b122be9a05292188feadee0db0dbd92d5e54ecf
     })
 
     formMC.forEach((entry) => {
@@ -75,21 +59,12 @@ router.get('/mbs', async  (req, res) => {
             data[key] = 'NA'
         }
     }
-<<<<<<< HEAD
 
 
 
 
 
 
-=======
-   
-
-  
-
-
-   
->>>>>>> 9b122be9a05292188feadee0db0dbd92d5e54ecf
     res.render('MBSdash', { data })
 })
 // needs doing
@@ -97,7 +72,6 @@ router.get('/form/data/mbs', async (req, res) => {
 
     const formMC = await MC.find()
     const formMB = await MB.find()
-<<<<<<< HEAD
 
 
     // var sumLoanAmount = 0
@@ -105,15 +79,6 @@ router.get('/form/data/mbs', async (req, res) => {
     var countMale = 0, countFemale = 0
     formMB.forEach((entry) => {
 
-=======
-  
-    
-    // var sumLoanAmount = 0
-    // var sumLoanAmountFPO = 0
-    var countMale = 0, countFemale = 0 
-    formMB.forEach((entry) => {
-       
->>>>>>> 9b122be9a05292188feadee0db0dbd92d5e54ecf
         if(form.gender ==='Male')
         { countMale++ }
         else {
@@ -121,34 +86,20 @@ router.get('/form/data/mbs', async (req, res) => {
         }
     })
 
-<<<<<<< HEAD
 
 
 
-=======
-    
-    
-    
->>>>>>> 9b122be9a05292188feadee0db0dbd92d5e54ecf
     formMC.forEach((form) => {
         if(form.gender ==='Male')
         { countMale++ }
         else {
             countFemale++
         }
-<<<<<<< HEAD
 
     });
 
 
 
-=======
-     
-    });
-  
-    
-    
->>>>>>> 9b122be9a05292188feadee0db0dbd92d5e54ecf
     const benefeciaries = {
         male: countMale ||10, female: countFemale||20, sumLoanAmountFPO:0, sumLoanAmount:100
     }
@@ -158,10 +109,6 @@ router.get('/form/data/mbs', async (req, res) => {
 
 // router.get('/go-green', async (req, res) => {
 
-<<<<<<< HEAD
 // })
-=======
-// }) 
->>>>>>> 9b122be9a05292188feadee0db0dbd92d5e54ecf
 
 module.exports = router
