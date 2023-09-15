@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESAF FIG Loan</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>ESAF FIG Loan</h1>
+    <form action="/form/ESAFFIGL" method="POST">
+        <label for="slNo">SL No:</label>
+        <input type="number" id="slNo" name="slNo" required><br><br>
+
+        <label for="dateOfDisbursement">Date of Disbursement:</label>
+        <input type="date" id="dateOfDisbursement" name="dateOfDisbursement" required><br><br>
+
+        <label for="apartDistrict">APART District:</label>
+        <input type="text" id="apartDistrict" name="apartDistrict" required><br><br>
+
+        <label for="apartBlock">APART Block:</label>
+        <input type="text" id="apartBlock" name="apartBlock" required><br><br>
+
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village" required><br><br>
+
+        <label for="figNameOrCode">Name or Code of FIG:</label>
+        <input type="text" id="figNameOrCode" name="figNameOrCode" required><br><br>
+
+        <label for="branchCSP">Branch/CSP:</label>
+        <input type="text" id="branchCSP" name="branchCSP" required><br><br>
+
+        <label for="loanAmount">Loan Amount:</label>
+        <input type="number" id="loanAmount" name="loanAmount" required><br><br>
+
+        <label for="tenure">Tenure:</label>
+        <input type="text" id="tenure" name="tenure" required><br><br>
+
+        <label for="valueChain">Value Chain:</label>
+        <input type="text" id="valueChain" name="valueChain" required><br><br>
+
+        <label for="totalFarmers">Total Farmers:</label>
+        <input type="number" id="totalFarmers" name="totalFarmers" required><br><br>
+
+        <label for="farmersFirstTimeCredit">Number of Farmers taking credit for the first time through the FIG:</label>
+        <input type="number" id="farmersFirstTimeCredit" name="farmersFirstTimeCredit" required><br><br>
+
+        <label for="fpoName">FPO Name:</label>
+        <input type="text" id="fpoName" name="fpoName" required><br><br>
+
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/ESAFFIGL/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="ESAFFIGL" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/ESAFFIGL"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

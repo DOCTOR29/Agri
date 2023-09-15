@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SML</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>SML</h1>
+    <form action="/form/SML" method="POSML">
+        <label for="slNo">Sl No:</label>
+        <input type="number" id="slNo" name="slNo" required><br><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="apartDiSMLrict">APART DiSMLrict:</label>
+        <input type="text" id="apartDiSMLrict" name="apartDiSMLrict" required><br><br>
+
+        <label for="apartBlock">APART Block:</label>
+        <input type="text" id="apartBlock" name="apartBlock" required><br><br>
+
+        <label for="fpc">FPC:</label>
+        <input type="text" id="fpc" name="fpc" required><br><br>
+
+        <label for="product">Product:</label>
+        <input type="text" id="product" name="product" required><br><br>
+
+        <label for="skus">SKUs:</label>
+        <input type="text" id="skus" name="skus" required><br><br>
+
+        <label for="rfqsGenerated">RFQs Generated:</label>
+        <input type="text" id="rfqsGenerated" name="rfqsGenerated" required><br><br>
+
+        <label for="orderVolume">Order Volume:</label>
+        <input type="number" id="orderVolume" name="orderVolume" required><br><br>
+
+        <label for="orderValue">Order Value:</label>
+        <input type="number" id="orderValue" name="orderValue" required><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/SML/bulk" method="POSML" enctype="multipart/form-data">
+          <input type="file" name="SML" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/SML"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

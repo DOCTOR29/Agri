@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ST</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>ST</h1>
+    <form action="/form/ST" method="POST">
+        <label for="slNo">Sl No:</label>
+        <input type="number" id="slNo" name="slNo" required><br><br>
+
+        <label for="dateOfTraining">Date of Training:</label>
+        <input type="date" id="dateOfTraining" name="dateOfTraining" required><br><br>
+
+        <label for="apartDistrict">APART District:</label>
+        <input type="text" id="apartDistrict" name="apartDistrict" required><br><br>
+
+        <label for="apartBlock">APART Block:</label>
+        <input type="text" id="apartBlock" name="apartBlock" required><br><br>
+
+        <label for="trainingProvidedByKalgudiSamunnati">Training Provided by Kalgudi/Samunnati:</label>
+        <input type="text" id="trainingProvidedByKalgudiSamunnati" name="trainingProvidedByKalgudiSamunnati" required><br><br>
+
+        <label for="fpoFpcName">FPO/FPC Name:</label>
+        <input type="text" id="fpoFpcName" name="fpoFpcName" required><br><br>
+
+        <label for="numberOfBODsCEOsTrained">Number of BODs/CEOs Trained:</label>
+        <input type="number" id="numberOfBODsCEOsTrained" name="numberOfBODsCEOsTrained" required><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/ST/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="ST" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/ST"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

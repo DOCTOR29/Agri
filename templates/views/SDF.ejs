@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDF</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>SDF</h1>
+    <form action="/form/SDF" method="POST">
+        <label for="slNo">Sl No:</label>
+        <input type="number" id="slNo" name="slNo" required><br><br>
+
+        <label for="dateOfOnboarding">Date of Onboarding:</label>
+        <input type="date" id="dateOfOnboarding" name="dateOfOnboarding" required><br><br>
+
+        <label for="apartDistrict">APART District:</label>
+        <input type="text" id="apartDistrict" name="apartDistrict" required><br><br>
+
+        <label for="apartBlock">APART Block:</label>
+        <input type="text" id="apartBlock" name="apartBlock" required><br><br>
+
+        <label for="nameOfFPOFPC">Name of FPO/FPC:</label>
+        <input type="text" id="nameOfFPOFPC" name="nameOfFPOFPC" required><br><br>
+
+        <label for="iffpcCIN">IF FPC  CIN:</label>
+        <input type="text" id="iffpcCIN" name="iffpcCIN" required><br><br>
+
+        <label for="focusCommodity">Focus Commodity:</label>
+        <input type="text" id="focusCommodity" name="focusCommodity" required><br><br>
+
+        <label for="memberMale">Member Male:</label>
+        <input type="number" id="memberMale" name="memberMale" required><br><br>
+
+        <label for="memberFemale">Member Female:</label>
+        <input type="number" id="memberFemale" name="memberFemale" required><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/SDF/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="SDF" id="SDF">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/SDF"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>
