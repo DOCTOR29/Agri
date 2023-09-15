@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,3 +67,73 @@
     </div>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBS Credit</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>MBS Credit</h1>
+    <form action="/form/MC" method="POST">
+      <label for="slNo">Sl No:</label>
+     <input type="number" id="slNo" name="SlNo" required><br><br>
+
+     <label for="dateOfDisbursement">Date of Disbursement:</label>
+     <input type="date" id="dateOfDisbursement" name="DateOfDisbursement" required><br><br>
+
+     <label for="apartDistrict">APART District:</label>
+     <input type="text" id="apartDistrict" name="APARTDistrict" required><br><br>
+
+     <label for="apartBlock">APART Block:</label>
+     <input type="text" id="apartBlock" name="APARTBlock" required><br><br>
+
+     <label for="village">Village:</label>
+     <input type="text" id="village" name="Village" required><br><br>
+
+     <label for="name">Name:</label>
+     <input type="text" id="name" name="Name" required><br><br>
+
+     <label for="age">Age:</label>
+     <input type="number" id="age" name="Age" required><br><br>
+
+     <label for="agentCode">Agent Code:</label>
+     <input type="text" id="agentCode" name="AgentCode" required><br><br>
+
+     <label for="gender">Gender:</label>
+     <input type="text" id="gender" name="Gender" required><br><br>
+
+     <label for="loanAmount">Loan Amount:</label>
+     <input type="number" id="loanAmount" name="LoanAmount" required><br><br>
+
+     <label for="tenure">Tenure:</label>
+     <input type="number" id="tenure" name="Tenure" required><br><br>
+
+     <label for="valueChain">Value Chain:</label>
+     <input type="text" id="valueChain" name="ValueChain" required><br><br>
+
+     <label for="firstTimeFormalCredit">Whether first time formal credit availed (Yes/No):</label>
+     <input type="text" id="firstTimeFormalCredit" name="FirstTimeFormalCredit" required><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/MC/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="MC" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/MC"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>
+>>>>>>> 9b122be9a05292188feadee0db0dbd92d5e54ecf

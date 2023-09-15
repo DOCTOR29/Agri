@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,3 +46,52 @@
     </div>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBS Transaction</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>MBS Transaction</h1>
+    <form action="/form/wi" method="POST">
+      <label for="slNo">Sl No:</label>
+        <input type="number" id="slNo" name="slNo" required><br><br>
+
+        <label for="dcsCode">DCS Code:</label>
+        <input type="text" id="dcsCode" name="dcsCode" required><br><br>
+
+        <label for="apartDistrict">APART District:</label>
+        <input type="text" id="apartDistrict" name="apartDistrict" required><br><br>
+
+        <label for="apartBlock">APART Block:</label>
+        <input type="text" id="apartBlock" name="apartBlock" required><br><br>
+
+        <label for="cashIn">Cash in:</label>
+        <input type="number" id="cashIn" name="cashIn" required><br><br>
+
+        <label for="cashOut">Cash Out:</label>
+        <input type="number" id="cashOut" name="cashOut" required><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/mt/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="mt" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/mt"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>
+>>>>>>> 9b122be9a05292188feadee0db0dbd92d5e54ecf

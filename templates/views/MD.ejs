@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,3 +58,64 @@
     </div>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Green Credit Individual</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>MBS Transaction</h1>
+    <form action="/form/md" method="POST">
+      <label for="slNo">SL No:</label>
+      <input type="number" id="slNo" name="SLNo" required><br><br>
+
+      <label for="dateOfRegistration">Date of Registration:</label>
+      <input type="date" id="dateOfRegistration" name="DateOfRegistration" required><br><br>
+
+      <label for="apartDistrict">APART District:</label>
+      <input type="text" id="apartDistrict" name="APARTDistrict" required><br><br>
+
+      <label for="apartBlock">APART Block:</label>
+      <input type="text" id="apartBlock" name="APARTBlock" required><br><br>
+
+      <label for="village">Village:</label>
+      <input type="text" id="village" name="Village" required><br><br>
+
+      <label for="agentName">Agent Name:</label>
+      <input type="text" id="agentName" name="AgentName" required><br><br>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="Age" required><br><br>
+
+      <label for="agentCode">Agent Code:</label>
+      <input type="text" id="agentCode" name="AgentCode" required><br><br>
+
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" name="Gender" required><br><br>
+
+      <label for="activeInactive">Active/Inactive:</label>
+      <input type="text" id="activeInactive" name="ActiveInactive" required><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/md/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="md" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/md"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>
+>>>>>>> 9b122be9a05292188feadee0db0dbd92d5e54ecf
