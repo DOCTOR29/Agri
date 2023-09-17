@@ -57,13 +57,13 @@ input.date {
     width: auto;
 }
 input[type=radio],
-input.radio {
+input.radio, {
     float:left;
     /* clear: none; */
     margin: 2px 0 0 2px;
     width: 21px;
 }
-form input {
+form input, select{
     padding: 12px 20px;
     width: 100%;
     border: 1px solid #ccc;

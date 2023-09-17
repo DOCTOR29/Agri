@@ -13,7 +13,7 @@ router.get('/dehaat', async  (req, res) => {
     var financingFarmersCount = 0;
     var sumLoanAmount = 0;
     var insuranceCount = 0;
-   
+    var countMale = 0, countFemale = 0 
     const formDF = await DF.find()
     const formDFF = await DFF.find()
     const formDI = await DI.find()
@@ -23,6 +23,11 @@ router.get('/dehaat', async  (req, res) => {
     formDFF.forEach((entry) => {
         financingFarmersCount++
         sumLoanAmount += entry.loanAmount
+        if(entry.gender ==='Male')
+        { countMale++ }
+        else {
+            countFemale++
+        }
     })
 
     formDF.forEach(() => countFinancing++)
@@ -30,6 +35,24 @@ router.get('/dehaat', async  (req, res) => {
     formDF.forEach((entry) => {
         sumLoanAmountFPO += entry.loanAmount
     })
+ 
+    const donut1 = {
+        male: countMale,
+        female: countFemale,
+
+    }
+    const donut2 = {
+        data1: 100,
+        data2: 0,
+        name1: 'NA',
+        name2: "NA"
+    }
+    const donut3 = {
+        data1: sumLoanAmountFPO,
+        data2: sumLoanAmount,
+        name1: 'Ratio of Value of Credit to FPO',
+        name2: 'Value of credit to individual farmers'
+    }
 
     
    
@@ -37,50 +60,12 @@ router.get('/dehaat', async  (req, res) => {
         countFinancing, sumLoanAmountFPO,
         financingFarmersCount,
         sumLoanAmount, insuranceCount,
-        dashName:  " "
+        dashName:  'Dehaat test',
+        donut1, donut2 ,donut3
        
     })
 })
 // needs doing
-router.get('/form/data', async (req, res) => {
 
-    const formDF = await DF.find()
-    const formDFF = await DFF.find()
-    var sumLoanAmount = 0
-    var sumLoanAmountFPO = 0
-    
-    formDFF.forEach((entry) => {
-       
-        sumLoanAmount += entry.loanAmount
-    })
-
-    formDF.forEach((entry) => {
-        sumLoanAmountFPO += entry.loanAmount
-       
-    })
-
-    var countMale = 0, countFemale = 0 
-    
-    formDFF.forEach((form) => {
-        if(form.gender ==='Male')
-        { countMale++ }
-        else {
-            countFemale++
-        }
-     
-    });
-  
-    
-    
-    const benefeciaries = {
-        male: countMale, female: countFemale, sumLoanAmountFPO, sumLoanAmount
-    }
-
-    res.send(benefeciaries)
-})
-
-router.get('/go-green', async (req, res) => {
-
-}) 
 
 module.exports = router

@@ -1,0 +1,60 @@
+const mongoose = require('mongoose');
+
+const disbursementSchema = new mongoose.Schema({
+  slNo: {
+    type: Number,
+    required: true,
+  },
+  dateOfDisbursement: {
+    type: Date,
+    required: true,
+  },
+  apartDistrict: {
+    type: String,
+    required: true,
+  },
+  apartBlock: {
+    type: String,
+    required: true,
+  },
+  village: {
+    type: String,
+    required: true,
+  },
+  figNameOrCode: {
+    type: String,
+    required: true,
+  },
+  branchCSP: {
+    type: String,
+    required: true,
+  },
+  loanAmount: {
+    type: Number,
+    required: true,
+  },
+  tenure: {
+    type: String,
+    required: true,
+  },
+  valueChain: {
+    type: String,
+    required: true,
+  },
+  totalFarmers: {
+    type: Number,
+    required: true,
+  },
+  farmersFirstTimeCredit: {
+    type: Number,
+    required: true,
+  },
+  fpoName: {
+    type: String,
+    required: true,
+  },
+});
+
+const ESAFIGL = mongoose.model('ESAFIGL', disbursementSchema);
+
+module.exports = ESAFIGL;

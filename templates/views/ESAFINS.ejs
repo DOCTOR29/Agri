@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESAF Insurance</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>ESAF Insurance</h1>
+    <form action="/form/ESAFINS" method="POST">
+        <label for="slNo">SL No:</label>
+        <input type="number" id="slNo" name="slNo" required><br><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="apartDistricts">APART Districts:</label>
+        <input type="text" id="apartDistricts" name="apartDistricts" required><br><br>
+
+        <label for="apartBlocks">APART Blocks:</label>
+        <input type="text" id="apartBlocks" name="apartBlocks" required><br><br>
+
+        <label for="villageName">Village Name:</label>
+        <input type="text" id="villageName" name="villageName" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="agentCode">Agent Code:</label>
+        <input type="number" id="agentCode" name="agentCode" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+
+        <label for="insuranceType">Insurance Type:</label>
+        <select id="insuranceType" name="insuranceType" required>
+            <option value="general">General</option>
+            <option value="life">Life</option>
+            <option value="crop">Crop</option>
+        </select><br><br>
+
+        <label for="insuranceCoverage">Insurance Coverage:</label>
+        <input type="text" id="insuranceCoverage" name="insuranceCoverage" required><br><br>
+
+        <label for="firstTimeInsuranceAvailed">Whether first time insurance availed (Yes/No):</label>
+        <select id="firstTimeInsuranceAvailed" name="firstTimeInsuranceAvailed" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/ESAFINS/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="ESAFINS" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/ESAFINS"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

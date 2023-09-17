@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM Digi farmer</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>SAM Digi farmer</h1>
+    <form action="/form/SDIF" method="POST">
+        <label for="SLNo">SL No:</label>
+        <input type="number" id="SLNo" name="SLNo" required><br><br>
+    
+        <label for="DateOfOnboarding">Date of Onboarding:</label>
+        <input type="date" id="DateOfOnboarding" name="DateOfOnboarding" required><br><br>
+    
+        <label for="APARTDistrict">APART District:</label>
+        <input type="text" id="APARTDistrict" name="APARTDistrict" required><br><br>
+    
+        <label for="APARTBlock">APART Block:</label>
+        <input type="text" id="APARTBlock" name="APARTBlock" required><br><br>
+    
+        <label for="Village">Village:</label>
+        <input type="text" id="Village" name="Village" required><br><br>
+    
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" name="Name" required><br><br>
+    
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age" required><br><br>
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/SDIF/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="SDiF" id="SDiF">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/SDIF"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

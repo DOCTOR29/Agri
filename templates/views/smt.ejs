@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smt</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%=message%> 
+           
+
+            
+        </h1>
+    <h1>smt</h1>
+    <form action="/form/smt" method="post">
+        <label for="slNo">Sl No:</label>
+        <input type="number" id="slNo" name="slNo" required><br><br>
+
+        <label for="nameOfFPC">Name of FPC:</label>
+        <input type="text" id="nameOfFPC" name="nameOfFPC" required><br><br>
+
+        <label for="dateOfDisbursement">Date of Disbursement:</label>
+        <input type="date" id="dateOfDisbursement" name="dateOfDisbursement" required><br><br>
+
+        <label for="disbursementAmount">Disbursement Amount:</label>
+        <input type="number" id="disbursementAmount" name="disbursementAmount" required><br><br>
+
+        <label for="apartDistrict">APART District:</label>
+        <input type="text" id="apartDistrict" name="apartDistrict" required><br><br>
+
+        <label for="apartBlock">APART Block:</label>
+        <input type="text" id="apartBlock" name="apartBlock" required><br><br>
+
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village" required><br><br>
+
+        <label for="ifFPCEnterCIN">If FPC Enter CIN:</label>
+        <input type="text" id="ifFPCEnterCIN" name="ifFPCEnterCIN"><br><br>
+
+        <label for="loanAmount">Loan Amount:</label>
+        <input type="number" id="loanAmount" name="loanAmount" required><br><br>
+
+        <label for="tenure">Tenure:</label>
+        <input type="number" id="tenure" name="tenure" required><br><br>
+
+        <label for="validity">Validity:</label>
+        <input type="number" id="validity" name="validity" required><br><br>
+
+        <label for="valueChain">Value Chain:</label>
+        <input type="number" id="valueChain" name="valueChain" required><br><br>
+
+        <input type="submit" class="submit-btn" value="Submit">
+      </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/smt/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="smt" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/smt"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBS BENEFICIARIES</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>MBS BENEFICIARIES</h1>
+    <form action="/form/MB" method="POST">
+        <label for="SLNo">SL No:</label>
+        <input type="number" id="SLNo" name="SLNo" required><br><br>
+    
+        <label for="DateOfRegistration">Date of Registration:</label>
+        <input type="date" id="DateOfRegistration" name="DateOfRegistration" required><br><br>
+    
+        <label for="APARTDistrict">APART District:</label>
+        <input type="text" id="APARTDistrict" name="APARTDistrict" required><br><br>
+    
+        <label for="APARTBlock">APART Block:</label>
+        <input type="text" id="APARTBlock" name="APARTBlock" required><br><br>
+    
+        <label for="Village">Village:</label>
+        <input type="text" id="Village" name="Village" required><br><br>
+    
+        <label for="AgentName">Agent Name:</label>
+        <input type="text" id="AgentName" name="AgentName" required><br><br>
+    
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age" required><br><br>
+    
+        <label for="AgentCode">Agent Code:</label>
+        <input type="text" id="AgentCode" name="AgentCode" required><br><br>
+    
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select><br><br>
+    
+        <label for="ActiveInactive">Active/Inactive:</label>
+        <select id="ActiveInactive" name="ActiveInactive" required>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+        </select><br><br>
+    
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/MB/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="MB" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/MB"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

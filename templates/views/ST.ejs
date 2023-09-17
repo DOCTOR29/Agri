@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM TRAINING</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>SAM TRAINING</h1>
+    <form action="/form/ST" method="POST">
+        <label for="SlNo">Sl No:</label>
+        <input type="number" id="SlNo" name="SlNo" required><br><br>
+    
+        <label for="DateOfTraining">Date of Training:</label>
+        <input type="date" id="DateOfTraining" name="DateOfTraining" required><br><br>
+    
+        <label for="APARTDistrict">APART District:</label>
+        <input type="text" id="APARTDistrict" name="APARTDistrict" required><br><br>
+    
+        <label for="APARTBlock">APART Block:</label>
+        <input type="text" id="APARTBlock" name="APARTBlock" required><br><br>
+    
+        <label for="TrainingProvidedByKalgudiSamunnati">Training Provided By Kalgudi Samunnati:</label>
+            <select id="TrainingProvidedByKalgudiSamunnati" name="TrainingProvidedByKalgudiSamunnati" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            
+            </select><br><br>
+        <label for="FPOFPCName">FPO/FPC Name:</label>
+        <input type="text" id="FPOFPCName" name="FPOFPCName" required><br><br>
+    
+        <label for="NumberOfBODsCEOsTrained">Number of BODs/CEOs Trained:</label>
+        <input type="number" id="NumberOfBODsCEOsTrained" name="NumberOfBODsCEOsTrained" required><br><br>
+    
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/ST/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="ST" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/ST"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

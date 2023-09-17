@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESAF APY</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>ESAF APY</h1>
+    <form action="/form/ESAFAPY" method="POST">
+        <label for="slNo">SL No:</label>
+        <input type="number" id="slNo" name="slNo" required><br><br>
+
+        <label for="dateOfEnrolment">Date of Enrolment:</label>
+        <input type="date" id="dateOfEnrolment" name="dateOfEnrolment" required><br><br>
+
+        <label for="district">District:</label>
+        <input type="number" id="district" name="district" required><br><br>
+
+        <label for="block">Block:</label>
+        <input type="number" id="block" name="block" required><br><br>
+
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village" required><br><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="agentCode">Agent Code:</label>
+        <input type="number" id="agentCode" name="agentCode" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+
+        <label for="activeDormant">Active/Dormant:</label>
+        <select id="activeDormant" name="activeDormant" required>
+            <option value="Active">Active</option>
+            <option value="Dormant">Dormant</option>
+        </select><br><br>
+
+        <label for="firstTimeAccountOpened">Whether first time account opened (Yes/No):</label>
+        <select id="firstTimeAccountOpened" name="firstTimeAccountOpened" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/ESAFAPY/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="ESAFAPY" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/ESAFAPY"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

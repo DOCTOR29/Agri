@@ -19,6 +19,7 @@ const upload = async (req, res) => {
     createReadStream(path)
       .pipe(parse({ headers: true }))
       .on("error", (error) => {
+      
         throw error.message;
       })
       .on("data", async (row) => {
@@ -53,8 +54,8 @@ const upload = async (req, res) => {
             
         } catch (error) {
           res.status(500).send({
-            message: "Couldn't import data into database!",
-            error: error.message,
+            // message: "Couldn't import data into database!",
+            // error: error.message,
           });
         }
         

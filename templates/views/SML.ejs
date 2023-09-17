@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM MKT LINKAGE</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>SAM MKT LINKAGE</h1>
+    <form action="/form/SML" method="POST">
+        <label for="SlNo">Sl No:</label>
+    <input type="number" id="SlNo" name="SlNo" required><br><br>
+
+    <label for="Date">Date:</label>
+    <input type="date" id="Date" name="Date" required><br><br>
+
+    <label for="APARTDistrict">APART District:</label>
+    <input type="text" id="APARTDistrict" name="APARTDistrict" required><br><br>
+
+    <label for="APARTBlock">APART Block:</label>
+    <input type="text" id="APARTBlock" name="APARTBlock" required><br><br>
+
+    <label for="FPC">FPC:</label>
+    <input type="text" id="FPC" name="FPC" required><br><br>
+
+    <label for="Product">Product:</label>
+    <input type="text" id="Product" name="Product" required><br><br>
+
+    <label for="SKUs">SKUs:</label>
+    <input type="text" id="SKUs" name="SKUs" required><br><br>
+
+    <label for="RFQsGenerated">RFQs Generated:</label>
+    <input type="text" id="RFQsGenerated" name="RFQsGenerated" required><br><br>
+
+    <label for="OrderVolume">Order Volume:</label>
+    <input type="number" id="OrderVolume" name="OrderVolume" required><br><br>
+
+    <label for="OrderValue">Order Value:</label>
+    <input type="number" id="OrderValue" name="OrderValue" required><br><br>
+
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/SML/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="SML" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/SML"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

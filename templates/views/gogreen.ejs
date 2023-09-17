@@ -42,103 +42,63 @@
 
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
 
-    var employeeInfo = [];
-    var resdata = {}
-    fetch('/form/data')
+    var male = <%-donut1.male%>
+    var female = <%-donut1.female%>
+    var nameDonut2 = '<%=donut2.name1%>'
+    var name2Donut2 = '<%=donut2.name2%>'
+   
+    function drawChart() {
+      
+      var data = google.visualization.arrayToDataTable([
+        ['Gender', 'Total'],
+        ['Male',     male],
+        ['Female',      female],
+        
+      ]);
 
-        // creates promise to work with response from /api/data
-        .then(res => {
+      var options = {
+        title: 'No of Beneficiaries',
+        is3D: false,
+        pieHole: 0.3,
+        backgroundColor: { fill:'transparent' },
+      };
 
-            // throws error if there is a problem fetching page
-            if (!res.ok) {
+      var dataInsurance = google.visualization.arrayToDataTable([
+           [ "NA", "NA"],
+           [nameDonut2,<%-donut2.data1%> ],
+           [name2Donut2,<%-donut2.data2%> ]  
+        ]);
+     
+      var optionsInsurance = {
+        title: 'Insurance Graph',
+        is3D: false,
+        pieHole: 0.3,
+        backgroundColor: { fill:'transparent' },
+      };
 
-                // returns error with response text of error
-                throw new Error(res.statusText);
-            }
-            return res.json();
+      var dataCreditGraph = google.visualization.arrayToDataTable(
+        [['<%-donut3.name1%>', "<%-donut3.name2%>",],
+        ['<%-donut3.name1%>', <%-donut3.data1%>],
+        ['<%-donut3.name2%>',  <%-donut3.data2%>]]);
 
-        }).then(data => {
-
-            // creates resdata variable to store JSON data form /api/data
-            resdata = data;
-
-            // creates empty employeeInfo array
-
-
-            // console.log(employeeInfo)
-            // console.log(data)
-            // console.log("resdata", resdata)
-        }).then(() => {
-            google.charts.load("current", { packages: ["corechart"] });
-            google.charts.setOnLoadCallback(drawChart);
-            function drawChart() {
-                employeeInfo.push(['Gender', 'Total'])
-                const arrayDataMale = parseInt(resdata.male)
-                employeeInfo.push(['Male', arrayDataMale])
-
-                const arrayDataFemale = parseInt(resdata.female)
-                 console.log(resdata)
-                const ratioFPOData = parseInt(resdata.FPO)
-                const ratioFPO =   parseInt(resdata.sumLoanAmountFPO)
-                const ratioLoan =   parseInt(resdata.sumLoanAmount)
-                employeeInfo.push(['Female', arrayDataFemale])
-                
-                console.log("ratio fetch",ratioFPOData)
-                const ratioLoanData = 100-ratioFPOData
-
-                // console.log(ratioLoanData)
-
-                var data = google.visualization.arrayToDataTable(
-                    employeeInfo);
-
-                var options = {
-                    title: 'No of Beneficiaries',
-                    pieHole: 0.5,
-                    backgroundColor: { fill:'transparent' },
-                   
+      var optionsCreditGraph = {
+        title: 'Credit Graph',
+        pieHole: 0.3,
+        backgroundColor: { fill:'transparent' },
                     
                 };
 
-                var dataInsurance = google.visualization.arrayToDataTable(
-                    [["NA", "NA"],["NA",100],["na",0]]);
-                var optionsInsurance = {
-                    title: 'Insurance Graph',
-                    pieHole: 0.5,
-                    backgroundColor: { fill:'transparent' },
-                };
-
-
-                var dataCreditGraph = google.visualization.arrayToDataTable(
-               
-                
-                [["Value of Credit to FPO", "Value of credit to individual farmers"],
-                    ["Value of Credit to FPO", ratioFPO],
-                    ["Value of credit to individual farmers",  ratioLoan]]);
-
-                var optionsCreditGraph = {
-                    title: 'Credit Graph',
-                    pieHole: 0.5,
-                    backgroundColor: { fill:'transparent' },
-                    
-                };
-
-                var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-                chart.draw(data, options);
-                var chart = new google.visualization.PieChart(document.getElementById('insuranceGraph'));
-                chart.draw(dataInsurance, optionsInsurance);
-                var chart = new google.visualization.PieChart(document.getElementById('creditGraph'));
-                chart.draw(dataCreditGraph, optionsCreditGraph);
-
-            }
-
-            
-
-
-        })
-
-
-</script>
+      var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+      chart.draw(data, options);
+      var chart = new google.visualization.PieChart(document.getElementById('insuranceGraph'));
+      chart.draw(dataInsurance, optionsInsurance);
+      var chart = new google.visualization.PieChart(document.getElementById('creditGraph'));
+        chart.draw(dataCreditGraph, optionsCreditGraph);
+    }
+  </script>
 </head>
 
 <body class=" bg-gray-100 p-4">

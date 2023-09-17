@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM CREDIT VLE</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>SAM CREDIT VLE</h1>
+    <form action="/form/SCV" method="POST">
+        <label for="SlNo">Sl No:</label>
+        <input type="number" id="SlNo" name="SlNo" required><br><br>
+    
+        <label for="DateOfDisbursement">Date of Disbursement:</label>
+        <input type="date" id="DateOfDisbursement" name="DateOfDisbursement" required><br><br>
+    
+        <label for="APARTDistrict">APART District:</label>
+        <input type="text" id="APARTDistrict" name="APARTDistrict" required><br><br>
+    
+        <label for="APARTBlock">APART Block:</label>
+        <input type="text" id="APARTBlock" name="APARTBlock" required><br><br>
+    
+        <label for="Village">Village:</label>
+        <input type="text" id="Village" name="Village" required><br><br>
+    
+        <label for="NameOfVLE">Name of VLE:</label>
+        <input type="text" id="NameOfVLE" name="NameOfVLE" required><br><br>
+    
+        <label for="LoanAmount">Loan Amount:</label>
+        <input type="number" id="LoanAmount" name="LoanAmount" required><br><br>
+    
+        <label for="Tenure">Tenure:</label>
+        <input type="number" id="Tenure" name="Tenure" required><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+                                                                                        
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/SCV/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="SCV" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/SCV"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>
