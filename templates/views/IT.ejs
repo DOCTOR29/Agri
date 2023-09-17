@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integra Transaction</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Integra Transaction</h1>
+    <form action="/form/<%-routName%>" method="POST">
+        <label for="CashIn">Cash In:</label>
+        <input type="number" id="CashIn" name="CashIn" required><br><br>
+    
+        <label for="CashOut">Cash Out:</label>
+        <input type="number" id="CashOut" name="CashOut" required><br><br>
+    
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="<%-routName.toUpperCase()%>" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/<%-routName%>"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

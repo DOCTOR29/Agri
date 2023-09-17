@@ -70,26 +70,7 @@ router.get('/dehaat2', async (req, res) => {
 })
 
 
-router.get('/integra', async (req, res) => {
-  var data = {
-      card1:0,
-      card2:0,
-      card3:0,
-      card4:0,
-      card5:0,
-      card6:0,
-      card7:0,
-      card8:0,
-      card9:0,
-      card10:0,
-      card11:0,
-      card12: 0,
-      dashName: 'Integra Dash'
 
-    }
-    res.render('ESAFDash', { data })
-
-})
 router.get('/esco', async (req, res) => {
   var data = {
       card1:0,
