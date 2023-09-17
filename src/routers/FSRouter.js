@@ -7,8 +7,8 @@ const uploadiile = require('../middleware/upload.js');
 const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
-const routName = 'ESAFGL'      //------change this
-const csvName ='ESAFGL.csv'   //------change this
+const routName = 'fs'
+const csvName ='FIA-Savings.csv'
 const routNameU = require(`../models/model${routName.toUpperCase()}`)
 
 
@@ -20,6 +20,7 @@ router.get(`/${routName}`, (req, res) => {
         console.log(`${dir} is deleted!`);
       });
     res.render(routName.toUpperCase(), {
+        routName,
         message: req.flash('message') || ""
     })
 }
@@ -44,26 +45,19 @@ router.get(`/form/${routName}`, async (req, res) => {
     try {
         const formData = await routNameU.find()
 
-        const fields = [   //------change this
-
-        "slNo",
-        "dateOfDisbursement",
-         "apartDistricts",
-         "apartBlocks",
-         "villageName",
-         "age",
-         "agentCode",
-         "gender",
-         "loanAmount",
-         "tenure",
-         "valueChain",
-         "firstTimeCreditAvailed",
-
-
-
-
-
-
+        const fields = [
+            "SlNo",
+            "AccountOpeningDate",
+            "APARTDistrict",
+            "APARTBlock",
+            "Village",
+            "Name",
+            "Age",
+            "AgentCode",
+            "Gender",
+            "SavingsAccountNumber",
+            "BankName",
+            "WhetherFirstTimeAccountOpened"
         ]
         const csv = json2csv(formData, { fields})
         // req.flash('message', 'Download Success')

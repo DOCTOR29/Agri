@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESAF Fig Loans</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>ESAF Fig Loans</h1>
+    <form action="/form/<%-routName%>" method="POST">
+        <label for="SlNo">Sl No:</label>
+    <input type="number" id="SlNo" name="SlNo" required><br><br>
+
+    <label for="DateOfDisbursement">Date of Disbursement:</label>
+    <input type="date" id="DateOfDisbursement" name="DateOfDisbursement" required><br><br>
+
+    <label for="APARTDistrict">APART District:</label>
+    <input type="text" id="APARTDistrict" name="APARTDistrict" required><br><br>
+
+    <label for="APARTBlock">APART Block:</label>
+    <input type="text" id="APARTBlock" name="APARTBlock" required><br><br>
+
+    <label for="Village">Village:</label>
+    <input type="text" id="Village" name="Village" required><br><br>
+
+    <label for="FIGNameOrCode">Name or Code of FIG:</label>
+    <input type="number" id="FIGNameOrCode" name="FIGNameOrCode" required><br><br>
+
+    <label for="BranchOrCSP">Branch/CSP:</label>
+    <input type="text" id="BranchOrCSP" name="BranchOrCSP" required><br><br>
+
+    <label for="LoanAmount">Loan Amount:</label>
+    <input type="number" id="LoanAmount" name="LoanAmount" required><br><br>
+
+    <label for="Tenure">Tenure (in months):</label>
+    <input type="number" id="Tenure" name="Tenure" required><br><br>
+
+    <label for="ValueChain">Value Chain:</label>
+    <input type="text" id="ValueChain" name="ValueChain" required><br><br>
+
+    <label for="TotalFarmers">Total Farmers:</label>
+    <input type="number" id="TotalFarmers" name="TotalFarmers" required><br><br>
+
+    <label for="FarmersTakingCreditForFirstTime"># of Farmers Taking Credit for First Time:</label>
+    <input type="number" id="FarmersTakingCreditForFirstTime" name="FarmersTakingCreditForFirstTime" required><br><br>
+
+    <label for="FPOName">FPO Name:</label>
+    <input type="text" id="FPOName" name="FPOName" required><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="<%-routName.toUpperCase()%>" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/<%-routName%>"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

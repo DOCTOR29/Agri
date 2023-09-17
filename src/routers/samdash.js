@@ -23,26 +23,7 @@ router.get('/mbsdash', async (req, res) => {
 
 })
 
-router.get('/FIA', async (req, res) => {
-    var data = {
-        card1: 0,
-        card2:0,
-        card3: 0,
-        card4: 0,
-        card5: 0,
-        card6: 0,
-        card7: 193,  //change this data for changing the dash board card tiles
-        card8: 577800,
-        card9: 126,
-        card10: 170,
-        card11: 90,
-        card12: 118,
-        card13: 0,
-        dashName: 'FIA Dash'
-    }
-    res.render('ESAFDash', { data })
 
-})
 
 
 router.get('/gg', async (req, res) => {

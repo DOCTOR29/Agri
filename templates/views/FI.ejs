@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIA Insurance</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>FIA Insurance</h1>
+    <form action="/form/<%-routName%>" method="POST">
+        <label for="SlNo">Sl No:</label>
+        <input type="number" id="SlNo" name="SlNo" required><br><br>
+    
+        <label for="Date">Date:</label>
+        <input type="date" id="Date" name="Date" required><br><br>
+    
+        <label for="APARTDistricts">APART Districts:</label>
+        <input type="text" id="APARTDistricts" name="APARTDistricts" required><br><br>
+    
+        <label for="APARTBlocks">APART Blocks:</label>
+        <input type="text" id="APARTBlocks" name="APARTBlocks" required><br><br>
+    
+        <label for="Village">Village:</label>
+        <input type="text" id="Village" name="Village" required><br><br>
+    
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" name="Name" required><br><br>
+    
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age" required><br><br>
+    
+        <label for="AgentCode">Agent Code:</label>
+        <input type="text" id="AgentCode" name="AgentCode" required><br><br>
+    
+        <label for="Gender">Gender:</label>
+        <select id="Gender" name="Gender" required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select><br><br>
+    
+        <label for="InsuranceType">Insurance Type:</label>
+        <select id="InsuranceType" name="InsuranceType" required>
+          <option value="General">General</option>
+          <option value="Life">Life</option>
+          <option value="Crop">Crop</option>
+        </select><br><br>
+    
+        <label for="InsuranceCoverage">Insurance Coverage:</label>
+        <input type="number" id="InsuranceCoverage" name="InsuranceCoverage" required><br><br>
+    
+        <label for="WhetherFirstTimeInsuranceAvailed">Whether First Time Insurance Availed:</label>
+        <select id="WhetherFirstTimeInsuranceAvailed" name="WhetherFirstTimeInsuranceAvailed" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select><br><br>
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="<%-routName.toUpperCase()%>" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/<%-routName%>"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>

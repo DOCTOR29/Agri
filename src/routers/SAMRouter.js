@@ -68,8 +68,7 @@ router.get('/samunnati', async  (req, res) => {
         // credit
         data1: data.card2,
         data2: data.card4,
-        data3rs
-            : data.card8,
+        data3: data.card8,
         name1: 'Value of Credit to FPO',
         name2: 'Value of Credit to VLE',
         name3: 'Value of Credit to Farmner'
