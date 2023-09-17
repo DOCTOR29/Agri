@@ -9,7 +9,7 @@ const path = require('path')
 
 const samdigitfpo = 'SDiF'
 const csvName ='sam-digital-farmer.csv'
-const samdigitfpoU = require(`../models/model${samdigitfpo.toUpperCase()}`)
+const samdigitfpoU = require(`../models/modelSDiF`)
 
     
 router.get(`/${samdigitfpo}`, (req, res) => {
