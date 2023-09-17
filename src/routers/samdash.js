@@ -88,26 +88,7 @@ router.get('/dehaat2', async (req, res) => {
 
 })
 
-router.get('/vimo', async (req, res) => {
-  var data = {
-      card1:287,
-      card2:239850,
-      card3:0,
-      card4:0,
-      card5:0,
-      card6:0,
-      card7:360,
-      card8:1700000,
-      card9:0,
-      card10:0,
-      card11:188,
-      card12: 0,
-      dashName: 'Vimo Dash'
 
-    }
-    res.render('ESAFDash', { data })
-
-})
 router.get('/integra', async (req, res) => {
   var data = {
       card1:0,

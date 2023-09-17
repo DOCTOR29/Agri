@@ -45,7 +45,7 @@ const enrollmentSchema = new mongoose.Schema({
   },
 });
 
-const vi = mongoose.model('vi', enrollmentSchema);
+const VI = mongoose.model('VI', enrollmentSchema);
 
-module.exports = vi;
+module.exports = VI;
 // exports defaults VI

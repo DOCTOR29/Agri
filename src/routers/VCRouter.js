@@ -7,8 +7,8 @@ const uploadiile = require('../middleware/upload.js');
 const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
-const routName = 'vi'
-const csvName ='Vimo-insurance.csv'
+const routName = 'vc'
+const csvName ='Vimo-Credit.csv'
 const routNameU = require(`../models/model${routName.toUpperCase()}`)
 
 
@@ -46,16 +46,18 @@ router.get(`/form/${routName}`, async (req, res) => {
         const formData = await routNameU.find()
 
         const fields = [
-            "slNo",
-            "dateOfEnrolment",
-            "apartDistrict",
-            "apartBlock",
-            "village",
-            "name",
-            "age",
-            "gender",
-            "activeOrDormant",
-            "firstAvailedInsurance"
+            "SlNo",
+            "DateOfDisbursement",
+            "APARTDistrict",
+            "APARTBlock",
+            "Village",
+            "Name",
+            "Age",
+            "Gender",
+            "LoanAmount",
+            "Tenure",
+            "ValueChain",
+            "WhetherFirstTimeCreditAvailed"
         ]
         const csv = json2csv(formData, { fields})
         // req.flash('message', 'Download Success')

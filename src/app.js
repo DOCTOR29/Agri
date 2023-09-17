@@ -38,6 +38,12 @@ const EAPYRouter = require('./routers/EAPYRouter.js')
 const RCRouter = require('./routers/RCRouter')
 const RPPRouter = require('./routers/RPPRouter')
 const dashRangdeRouter = require('./routers/dashRangdeRouter')
+const VWRouter = require('./routers/VWRouter')
+const VIRouter = require('./routers/VIRouter')
+const VFTRouter = require('./routers/VFTRouter')
+const VCRouter = require('./routers/VCRouter')
+const VBSRouter = require('./routers/VBSRouter')
+const VDashRouter = require('./routers/VDashRouter')
 
 
 
@@ -101,6 +107,12 @@ app.use(EAPYRouter)
 app.use(RCRouter)
 app.use(RPPRouter)
 app.use(dashRangdeRouter)
+app.use(VWRouter)
+app.use(VIRouter)
+app.use(VFTRouter)
+app.use(VCRouter)
+app.use(VBSRouter)
+app.use(VDashRouter)
 
 app.get('/ui', (req, res) => {
     res.render('index2')

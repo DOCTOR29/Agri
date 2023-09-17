@@ -3,63 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Green Credit Individual</title>
+    <title>Vimo Insurance</title>
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
-    
+
     <div class="container">
         <h1>
             <%= message %>
         </h1>
-    <h1>Vimo Workshop</h1>
-    <form action="/form/vi" method="POST">
+    <h1>Vimo Insurance</h1>
+    <form action="/form/<%-routName%>" method="POST">
         <label for="slNo">Sl No:</label>
-        <input type="number" id="slNo" name="slNo" required><br>
+    <input type="number" id="slNo" name="slNo" required><br><br>
 
-        <label for="dateOfEnrolment">Date of Enrolment:</label>
-        <input type="date" id="dateOfEnrolment" name="dateOfEnrolment" required><br>
+    <label for="dateOfEnrolment">Date of Enrolment:</label>
+    <input type="date" id="dateOfEnrolment" name="dateOfEnrolment" required><br><br>
 
-        <label for="apartDistrict">APART District:</label>
-        <input type="text" id="apartDistrict" name="apartDistrict" required><br>
+    <label for="apartDistrict">APART District:</label>
+    <input type="text" id="apartDistrict" name="apartDistrict" required><br><br>
 
-        <label for="apartBlock">APART Block:</label>
-        <input type="text" id="apartBlock" name="apartBlock" required><br>
+    <label for="apartBlock">APART Block:</label>
+    <input type="text" id="apartBlock" name="apartBlock" required><br><br>
 
-        <label for="village">Village:</label>
-        <input type="text" id="village" name="village" required><br>
+    <label for="village">Village:</label>
+    <input type="text" id="village" name="village" required><br><br>
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
 
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required><br><br>
 
-        <label>Gender:</label>
-        <input type="radio" id="male" name="gender" value="Male" required>
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="Female" required>
-        <label for="female">Female</label><br>
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select><br><br>
 
-        <label for="activeOrDormant">Active/Dormant:</label>
-        <input type="text" id="activeOrDormant" name="activeOrDormant" required><br>
+    <label for="activeOrDormant">Active or Dormant:</label>
+    <input type="text" id="activeOrDormant" name="activeOrDormant" required><br><br>
 
-        <label>Whether first availed insurance:</label>
-        <input type="radio" id="yes" name="firstAvailedInsurance" value="Yes" required>
-        <label for="yes">Yes</label>
-        <input type="radio" id="no" name="firstAvailedInsurance" value="No" required>
-        <label for="no">No</label><br>
+    <label for="firstAvailedInsurance">First Availed Insurance:</label>
+    <select id="firstAvailedInsurance" name="firstAvailedInsurance" required>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select><br><br>
 
         <input class="submit-btn" type="submit" value="Submit">
     </form>
-                                                                                        
+
       <h2>Or Upload Bulk (CSV)</h2>
-      <form action="/form/vi/bulk" method="POST" enctype="multipart/form-data">
-          <input type="file" name="VI" id="file">
+      <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="<%-routName.toUpperCase()%>" id="file">
           <input class="submit-btn" type="submit" name="Submit" id="">
       </form>
-      <a href="/form/vi"> <button class="submit-btn">Dowload CSV</button></a>
+      <a href="/form/<%-routName%>"> <button class="submit-btn">Dowload CSV</button></a>
     </div>
 </body>
 </html>

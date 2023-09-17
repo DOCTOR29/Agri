@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vimo FPO Training</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Vimo FPO Training</h1>
+    <form action="/form/<%-routName%>" method="POST">
+        <label for="SlNo">Sl No:</label>
+        <input type="number" id="SlNo" name="SlNo" required><br><br>
+    
+        <label for="DateOfTraining">Date of Training:</label>
+        <input type="date" id="DateOfTraining" name="DateOfTraining" required><br><br>
+    
+        <label for="APARTDistrict">APART District:</label>
+        <input type="text" id="APARTDistrict" name="APARTDistrict" required><br><br>
+    
+        <label for="APARTBlocks">APART Blocks:</label>
+        <input type="text" id="APARTBlocks" name="APARTBlocks" required><br><br>
+    
+        <label for="Villages">Villages:</label>
+        <input type="text" id="Villages" name="Villages" required><br><br>
+    
+        <label for="FPOFPCName">FPO/FPC Name:</label>
+        <input type="text" id="FPOFPCName" name="FPOFPCName" required><br><br>
+    
+        <label for="TopicsCovered">Topics Covered:</label>
+        <input type="text" id="TopicsCovered" name="TopicsCovered" required><br><br>
+    
+        <label for="NumberOfAttendees">Number of Attendees:</label>
+        <input type="number" id="NumberOfAttendees" name="NumberOfAttendees" required><br><br>
+    
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="<%-routName.toUpperCase()%>" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/<%-routName%>"> <button class="submit-btn">Dowload CSV</button></a>
+    </div>
+</body>
+</html>
