@@ -19,7 +19,7 @@ router.get(`/${samdigitfpo}`, (req, res) => {
         
         console.log(`${dir} is deleted!`);
       });
-    res.render(samdigitfpo.toUpperCase(), {
+    res.render('SDiF', {
         message: req.flash('message') || ""
     })
 }
