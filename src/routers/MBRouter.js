@@ -7,8 +7,8 @@ const uploadiile = require('../middleware/upload.js');
 const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
-const routName = 'MB'
-const routNameU = require(`../models/model${routName}`)
+const routName = 'mb'
+const routNameU = require(`../models/model${routName.toUpperCase()}`)
 const csvName ='MBS-BENEFICIARIES.csv'
 
 router.get(`/${routName}`, (req, res) => {
