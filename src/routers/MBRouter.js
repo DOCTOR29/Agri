@@ -18,7 +18,7 @@ router.get(`/${routName}`, (req, res) => {
 
         console.log(`${dir} is deleted!`);
       });
-    res.render('mb', {
+    res.render('MB', {
         message: req.flash('message') || ""
     })
 }
