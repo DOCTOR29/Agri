@@ -57,7 +57,8 @@ router.get('/aggregate', async (req, res) => {
         name4:'Insurance Policy Issued',
         name5:'Social Security Schemes',
         name6:'Digitization (Trnx in Lacs)',
-        name7:'Banking Outlets/ BCs Opened',
+        name7: 'Banking Outlets/ BCs Opened',
+        dashName: 'Aggregate'
     }
     
     data.card2 = await countName('MB') + await countName('FS') 
