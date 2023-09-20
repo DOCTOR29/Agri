@@ -1,7 +1,7 @@
 const flash = require('connect-flash');
 const  { createReadStream } =require('fs');
 const { parse } = require('fast-csv');
-const DFF = require('../models/modelDff');
+const DFF = require('../models/modelDFF');
 
 const upload = async (req, res) => {
   try {

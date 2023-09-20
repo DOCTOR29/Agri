@@ -1,8 +1,48 @@
 const express = require('express')
 const router = express.Router()
-// const 
 
-router.get('/aggregate', (req, res) => {
+
+
+const countName = async function (varr) {
+    const varr1 = require(`../models/model${varr}`)
+    const formMB = await varr1.find()
+    var num = 0
+    formMB.forEach(element => {
+       num++
+    });
+    return num
+}
+const sumLoan = async function (varr) {
+    const varr1 = require(`../models/model${varr}`)
+    const formMB = await varr1.find()
+    var num = 0
+    formMB.forEach(element => {
+        
+       num += element.loanAmount
+    });
+    return num
+}
+const transactionData = async function (varr) {
+    const varr1 = require(`../models/model${varr}`)
+    const formMB = await varr1.find()
+    var num = 0
+    formMB.forEach(element => {
+        
+       num += element.CashIn + element.CashOut
+    });
+    return num
+}
+const sumLoan1 = async function (varr) {
+    const varr1 = require(`../models/model${varr}`)
+    const formMB = await varr1.find()
+    var num = 0
+    formMB.forEach(element => {
+        
+       num += element.LoanAmount
+    });
+    return num
+}
+router.get('/aggregate', async (req, res) => {
     var data = {
         card1: 0,
         card2: 0,
@@ -19,6 +59,41 @@ router.get('/aggregate', (req, res) => {
         name6:'Digitization (Trnx in Lacs)',
         name7:'Banking Outlets/ BCs Opened',
     }
+    
+    data.card2 = await countName('MB') + await countName('FS') 
+    data.card3 = await sumLoan('DFF')
+        + await sumLoan1('EF')
+        + await sumLoan('GGCF')
+        + await sumLoan1('SCFP')
+        + await sumLoan1('VC')
+        + await sumLoan1('SCV')
+        + await sumLoan('SCF')
+        + await sumLoan1('FC')
+        + await sumLoan('MC')
+        + await sumLoan('GGCI')
+        + await sumLoan('GGCI')
+        + await sumLoan('DFF')
+        + await sumLoan1('EFP')
+        + await sumLoan1('RC')
+    data.card4 = await countName('VI') 
+                 + await countName('EI') 
+                 + await countName('FI') 
+        + await countName('DI') 
+    data.card5 = await countName('FA') 
+                + await countName('EA') 
+    data.card6 = await transactionData('FT')
+        + await transactionData('MT')
+    data.card1 = data.card2
+                 + data.card4
+        + data.card5
+        + await countName('SCF')
+        + await countName('FC')
+        + await countName('MC')
+        + await countName('GGCF')
+        + await countName('DFF')
+        + await countName('RC')
+        + await countName('EG')
+    
     res.render('aggregateDash', {data})
 })
 

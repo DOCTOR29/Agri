@@ -1,7 +1,7 @@
 const express = require('express')
-const DFF = require('../models/modelDff')
+const DFF = require('../models/modelDFF')
 const DF = require('../models/modelDF')
-const DI = require('../models/ModelDI')
+const DI = require('../models/modelDI')
 
 const router = express.Router()
 
