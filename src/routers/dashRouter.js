@@ -1,5 +1,5 @@
 const express = require('express')
-const DFF = require('../models/modelDFF')
+const DFF = require('../models/modelDFFarmers')
 const DF = require('../models/modelDF')
 const DI = require('../models/modelDI')
 

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router()
 const path = require('path')
 require('../db/conn.js');
-const DFF = require('../models/modelDFF')
+const DFF = require('../models/modelDFFarmers.js')
 const hbs = require('hbs');
 const json2csv = require('json2csv').parse 
 const uploadFile = require('../middleware/upload.js');
