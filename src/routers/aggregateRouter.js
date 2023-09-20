@@ -78,7 +78,7 @@ router.get('/aggregate', async (req, res) => {
     data.card4 = await countName('VI') 
                  + await countName('EI') 
                  + await countName('FI') 
-        + await countName('DI') 
+        + await countName('DInsurance') 
     data.card5 = await countName('FA') 
                 + await countName('EA') 
     data.card6 = await transactionData('FT')
