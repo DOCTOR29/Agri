@@ -68,6 +68,7 @@ const ISRouter = require('./routers/ISRouter')
 const IARouter = require('./routers/IARouter')
 const ITRouter = require('./routers/ITRouter')
 const IDashRouter = require('./routers/IDashRouter')
+const aggregateRouter = require('./routers/aggregateRouter')
 
 
 
@@ -163,6 +164,7 @@ app.use(ESCOIRouter)
 app.use(ICRouter)
 app.use(ISRouter)
 app.use(IDashRouter)
+app.use(aggregateRouter)
 
 app.get('/ui', (req, res) => {
     res.render('index2')
