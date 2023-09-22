@@ -72,7 +72,7 @@ router.get('/aggregate', async (req, res) => {
         + await sumLoan1('FC')
         + await sumLoan('MC')
         + await sumLoan('GGCI')
-        + await sumLoan('GGCI')
+    
         + await sumLoan('DFFarmers')
         + await sumLoan1('EFP')
         + await sumLoan1('RC')
@@ -97,5 +97,8 @@ router.get('/aggregate', async (req, res) => {
     
     res.render('aggregateDash', {data})
 })
+
+
+
 
 module.exports = router
