@@ -7,9 +7,9 @@ const uploadiile = require('../middleware/upload.js');
 const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
-const routName = 'mt'
+const routName = 'mtr'
 const csvName ='MBS-TRANSACTION.csv'
-const routNameU = require(`../models/model${routName.toUpperCase()}`)
+const routNameU = require(`../models/modelMT`)
 
 
 router.get(`/${routName}`, (req, res) => {
@@ -19,7 +19,7 @@ router.get(`/${routName}`, (req, res) => {
 
         console.log(`${dir} is deleted!`);
       });
-    res.render(routName.toUpperCase(), {
+    res.render("MT", {
         routName,
         message: req.flash('message') || ""
     })
