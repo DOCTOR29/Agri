@@ -26,13 +26,13 @@ router.get(`/${routName}`, (req, res) => {
 
 router.post(`/form/${routName}`, async(req, res) => {
     try {
-        const regForm = new MB({
+        const regForm = new routNameU({
             ...req.body
         })
         // console.log(req.body)
         await regForm.save();
         req.flash('message', ' Successfully Entry Updated.')
-        res.redirect(`/${routName}`)
+        res.redirect(`/mb`)
     } catch (error) {
         console.log(error)
         res.status(400).send(error)
