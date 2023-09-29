@@ -19,7 +19,7 @@ router.get(`/${routName}`, (req, res) => {
 
         console.log(`${dir} is deleted!`);
       });
-    res.render("MT", {
+    res.render("MTR", {
         routName,
         message: req.flash('message') || ""
     })
