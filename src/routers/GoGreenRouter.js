@@ -7,6 +7,7 @@ const GGCI = require('../models/modelGGCI')
 
 router.get('/gogreen', async  (req, res) => {
     var data = {
+        card0:0,
         card1:487,
         card2:1874000,
         card3:0,
@@ -19,6 +20,20 @@ router.get('/gogreen', async  (req, res) => {
         card10:0,
         card11:0,
         card12: 0,
+        name0: 'Transaction',
+        name1: 'Number of FPO Receiving Credit',
+        name2: 'Value of Credit to FPOs',
+        name3: 'Number of VLEs receiving credit',
+        name4: 'Value of Credit received by VLES',
+        name5: 'Number of FIGs receiving credit',
+        name6: 'Value of credit to FIGs',
+        name7: 'Number of Farmers receiving credit',
+        name8: 'Value of Credit to farmers',
+        name9: 'Savings Account',
+        name10: 'APY',
+        name11: 'Insurance',
+        name12: 'BC Agents',
+        
         dashName: 'Go Green'
     }
 
@@ -64,13 +79,18 @@ router.get('/gogreen', async  (req, res) => {
         name1: 'Ratio of Value of Credit to FPO',
         name2: 'Value of credit to individual farmers'
     }
+    for (const key in data) {
+        if (data[key] === 0) {
+            data[key] = 'NA'
+            console.log(data[key])
+        }
+    }
 
 
 
 
 
-
-    res.render('gogreen', { data, donut1, donut2, donut3})
+    res.render('dummydash', { data, donut1, donut2, donut3})
 })
 // needs doing
 router.get('/form/data', async (req, res) => {
