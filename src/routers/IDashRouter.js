@@ -111,7 +111,7 @@ router.get('/integra', async  (req, res) => {
             data[key] = 'NA'
         }
     }
-
+    
      res.render('MBSdash', { data, donut1, donut2, donut3})
 })
 

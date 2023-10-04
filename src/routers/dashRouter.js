@@ -87,16 +87,18 @@ router.get('/dehaat', async  (req, res) => {
     
     data.card1 = countFinancing
     data.card2 = sumLoanAmountFPO
-    data.card3 = 'NA'
-    data.card4 = 'NA'
-    data.card5 = 'NA'
-    data.card6 = 'NA'
+    
     data.card7 = financingFarmersCount
     data.card8 = sumLoanAmount
-    data.card9 = 'NA'
-    data.card10 = 'NA'
+    
     data.card11 = insuranceCount
-    data.card12 = 'NA'
+
+    for (const key in data) {
+        if (data[key] === 0) {
+            data[key] = 'NA'
+            console.log(data[key])
+        }
+    }
     res.render('MBSdash', {
         data,
         dashName:  'Dehaat test',
