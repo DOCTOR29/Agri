@@ -23,7 +23,20 @@ router.get('/fia', async  (req, res) => {
         card10:0,
         card11:0,
         card12: 0,
-        card13:0,
+        card13: 0,
+        name13: 'Transaction',
+        name1: 'Number of FPO Receiving Credit',
+        name2: 'Value of Credit to FPOs',
+        name3: 'Number of VLEs receiving credit',
+        name4: 'Value of Credit received by VLES',
+        name5: 'Number of FIGs receiving credit',
+        name6: 'Value of credit to FIGs',
+        name7: 'Farmers receiving credit',
+        name8: 'Value of Credit to farmers',
+        name9: 'Savings Account',
+        name10: 'APY',
+        name11: 'Insurance',
+        name12: 'BC Agents',
         dashName: 'FIA'
     }
     var male = 0

@@ -18,6 +18,36 @@ router.get('/dehaat', async  (req, res) => {
     const formDFF = await DFF.find()
     const formDI = await DI.find()
 
+    var data = {
+        card1:0,
+        card2:0,
+        card3:0,
+        card4:0,
+        card5:0,
+        card6:0,
+        card7:0,
+        card8:0,
+        card9:0,
+        card10:0,
+        card11:0,
+        card12: 0,
+        card13: 0,
+        name13: 'Transaction',
+        name1: 'Number of FPO Receiving Credit',
+        name2: 'Value of Credit to FPOs',
+        name3: 'Number of VLEs receiving credit',
+        name4: 'Value of Credit received by VLES',
+        name5: 'Number of FIGs receiving credit',
+        name6: 'Value of credit to FIGs',
+        name7: 'Farmers receiving credit',
+        name8: 'Value of Credit to farmers',
+        name9: 'Savings Account',
+        name10: 'APY',
+        name11: 'Insurance',
+        name12: 'BC Agents',
+        dashName: 'Go Green'
+    }
+
     formDI.forEach(() => insuranceCount++)
 
     formDFF.forEach((entry) => {
@@ -55,11 +85,20 @@ router.get('/dehaat', async  (req, res) => {
     }
 
     
-   
-    res.render('index2', {
-        countFinancing, sumLoanAmountFPO,
-        financingFarmersCount,
-        sumLoanAmount, insuranceCount,
+    data.card1 = countFinancing
+    data.card2 = sumLoanAmountFPO
+    data.card3 = 'NA'
+    data.card4 = 'NA'
+    data.card5 = 'NA'
+    data.card6 = 'NA'
+    data.card7 = financingFarmersCount
+    data.card8 = sumLoanAmount
+    data.card9 = 'NA'
+    data.card10 = 'NA'
+    data.card11 = insuranceCount
+    data.card12 = 'NA'
+    res.render('MBSdash', {
+        data,
         dashName:  'Dehaat test',
         donut1, donut2 ,donut3
        
