@@ -175,10 +175,47 @@ app.use(aggregate1mRouter)
 app.get('/ui', (req, res) => {
     res.render('index2')
 })
+app.get('/dummy', (req, res) => { 
+    const donut1 = {
+        male: 1,
+        female: 4,
 
+    }
+    const donut2 = {
+        data1: 100,
+        data2: 0,
+        name1: 'NA',
+        name2: "NA"
+    }
+    const donut3 = {
+        data1: 33,
+        data2: 44,
+        name1: 'Ratio of Value of Credit to FPO',
+        name2: 'Value of credit to individual farmers'
+    }
+    const data = {
+        card1:487,
+        card2:1874000,
+        card3:0,
+        card4:0,
+        card5:0,
+        card6:0,
+        card7:360,
+        card8:1700000,
+        card9:0,
+        card10:0,
+        card11:0,
+        card12: 0,
+        dashName: 'Go Green'
+    }
+    res.render('dummydash', {
+        donut1, donut2, donut3, data 
+        })
+})
 app.get('*', (req, res) => {
     res.send("error")
 })
+
 
 app.listen(port, () => {
     console.log(`Server running on ${port}`)
