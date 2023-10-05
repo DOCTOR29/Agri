@@ -229,7 +229,7 @@ try {
    
     const csv = json2csv(data, {fields});
     // req.flash('message', 'Download Success')
-    res.attachment(data.dashName).send(csv)
+    res.attachment(`${data.dashName}.csv`).send(csv)
     // res.redirect('/ci')
 } catch (error) {
     console.log(error)
