@@ -131,7 +131,7 @@ router.get('/form/data', async (req, res) => {
 
     res.send(benefeciaries)
 })
-const csvName ='FIA-Credit.csv'
+
 router.get('/gogreen/data', async (req, res) => { 
     var data = {
         card13:0,
@@ -208,35 +208,28 @@ router.get('/gogreen/data', async (req, res) => {
            
     //     }
     // }
-    console.log(data)
+    
 try {
     const fields = [
-        { label: 'Transaction', value: data.card13 },
-        { label: 'Number of FPO Receiving Credit', value: data.card1 },
-        {label:'Value of Credit to FPOs', value: data.card2 },
-        {label:'Number of VLEs receiving credit', value: data.card3 },
-        {label:'Value of Credit received by VLES', value: data.card4 },
-        {label:'Number of FIGs receiving credit',value: data.card5 },
-        {label:'Value of credit to FIGs', value: data.card6 },
-        {label:'Farmers receiving credit', value: data.card7 },
-        {label:'Value of Credit to farmers', va
-        'Savings Account',
-            'APY',
-            'Insurance',
-            'BC Agents',
+        { label: 'Transaction', value: 'card13' },
+        { label: 'Number of FPO Receiving Credit', value: 'card1' },
+        { label: 'Value of Credit to FPOs', value: 'card2' },
+        { label: 'Number of VLEs receiving credit', value: 'card3' },
+        { label: 'Value of Credit received by VLES', value: 'card4' },
+        { label: 'Number of FIGs receiving credit', value: 'card5' },
+        { label: 'Value of credit to FIGs', value: 'card6' },
+        { label: 'Farmers receiving credit', value: 'card7' },
+        { label: 'Value of Credit to farmers', value: 'card8' },
+        { label: 'Savings Account', value: 'card9' },
+        {label: 'APY', value: 'card10' },
+        { label: 'Insurance', value: 'card1' },
+        { label: 'BC Agents', value: 'card12' }
 
     ]
-    const exportData = {
-        Transaction: data.card13,
-        NumberofFPOReceivingCredit: data.card1,
-        ValueofCredittoFPOs: data.card2,
-        NumberofVLEsReceivingCredit: data.card3,
-        ValueofCreditReceivedByVLES: data.card4,
-        NumberofFIGsReceiving Credit: data.card5,
-    }
-    const csv = json2csv(data, {fields})
+   
+    const csv = json2csv(data, {fields});
     // req.flash('message', 'Download Success')
-    res.attachment(csvName).send(csv)
+    res.attachment(data.dashName).send(csv)
     // res.redirect('/ci')
 } catch (error) {
     console.log(error)
