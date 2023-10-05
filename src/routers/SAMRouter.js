@@ -6,7 +6,7 @@ const SCV = require('../models/modelSCV')
 const SCF = require('../models/modelSCF')
 const SCFP = require('../models/modelSCFP')
 const json2csv = require('json2csv').parse
-router.get('/samunnati', async (req, res) => {
+router.get('/samunnati/data', async (req, res) => {
     var data = {
         card1:0,
         card2:0,
