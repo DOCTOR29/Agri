@@ -40,6 +40,7 @@ router.get('/integra', async  (req, res) => {
         name12: 'BC Agents',
         dashName: 'Integra'
     }
+    const image = '../assets/img/Blank.png'
     var male = 0
     var female = 0
     formIC = await IC.find()
@@ -112,7 +113,7 @@ router.get('/integra', async  (req, res) => {
         }
     }
     
-     res.render('MBSdash', { data, donut1, donut2, donut3})
+     res.render('MBSdash', { data, donut1, donut2, donut3,image})
 })
 
 

@@ -47,7 +47,7 @@ router.get('/dehaat', async  (req, res) => {
         name12: 'BC Agents',
         dashName: 'Go Green'
     }
-
+    const image = '../assets/img/Dehaat.png'
     formDI.forEach(() => insuranceCount++)
 
     formDFF.forEach((entry) => {
@@ -101,6 +101,7 @@ router.get('/dehaat', async  (req, res) => {
     }
     res.render('MBSdash', {
         data,
+        image,
         dashName:  'Dehaat test',
         donut1, donut2 ,donut3
        

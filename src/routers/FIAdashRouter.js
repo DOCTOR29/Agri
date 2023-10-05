@@ -39,6 +39,7 @@ router.get('/fia', async  (req, res) => {
         name12: 'BC Agents',
         dashName: 'FIA'
     }
+    const image = '../assets/img/FIA.png'
     var male = 0
     var female = 0
     formFC = await FC.find()
@@ -121,7 +122,7 @@ router.get('/fia', async  (req, res) => {
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3})
+     res.render('MBSdash', { data, donut1, donut2, donut3, image})
 })
 
 

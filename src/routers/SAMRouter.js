@@ -37,6 +37,7 @@ router.get('/samunnati', async  (req, res) => {
         name12: 'BC Agents',
         dashName: 'Samunnati'
     }
+    const image = '../assets/img/sam.png'
     var male = 0
     var female = 0
     
@@ -92,7 +93,7 @@ router.get('/samunnati', async  (req, res) => {
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3})
+     res.render('MBSdash', { data, donut1, donut2, donut3, image})
 })
 
 

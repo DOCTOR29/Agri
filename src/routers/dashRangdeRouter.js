@@ -36,7 +36,7 @@ router.get('/rangde', async  (req, res) => {
     }
     var male = 0
     var female = 0
-
+    const image = '../assets/img/Rangde.png'
     const formRC = await RC.find()
     formRC.forEach((entry) => {
         data.card7++
@@ -74,7 +74,7 @@ router.get('/rangde', async  (req, res) => {
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3})
+     res.render('MBSdash', { data, donut1, donut2, donut3,image})
 })
 
 

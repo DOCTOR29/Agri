@@ -43,6 +43,7 @@ router.get('/esaf', async  (req, res) => {
         name12: 'BC Agents',
         dashName: 'ESAF'
     }
+    const image = '../assets/img/Esaf.png'
     var male = 0
     var female = 0
     formEFP = await EFP.find()
@@ -131,7 +132,7 @@ router.get('/esaf', async  (req, res) => {
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3})
+     res.render('MBSdash', { data, donut1, donut2, donut3,image})
 })
 
 

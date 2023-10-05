@@ -34,6 +34,7 @@ router.get('/ESCO', async  (req, res) => {
         name12: 'BC Agents',
         dashName: 'ESCO'
     }
+    const image = '../assets/img/Blank.png'
     var male = 0
     var female = 0
     
@@ -76,7 +77,7 @@ router.get('/ESCO', async  (req, res) => {
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3})
+     res.render('MBSdash', { data, donut1, donut2, donut3,image})
 })
 
 

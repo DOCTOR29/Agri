@@ -37,6 +37,7 @@ router.get('/mbs', async  (req, res) => {
         name12: 'BC Agents',
         dashName: 'Go Green'
     }
+    const image = '../assets/img/MBS.png'
     var male = 0
     var female = 0
     const formMC = await MC.find()
@@ -98,7 +99,7 @@ router.get('/mbs', async  (req, res) => {
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3})
+     res.render('MBSdash', { data, donut1, donut2, donut3,image})
 })
 
 
