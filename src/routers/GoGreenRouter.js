@@ -74,15 +74,15 @@ router.get('/gogreen', async  (req, res) => {
         name2: "NA"
     }
     const donut3 = {
-        data1: data.card2,
-        data2: data.card8,
+        data1: data.card2 ,
+        data2: data.card8 ,
         name1: 'Ratio of Value of Credit to FPO',
         name2: 'Value of credit to individual farmers'
     }
     for (const key in data) {
         if (data[key] === 0) {
             data[key] = 'NA'
-            console.log(data[key])
+            
         }
     }
 
@@ -93,44 +93,44 @@ router.get('/gogreen', async  (req, res) => {
     res.render('MBSdash', { data, donut1, donut2, donut3, image})
 })
 // needs doing
-router.get('/form/data', async (req, res) => {
+// router.get('/form/data', async (req, res) => {
 
-    const formGGCI = await GGCI.find()
-    const formGGCF = await GGCI.find()
-
-
-    var sumLoanAmount = 0
-    var sumLoanAmountFPO = 0
-
-    formGGCF.forEach((entry) => {
-
-        sumLoanAmount += entry.loanAmount
-    })
-
-    formGGCI.forEach((entry) => {
-        sumLoanAmountFPO += entry.loanAmount
-
-    })
-
-    var countMale = 0, countFemale = 0
-
-    formGGCI.forEach((form) => {
-        if(form.gender ==='Male')
-        { countMale++ }
-        else {
-            countFemale++
-        }
-
-    });
+//     const formGGCI = await GGCI.find()
+//     const formGGCF = await GGCI.find()
 
 
+//     var sumLoanAmount = 0
+//     var sumLoanAmountFPO = 0
 
-    const benefeciaries = {
-        male: countMale , female: countFemale , sumLoanAmountFPO  , sumLoanAmount 
-    }
+//     formGGCF.forEach((entry) => {
 
-    res.send(benefeciaries)
-})
+//         sumLoanAmount += entry.loanAmount
+//     })
+
+//     formGGCI.forEach((entry) => {
+//         sumLoanAmountFPO += entry.loanAmount
+
+//     })
+
+//     var countMale = 0, countFemale = 0
+
+//     formGGCI.forEach((form) => {
+//         if(form.gender ==='Male')
+//         { countMale++ }
+//         else {
+//             countFemale++
+//         }
+
+//     });
+
+
+
+//     const benefeciaries = {
+//         male: countMale , female: countFemale , sumLoanAmountFPO  , sumLoanAmount 
+//     }
+
+//     res.send(benefeciaries)
+// })
 
 router.get('/gogreen/data', async (req, res) => { 
     var data = {
