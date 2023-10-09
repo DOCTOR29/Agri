@@ -64,9 +64,16 @@ router.get('/gogreen', async  (req, res) => {
     }
     const donut1 = {
         male: countMale,
-        female: countFemale,
+        female: countFemale ,
 
     }
+    if (donut1.male === 0 && donut1.female === 0) {
+        donut1.data1 = 0
+        donut1.data2 = 100
+        donut1.name1 = 'NA'
+        donut1.name2 = 'NA'
+    }
+
     const donut2 = {
         data1: 100,
         data2: 0,
@@ -74,8 +81,8 @@ router.get('/gogreen', async  (req, res) => {
         name2: "NA"
     }
     const donut3 = {
-        data1: data.card2 ,
-        data2: data.card8 ,
+        data1: data.card2  ,
+        data2: data.card8  ,
         name1: 'Ratio of Value of Credit to FPO',
         name2: 'Value of credit to individual farmers'
     }
