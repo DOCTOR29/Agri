@@ -145,6 +145,14 @@ router.get('/samunnati', async  (req, res) => {
         name12: 'BC Agents',
         dashName: 'Samunnati'
     }
+    const offerings = {
+        data1: "1. Credit",
+        data2: "2. Digitization of agri value chains",
+        data3: "",
+        data4: "",
+        
+
+    }
     const image = '../assets/img/sam.png'
     var male = 0
     var female = 0
@@ -177,7 +185,16 @@ router.get('/samunnati', async  (req, res) => {
         //beneficiary
         male,
         female,
+        name1: 'Male',
+        name2: 'Female'
 
+    }
+    if (donut1.male === 0 && donut1.female === 0) {
+        donut1.male = 100
+        donut1.female = 0
+        donut1.name1 = 'NA'
+        donut1.name2 = 'NA'
+        
     }
     const donut2 = {
         // insurance
@@ -195,13 +212,23 @@ router.get('/samunnati', async  (req, res) => {
         name2: 'Value of Credit to VLE',
         name3: 'Value of Credit to Farmner'
     }
+    if (donut3.data1 === 0 && donut3.data2 === 0 && donut3.data3 === 0) {
+        donut3.data1 = 100
+        donut3.data2 = 0
+        donut3.data3 = 0
+        donut3.name1 = 'NA'
+        donut3.name2 = 'NA'
+        donut3.name3 = 'NA'
+    
+        
+    }
     for (const key in data) {
         if (data[key] === 0) {
             data[key] = 'NA'
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3, image})
+     res.render('MBSdash', { offerings,data, donut1, donut2, donut3, image})
 })
 
 

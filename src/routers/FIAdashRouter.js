@@ -39,7 +39,7 @@ router.get('/fia/data', async (req, res) => {
         name12: 'BC Agents',
         dashName: 'FIA'
     }
-    const image = '../assets/img/FIA.png'
+    // const image = '../assets/img/FIA.png'
     var male = 0
     var female = 0
     formFC = await FC.find()
@@ -94,28 +94,7 @@ router.get('/fia/data', async (req, res) => {
         
     });
     
-    const donut1 = {
-        //beneficiary
-        male,
-        female,
-
-    }
-    const donut2 = {
-        // insurance
-        data1: data.card10,
-        data2: data.card11,
-        name1: 'APY',
-        name2: "Insurance"
-    }
-    const donut3 = {
-        // credit
-        data1: 100,
-        data2: 0,
-        data3: 0,
-        name1: 'NA',
-        name2: 'NA',
-        name3: 'NA'
-    }
+    
     try {
 
         const fields = [
@@ -176,7 +155,16 @@ router.get('/fia', async  (req, res) => {
         name12: 'BC Agents',
         dashName: 'FIA'
     }
+    
     const image = '../assets/img/FIA.png'
+    const offerings = {
+        data1: "1. Credit",
+        data2: "2. Savings",
+        data3: "3. Insurance",
+        data4: "4. Social Security Schemes",
+        
+
+    }
     var male = 0
     var female = 0
     formFC = await FC.find()
@@ -235,7 +223,16 @@ router.get('/fia', async  (req, res) => {
         //beneficiary
         male,
         female,
+        name1: 'Male',
+        name2: 'Female'
 
+    }
+    if (donut1.male === 0 && donut1.female === 0) {
+        donut1.male = 100
+        donut1.female = 0
+        donut1.name1 = 'NA'
+        donut1.name2 = 'NA'
+        
     }
     const donut2 = {
         // insurance
@@ -243,6 +240,14 @@ router.get('/fia', async  (req, res) => {
         data2: data.card11,
         name1: 'APY',
         name2: "Insurance"
+    }
+    if (donut2.data1 === 0 && donut2.data2 === 0) {
+        donut2.data1 = 100
+        donut2.data2 = 0
+        donut2.name1 = 'NA'
+        donut2.name2 = 'NA'
+    
+        
     }
     const donut3 = {
         // credit
@@ -259,7 +264,7 @@ router.get('/fia', async  (req, res) => {
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3, image})
+     res.render('MBSdash', { offerings,data, donut1, donut2, donut3, image})
 })
 
 

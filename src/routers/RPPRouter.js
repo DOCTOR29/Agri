@@ -8,7 +8,7 @@ const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
 const routName = 'rpp'
-const csvName ='RangD-Potatao-Procurement.csv'
+const csvName ='RangDe-Potatao-Procurement.csv'
 const routNameU = require(`../models/model${routName.toUpperCase()}`)
 
 

@@ -36,6 +36,14 @@ router.get('/rangde', async  (req, res) => {
     }
     var male = 0
     var female = 0
+    const offerings = {
+        data1: "1. Credit",
+        data2: "",
+        data3: "",
+        data4: "",
+        
+
+    }
     const image = '../assets/img/Rangde.png'
     const formRC = await RC.find()
     formRC.forEach((entry) => {
@@ -50,7 +58,16 @@ router.get('/rangde', async  (req, res) => {
         //beneficiary
         male,
         female,
+        name1: 'Male',
+        name2: 'Female'
 
+    }
+    if (donut1.male === 0 && donut1.female === 0) {
+        donut1.male = 100
+        donut1.female = 0
+        donut1.name1 = 'NA'
+        donut1.name2 = 'NA'
+        
     }
     const donut2 = {
         // insurance
@@ -68,13 +85,21 @@ router.get('/rangde', async  (req, res) => {
         name2: 'Female',
         name3: ''
     }
+    if (donut3.data1 === 0 && donut3.data2 === 0) {
+        donut3.data1 = 100
+        donut3.data2 = 0
+        donut3.name1 = 'NA'
+        donut3.name2 = 'NA'
+    
+        
+    }
     for (const key in data) {
         if (data[key] === 0) {
             data[key] = 'NA'
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3,image})
+     res.render('MBSdash', { offerings,data, donut1, donut2, donut3,image})
 })
 
 router.get('/rangde/data', async function (req, res) { 
@@ -109,7 +134,7 @@ router.get('/rangde/data', async function (req, res) {
     }
     var male = 0
     var female = 0
-    const image = '../assets/img/Rangde.png'
+    // const image = '../assets/img/Rangde.png'
     const formRC = await RC.find()
     formRC.forEach((entry) => {
         data.card7++
@@ -119,28 +144,7 @@ router.get('/rangde/data', async function (req, res) {
         {female++}
         data.card8 += entry.LoanAmount
     })
-    const donut1 = {
-        //beneficiary
-        male,
-        female,
-
-    }
-    const donut2 = {
-        // insurance
-        data1: 100,
-        data2: 0,
-        name1: 'NA',
-        name2: "NA"
-    }
-    const donut3 = {
-        // credit
-        data1: male,
-        data2: female,
-        data3: 0,
-        name1: 'Male',
-        name2: 'Female',
-        name3: ''
-    }
+    
     
 
 

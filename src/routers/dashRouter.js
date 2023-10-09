@@ -45,7 +45,8 @@ router.get('/dehaat/data', async (req, res) => {
         name12: 'BC Agents',
         dashName: 'Dehaat'
     }
-    const image = '../assets/img/Dehaat.png'
+    
+    
     formDI.forEach(() => insuranceCount++)
 
     formDFF.forEach((entry) => {
@@ -164,6 +165,14 @@ router.get('/dehaat', async  (req, res) => {
         dashName: 'Go Green'
     }
     const image = '../assets/img/Dehaat.png'
+    const offerings = {
+        data1: "1. Digitaization fo agri value chain",
+        data2: "2. Insurance",
+        data3: "3. Credit",
+        data4: "",
+        
+
+    }
     formDI.forEach(() => insuranceCount++)
 
     formDFF.forEach((entry) => {
@@ -185,7 +194,17 @@ router.get('/dehaat', async  (req, res) => {
     const donut1 = {
         male: countMale,
         female: countFemale,
+        name1: 'Male',
+        name2: "Female",
 
+    }
+
+    if (donut1.male === 0 && donut1.female === 0) {
+        donut1.male = 100
+        donut1.female = 0
+        donut1.name1 = 'NA'
+        donut1.name2 = 'NA'
+        
     }
     const donut2 = {
         data1: 100,
@@ -198,6 +217,14 @@ router.get('/dehaat', async  (req, res) => {
         data2: sumLoanAmount,
         name1: 'Ratio of Value of Credit to FPO',
         name2: 'Value of credit to individual farmers'
+    }
+    if (donut3.data1 === 0 && donut3.data2 === 0) {
+        donut3.data1 = 100
+        donut3.data2 = 0
+        donut3.name1 = 'NA'
+        donut3.name2 = 'NA'
+    
+        
     }
 
     
@@ -212,11 +239,12 @@ router.get('/dehaat', async  (req, res) => {
     for (const key in data) {
         if (data[key] === 0) {
             data[key] = 'NA'
-            console.log(data[key])
+            
         }
     }
     res.render('MBSdash', {
         data,
+        offerings,
         image,
         dashName:  'Dehaat test',
         donut1, donut2 ,donut3

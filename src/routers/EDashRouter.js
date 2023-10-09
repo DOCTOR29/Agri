@@ -42,7 +42,7 @@ router.get('/esaf/data', async (req, res) => {
         name12: 'BC Agents',
         dashName: 'ESAF'
     }
-    const image = '../assets/img/Esaf.png'
+  
     var male = 0
     var female = 0
     formEFP = await EFP.find()
@@ -103,28 +103,7 @@ router.get('/esaf/data', async (req, res) => {
         data.card6+=entry.LoanAmount
     })
     
-    const donut1 = {
-        //beneficiary
-        male,
-        female,
-
-    }
-    const donut2 = {
-        // insurance
-        data1:  data.card10,
-        data2: data.card11,
-        name1: 'SSS',
-        name2: "Insurance"
-    }
-    const donut3 = {
-        // credit
-        data1: data.card2,
-        data2: data.card6,
-        data3: 0,
-        name1: 'Value of Credit to FPO',
-        name2: 'Value of Credit to FIG',
-        name3: 'Value of Crdit to farmers'
-    }
+   
     try {
 
         const fields = [
@@ -185,6 +164,14 @@ router.get('/esaf', async  (req, res) => {
         dashName: 'ESAF'
     }
     const image = '../assets/img/Esaf.png'
+    const offerings = {
+        data1: "1. Credit",
+        data2: "2. Savings",
+        data3: "3. Insurance",
+        data4: "4 .Social Security Schemes",
+        
+
+    }
     var male = 0
     var female = 0
     formEFP = await EFP.find()
@@ -249,8 +236,18 @@ router.get('/esaf', async  (req, res) => {
         //beneficiary
         male,
         female,
+        name1: 'Male',
+        name2: "Female",
 
     }
+    if (donut1.male === 0 && donut1.female === 0) {
+        donut1.male = 100
+        donut1.female = 0
+        donut1.name1 = 'NA'
+        donut1.name2 = 'NA'
+        
+    }
+
     const donut2 = {
         // insurance
         data1:  data.card10,
@@ -258,6 +255,16 @@ router.get('/esaf', async  (req, res) => {
         name1: 'SSS',
         name2: "Insurance"
     }
+    if (donut2.data1 === 0 && donut2.data2 === 0) {
+        donut2.data1 = 100
+        donut2.data2 = 0
+        donut2.name1 = 'NA'
+        donut2.name2 = 'NA'
+        
+    
+        
+    }
+
     const donut3 = {
         // credit
         data1: data.card2,
@@ -267,13 +274,22 @@ router.get('/esaf', async  (req, res) => {
         name2: 'Value of Credit to FIG',
         name3: 'Value of Crdit to farmers'
     }
+    if (donut3.data1 === 0 && donut3.data2 === 0) {
+        donut3.data1 = 100
+        donut3.data2 = 0
+        donut3.name1 = 'NA'
+        donut3.name2 = 'NA'
+    
+        
+    }
+
     for (const key in data) {
         if (data[key] === 0) {
             data[key] = 'NA'
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3,image})
+     res.render('MBSdash', {offerings, data, donut1, donut2, donut3,image})
 })
 
 

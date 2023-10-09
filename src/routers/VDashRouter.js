@@ -140,6 +140,14 @@ router.get('/vimo', async (req, res) => {
         name12: 'BC Agents',
         dashName: 'Vimo'
     }
+    const offerings = {
+        data1: "1. Insurance",
+        data2: "2. Credit",
+        data3: "",
+        data4: "",
+        
+
+    }
     const image = '../assets/img/VEMO.png'
     var male = 0
     var female = 0
@@ -165,8 +173,17 @@ router.get('/vimo', async (req, res) => {
         //beneficiary
         male,
         female,
-
+        name1: 'Male',
+        name2: 'Female'
     }
+    if (donut1.male === 0 && donut1.female === 0) {
+        donut1.male = 100
+        donut1.female = 0
+        donut1.name1 = 'NA'
+        donut1.name2 = 'NA'
+        
+    }
+
     const donut2 = {
         // insurance
         data1: 100,
@@ -189,7 +206,7 @@ router.get('/vimo', async (req, res) => {
         }
     }
 
-     res.render('MBSdash', { data, donut1, donut2, donut3, image})
+     res.render('MBSdash', { offerings,data, donut1, donut2, donut3, image})
 })
 
 

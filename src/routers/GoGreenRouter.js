@@ -38,6 +38,15 @@ router.get('/gogreen', async  (req, res) => {
     }
 
     const image = '../assets/img/goreen.png'
+    const offerings = {
+        data1: "1. Credit",
+        data2: "",
+        data3: "",
+        data4: "",
+        
+
+    }
+
     const formGGCF = await GGCF.find()
     const formGGCI = await GGCI.find()
     var countMale = 0
@@ -55,6 +64,7 @@ router.get('/gogreen', async  (req, res) => {
     formGGCF.forEach((entry) => {
         data.card1++
         data.card2 += entry.loanAmount
+       
 
     })
     for (const key in data) {
@@ -62,16 +72,20 @@ router.get('/gogreen', async  (req, res) => {
             data[key] = 'NA'
         }
     }
-    const donut1 = {
+    let donut1 = {
         male: countMale,
-        female: countFemale ,
+        female: countFemale,
+        name1: 'Male',
+        name2: 'Female'
 
     }
+
     if (donut1.male === 0 && donut1.female === 0) {
-        donut1.data1 = 0
-        donut1.data2 = 100
+        donut1.male = 100
+        donut1.female = 0
         donut1.name1 = 'NA'
         donut1.name2 = 'NA'
+        
     }
 
     const donut2 = {
@@ -81,11 +95,23 @@ router.get('/gogreen', async  (req, res) => {
         name2: "NA"
     }
     const donut3 = {
-        data1: data.card2  ,
-        data2: data.card8  ,
+        data1: data.card2,
+        data2: data.card8,
+        // data1: 0  ,
+        // data2: 0  ,
         name1: 'Ratio of Value of Credit to FPO',
         name2: 'Value of credit to individual farmers'
     }
+
+    if (donut3.data1 === 'NA' && donut3.data2 === 'NA') {
+        donut3.data1 = 100
+        donut3.data2 = 0
+        donut3.name1 = 'NA'
+        donut3.name2 = 'NA'
+    
+        
+    }
+
     for (const key in data) {
         if (data[key] === 0) {
             data[key] = 'NA'
@@ -97,7 +123,7 @@ router.get('/gogreen', async  (req, res) => {
 
 
 
-    res.render('MBSdash', { data, donut1, donut2, donut3, image})
+    res.render('MBSdash', { offerings,data, donut1, donut2, donut3, image})
 })
 // needs doing
 // router.get('/form/data', async (req, res) => {
