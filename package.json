@@ -21,6 +21,7 @@
     "fast-csv": "^4.3.6",
     "hbs": "^4.2.0",
     "json2csv": "^6.0.0-alpha.2",
+    "millify": "^6.1.0",
     "mongoose": "^7.5.0",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.0.1"

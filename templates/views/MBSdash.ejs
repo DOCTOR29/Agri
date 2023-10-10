@@ -10,7 +10,7 @@
   <script type="text/javascript">
     google.charts.load("current", {packages:["corechart"]});
     google.charts.setOnLoadCallback(drawChart);
-
+   
     var male = <%-donut1.male%>
     var female = <%-donut1.female%>
     var nameDonut2 = '<%=donut2.name1%>'
@@ -65,9 +65,11 @@
         chart.draw(dataCreditGraph, optionsCreditGraph);
     }
   </script>
+  
 </head>
 <body class=" bg-gray-100 py-5 d-flex align-content-between ">
   <div class="col-4 mx-4  "> 
+    <!-- <h1><%= millify( 250127, {locales: "en-IN", space:true,precision:2})%></h1> -->
     <!-- left col -->
       <div class="row g-2 ">
           <div class="card  ">
@@ -97,7 +99,7 @@
                 
               
                 <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                  <%=data.card13%>
+                  <%=millify( data.card13, {locales: "en-IN", space:true,precision:2})%>
 
                 </h6>
               </div>
@@ -168,7 +170,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0   " style="color: white;">
-                      <%=data.card1%> 
+                      <%=millify( data.card1, {locales: "en-IN", space:true,precision:2})%> 
 
                     </h6>
                   </div>
@@ -187,7 +189,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card2%>
+                      <%=millify( data.card2, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>
@@ -206,7 +208,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card3%>
+                      <%=millify( data.card3, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>
@@ -232,7 +234,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card4%>
+                      <%=millify( data.card4, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>
@@ -251,7 +253,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card5%>
+                      <%=millify( data.card5, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>
@@ -270,7 +272,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card6%>
+                      <%=millify( data.card6, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>
@@ -296,7 +298,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card7%>
+                      <%=millify( data.card7, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>
@@ -315,7 +317,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card8%>
+                      <%=millify( data.card8, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>
@@ -334,7 +336,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card9%>
+                      <%=millify( data.card9, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>
@@ -360,7 +362,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card10%>
+                      <%=millify( data.card10, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>
@@ -379,7 +381,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card11%>
+                      <%=millify( data.card11, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>
@@ -398,7 +400,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=data.card12%>
+                      <%=millify( data.card12, {locales: "en-IN", space:true,precision:2})%>
 
                     </h6>
                   </div>

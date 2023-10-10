@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path')
+const { default: millify } = require("millify");
+
 require('./db/conn.js');
 const DFFRouter = require('./routers/DFFRouter.js')
 const DFSRouter = require('./routers/DFSRouter.js')
@@ -79,7 +81,7 @@ const aggregate1mRouter = require('./routers/aggregate1mRouter')
 
 
 const app = express();
-
+app.locals.millify = millify;
 const port = process.env.PORT
 const staticPath = path.join(__dirname, '../public')
 const templatePath = path.join(__dirname, '../templates/views')
