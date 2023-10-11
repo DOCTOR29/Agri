@@ -181,18 +181,20 @@ router.get('/mbs', async  (req, res) => {
     })
 
     formMB.forEach((entry) => {
+        
         data.card9++
-        if (entry.gender === 'male') {
+        if (entry.Gender === 'male'|| entry.Gender === 'Male') {
             male++
         }
         female++
     })
-
+    
+console.log(data.card9)
 
     formMC.forEach((entry) => {
         data.card7++
         data.card8 += entry.loanAmount
-        if (entry.gender === 'male') {
+        if (entry.gender === 'male' || entry.gender === 'Male') {
             male++
         } else
         {female++}
