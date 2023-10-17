@@ -191,7 +191,7 @@ router.get('/fia', async  (req, res) => {
         }
         
     });
-    data.card10 +=data.card9
+    // data.card10 +=data.card9
     formFA.forEach(element => {
         data.card10++
 
