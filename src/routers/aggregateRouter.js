@@ -61,7 +61,7 @@ router.get('/aggregate/data', async (req, res) => {
         name7: 'Banking Outlets/ BCs Opened',
         dashName: 'Aggregate'
     }
-    
+    data.card7 = await countName('FO') + await countName('MD')
     data.card2 = await countName('MB') + await countName('FS') 
     data.card3 = await sumLoan('DFFarmers')
         + await sumLoan1('EF')
@@ -141,7 +141,7 @@ router.get('/aggregate', async (req, res) => {
         name7: 'Banking Outlets/ BCs Opened',
         dashName: 'Aggregate'
     }
-    
+    data.card7 = await countName('FO') + await countName('MD')
     data.card2 = await countName('MB') + await countName('FS') 
     data.card3 = await sumLoan('DFFarmers')
         + await sumLoan1('EF')

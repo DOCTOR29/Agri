@@ -120,6 +120,7 @@ router.get('/aggregate1/data', async (req, res) => {
     data.card9 = await countName('FA') + await countName('EA')
     data.card11 = await transactionData('FT')
         + await transactionData('MT')
+    data.card12 = await countName('FO') + await countName('MD')
     
         try {
 
@@ -229,7 +230,9 @@ router.get('/aggregate1', async (req, res) => {
     data.card9 = await countName('FA') + await countName('EA')
     data.card11 = await transactionData('FT')
         + await transactionData('MT')
-    res.render('aggregateDash1', {data})
+    data.card12 = await countName('FO') + await countName('MD')
+    res.render('aggregateDash1', { data })
+    
 })
 
 

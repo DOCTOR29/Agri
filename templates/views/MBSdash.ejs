@@ -99,7 +99,7 @@
                 
               
                 <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                  <%=millify( data.card13, {locales: "en-IN", space:true,precision:2})%>
+                  <%= data.card13%>
 
                 </h6>
               </div>
@@ -170,7 +170,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0   " style="color: white;">
-                      <%=millify( data.card1, {locales: "en-IN", space:true,precision:2})%> 
+                      <%=data.card1%> 
 
                     </h6>
                   </div>
@@ -208,7 +208,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=millify( data.card3, {locales: "en-IN", space:true,precision:2})%>
+                      <%= data.card3%>
 
                     </h6>
                   </div>
@@ -253,7 +253,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=millify( data.card5, {locales: "en-IN", space:true,precision:2})%>
+                      <%= data.card5%>
 
                     </h6>
                   </div>
@@ -298,8 +298,8 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=millify(data.card7, {locales: "en-IN", space:true,precision:2})%>
-                      <!-- <%= data.card7 === 'NA' ? '' :'₹'  %> <%=millify( data.card7, {locales: "en-IN", space:true,precision:2})%> -->
+                      <!-- <%=data.card7%> -->
+                      <%= data.card7 === 'NA' ? '0' :data.card7  %> 
 
                     </h6>
                   </div>
@@ -318,8 +318,8 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%= data.card8 === 'NA' ? '' :'₹'  %>
-                       <%=millify( data.card8, {locales: "en-IN", space:true,precision:2})%>
+                      <%= data.card8 === 'NA' ? '0' :( '₹ ' + millify( data.card8, {locales: "en-IN", space:true,precision:2}) ) %>
+                       <!-- <%=millify( data.card8, {locales: "en-IN", space:true,precision:2})%> -->
 
                     </h6>
                   </div>
@@ -338,7 +338,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=millify( data.card9, {locales: "en-IN", space:true,precision:2})%>
+                      <%=data.card9%>
 
                     </h6>
                   </div>
@@ -364,7 +364,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=millify( data.card10, {locales: "en-IN", space:true,precision:2})%>
+                      <%=data.card10%>
 
                     </h6>
                   </div>
@@ -383,7 +383,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=millify( data.card11, {locales: "en-IN", space:true,precision:2})%>
+                      <%=data.card11%>
 
                     </h6>
                   </div>
@@ -402,7 +402,7 @@
                     
                   
                     <h6 class="font-weight-bolder p-2 mb-0 " style="color: white;">
-                      <%=millify( data.card12, {locales: "en-IN", space:true,precision:2})%>
+                      <%= data.card12%>
 
                     </h6>
                   </div>
