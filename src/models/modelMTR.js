@@ -27,6 +27,6 @@ const yourSchemaName = new mongoose.Schema({
   }
 });
 
-const MT = mongoose.model('MT', yourSchemaName);
+const MT = mongoose.model('MTR', yourSchemaName);
 
 module.exports = MT;

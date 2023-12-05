@@ -37,8 +37,8 @@
     </form>
 
       <h2>Or Upload Bulk (CSV)</h2>
-      <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
-          <input type="file" name="<%-routName.toUpperCase()%>" id="file">
+      <form action="/form/mtr/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="MTR" id="file">
           <input class="submit-btn" type="submit" name="Submit" id="">
       </form>
       <a href="/form/<%-routName%>"> <button class="submit-btn">Dowload CSV</button></a>

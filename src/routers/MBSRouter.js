@@ -4,7 +4,7 @@ const router = express.Router()
 const MC = require('../models/modelMC')
 const MB = require('../models/modelMB')
 const MD = require('../models/modelMD')
-const MT = require('../models/modelMT')
+const MT = require('../models/modelMTR')
 const json2csv = require('json2csv').parse
 
 router.get('/mbs/data',async (req, res) => { 

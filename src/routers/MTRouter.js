@@ -3,13 +3,13 @@ const router = express.Router()
 const {rmdir} = require('fs')
 
 const json2csv = require('json2csv').parse
-const uploadiile = require('../middleware/upload.js');
+const uploadfile = require('../middleware/upload.js');
 const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
 const routName = 'mtr'
 const csvName ='MBS-TRANSACTION.csv'
-const routNameU = require(`../models/modelMT`)
+const routNameU = require(`../models/modelMTR`)
 
 
 router.get(`/${routName}`, (req, res) => {
@@ -54,12 +54,6 @@ router.get(`/form/${routName}`, async (req, res) => {
             "APARTBlock",
             "CashIn",
             "CashOut"
-
-
-
-
-
-
         ]
         const csv = json2csv(formData, { fields})
         // req.flash('message', 'Download Success')
@@ -70,7 +64,7 @@ router.get(`/form/${routName}`, async (req, res) => {
         res.status(500).send()
     }
 })
-    router.post(`/form/${routName}/bulk`, uploadiile.single(routName.toUpperCase()), csvController.upload)
+    router.post(`/form/${routName}/bulk`, uploadfile.single("MTR"), csvController.upload)
 
 
 module.exports = router
