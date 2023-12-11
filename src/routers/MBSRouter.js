@@ -182,7 +182,11 @@ router.get('/mbs', async  (req, res) => {
 
     formMB.forEach((entry) => {
         
-       
+        // data.card9++
+        if (entry.Gender === 'male'|| entry.Gender === 'Male') {
+            male++
+        }
+        female++
     })
     
 console.log(data.card9)
