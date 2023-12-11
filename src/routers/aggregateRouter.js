@@ -61,12 +61,20 @@ router.get('/aggregate/data', async (req, res) => {
         name7: 'Banking Outlets/ BCs Opened',
         dashName: 'Aggregate'
     }
+    const formSCFP = await formSCFP.find();
+            var num = 0
+            formSCFP.forEach(element => {
+                
+               num += element.DisbursementAmount
+            });
     data.card7 = await countName('FO') + await countName('MD')
     data.card2 = await countName('MB') + await countName('FS') 
     data.card3 = await sumLoan('DFFarmers')
         + await sumLoan1('EF')
         + await sumLoan('GGCF')
         + await sumLoan1('SCFP')
+
+        + await num
         + await sumLoan1('VC')
         + await sumLoan1('SCV')
         + await sumLoan('SCF')
@@ -74,7 +82,7 @@ router.get('/aggregate/data', async (req, res) => {
         + await sumLoan('MC')
         + await sumLoan('GGCI')
     
-        + await sumLoan('DFFarmers')
+        // + await sumLoan('DFFarmers')
         + await sumLoan1('EFP')
         + await sumLoan1('RC')
     data.card4 = await countName('VI') 
@@ -146,7 +154,7 @@ router.get('/aggregate', async (req, res) => {
     data.card3 = await sumLoan('DFFarmers')
         + await sumLoan1('EF')
         + await sumLoan('GGCF')
-        + await sumLoan1('SCFP')
+        + await DisbursementAmount
         + await sumLoan1('VC')
         + await sumLoan1('SCV')
         + await sumLoan('SCF')
@@ -154,9 +162,12 @@ router.get('/aggregate', async (req, res) => {
         + await sumLoan('MC')
         + await sumLoan('GGCI')
     
-        + await sumLoan('DFFarmers')
+        // + await sumLoan('DFFarmers')
         + await sumLoan1('EFP')
         + await sumLoan1('RC')
+        + await 
+        // + await sumLoan1('RC')
+    
     data.card4 = await countName('VI') 
                  + await countName('EI') 
                  + await countName('FI') 
