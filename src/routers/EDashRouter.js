@@ -99,7 +99,7 @@ router.get('/esaf/data', async (req, res) => {
         
     })
     formEF.forEach(entry => {
-        data.card5++
+        data.card5+=entry.TotalFarmers
         data.card6+=entry.LoanAmount
     })
     
