@@ -12,6 +12,15 @@ const countName = async function (varr) {
     });
     return num
 }
+const DisbursementAmount = async function () {
+    const varr1 = require(`../models/modelSCFP`)
+    const formSCFP = await varr1.find()
+    var num = 0
+    formSCFP.forEach(element => {
+       num+=element.DisbursementAmount
+    });
+    return num
+}
 const sumLoan = async function (varr) {
     const varr1 = require(`../models/model${varr}`)
     const formMB = await varr1.find()
@@ -43,6 +52,7 @@ const sumLoan1 = async function (varr) {
     return num
 }
 
+
 router.get('/aggregate/data', async (req, res) => {
     var data = {
         card1: 0,
@@ -61,12 +71,12 @@ router.get('/aggregate/data', async (req, res) => {
         name7: 'Banking Outlets/ BCs Opened',
         dashName: 'Aggregate'
     }
-    const formSCFP = await formSCFP.find();
-            var num = 0
-            formSCFP.forEach(element => {
+    // const formSCFP = await formSCFP.find();
+    //         var num = 0
+    //         formSCFP.forEach(element => {
                 
-               num += element.DisbursementAmount
-            });
+    //            num += element.DisbursementAmount
+    //         });
     data.card7 = await countName('FO') + await countName('MD')
     data.card2 = await countName('MB') + await countName('FS') 
     data.card3 = await sumLoan('DFFarmers')
@@ -74,7 +84,7 @@ router.get('/aggregate/data', async (req, res) => {
         + await sumLoan('GGCF')
         + await sumLoan1('SCFP')
 
-        + await num
+        + await DisbursementAmount()
         + await sumLoan1('VC')
         + await sumLoan1('SCV')
         + await sumLoan('SCF')
@@ -149,12 +159,18 @@ router.get('/aggregate', async (req, res) => {
         name7: 'Banking Outlets/ BCs Opened',
         dashName: 'Aggregate'
     }
+    // const formSCFP = await formSCFP.find();
+    //         var num = 0
+    //         await formSCFP.forEach(element => {
+                
+    //            num += element.DisbursementAmount
+    //         });
     data.card7 = await countName('FO') + await countName('MD')
     data.card2 = await countName('MB') + await countName('FS') 
     data.card3 = await sumLoan('DFFarmers')
         + await sumLoan1('EF')
         + await sumLoan('GGCF')
-        + await DisbursementAmount
+        + await DisbursementAmount()
         + await sumLoan1('VC')
         + await sumLoan1('SCV')
         + await sumLoan('SCF')
