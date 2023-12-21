@@ -59,6 +59,9 @@ router.get('/esaf/data', async (req, res) => {
             male++
         }else{ female++}
     })
+    formEF.forEach(entry => { 
+       
+    })
     formEA = await EA.find()
     formEA.forEach(entry => {
         data.card10++
@@ -228,7 +231,8 @@ router.get('/esaf', async  (req, res) => {
         
     })
     formEF.forEach(entry => {
-        data.card5++
+        // data.card5++
+        data.card5+=entry.TotalFarmers
         data.card6+=entry.LoanAmount
     })
     
