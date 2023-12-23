@@ -175,7 +175,14 @@ router.get('/dehaat', async  (req, res) => {
         
 
     }
-    formDI.forEach(() => insuranceCount++)
+    formDI.forEach((entry) => {
+        insuranceCount++
+        if(entry.gender ==='Male')
+        { countMale++ }
+        else {
+            countFemale++
+        }
+    })
 
     formDFF.forEach((entry) => {
         financingFarmersCount++
