@@ -173,7 +173,7 @@ router.get('/samunnati', async  (req, res) => {
 
     formSCFP.forEach(element => {
         data.card1++
-        data.card2 += element.LoanAmount
+        data.card2 += element.DisbursementAmount
     });
     formSCV.forEach(element => {
         data.card3++
