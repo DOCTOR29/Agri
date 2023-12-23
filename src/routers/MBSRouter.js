@@ -60,7 +60,8 @@ router.get('/mbs/data',async (req, res) => {
         if (entry.gender === 'male') {
             male++
         }
-        female++
+        else
+        {female++}
     })
 
 
@@ -185,8 +186,8 @@ router.get('/mbs', async  (req, res) => {
         // data.card9++
         if (entry.Gender === 'male'|| entry.Gender === 'Male') {
             male++
-        }
-        female++
+        } else 
+        {female++}
     })
     
 console.log(data.card9)
