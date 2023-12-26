@@ -78,7 +78,7 @@ router.get('/aggregate/data', async (req, res) => {
     //            num += element.DisbursementAmount
     //         });
     data.card7 = await countName('FO') + await countName('MD')
-    data.card2 = await countName('MB') + await countName('FS') 
+    data.card2 = await countName('MB') 
     data.card3 = await sumLoan('DFFarmers')
         + await sumLoan1('EF')
         + await sumLoan('GGCF')
@@ -103,8 +103,10 @@ router.get('/aggregate/data', async (req, res) => {
                 + await countName('EA') 
     data.card6 = await transactionData('FT')
         + await transactionData('MTR')
-    data.card1 =await countName('MB')
-        // data.card2
+    data.card1 =
+    + await countName('FS') 
+        // await countName('MB')
+        data.card2
                  + data.card4
         + data.card5
         + await countName('SCF')
@@ -167,7 +169,7 @@ router.get('/aggregate', async (req, res) => {
     //            num += element.DisbursementAmount
     //         });
     data.card7 = await countName('FO') + await countName('MD')
-    data.card2 = await countName('MB') + await countName('FS') 
+    data.card2 = await countName('MB') 
     data.card3 = await sumLoan('DFFarmers')
         + await sumLoan1('EF')
         + await sumLoan('GGCF')
@@ -193,8 +195,10 @@ router.get('/aggregate', async (req, res) => {
                 + await countName('EA') 
     data.card6 = await transactionData('FT')
         + await transactionData('MTR')
-    data.card1 = await countName('MB')
-        // data.card2
+    data.card1 =
+    + await countName('FS') 
+        // await countName('MB')
+        data.card2
                  + data.card4
         + data.card5
         + await countName('SCF')

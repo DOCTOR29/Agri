@@ -87,20 +87,20 @@ router.get('/esaf/data', async (req, res) => {
         
     })
     formEBR = await EBR.find()
-    formEBR.forEach(entry => {
-        data.card12++
+    // formEBR.forEach(entry => {
+    //     data.card12++
         
-    })
+    // })
     formECSP = await ECSP.find()
     formECSP.forEach(entry => {
         data.card12++
         
     })
     formET = await ET.find()
-    formET.forEach(entry => {
-        data.card12+=(entry.CashIn + entry.CashOut)
+    // formET.forEach(entry => {
+    //     data.card12+=(entry.CashIn + entry.CashOut)
         
-    })
+    // })
     formEF.forEach(entry => {
         data.card5+=entry.TotalFarmers
         data.card6+=entry.LoanAmount
@@ -216,20 +216,20 @@ router.get('/esaf', async  (req, res) => {
         
     })
     formEBR = await EBR.find()
-    formEBR.forEach(entry => {
-        data.card12++
+    // formEBR.forEach(entry => {
+    //     data.card12++
         
-    })
+    // })
     formECSP = await ECSP.find()
     formECSP.forEach(entry => {
         data.card12++
         
     })
     formET = await ET.find()
-    formET.forEach(entry => {
-        data.card12+=(entry.CashIn + entry.CashOut)
+    // formET.forEach(entry => {
+    //     data.card12+=(entry.CashIn + entry.CashOut)
         
-    })
+    // })
     formEF.forEach(entry => {
         // data.card5++
         data.card5+=entry.TotalFarmers
