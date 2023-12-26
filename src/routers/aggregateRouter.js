@@ -79,7 +79,10 @@ router.get('/aggregate/data', async (req, res) => {
     //         });
     data.card7 = await countName('FO') + await countName('MD')
     data.card2 = await countName('FS')
-    data.card3 = await sumLoan('DFFarmers')
+    const test =await sumLoan('DF')
+    console.log(test)
+    data.card3 = await sumLoan('DF')
+        
         + await sumLoan1('EF')
         + await sumLoan('GGCF')
         + await sumLoan1('SCFP')
@@ -169,21 +172,24 @@ router.get('/aggregate', async (req, res) => {
     //            num += element.DisbursementAmount
     //         });
     data.card7 = await countName('FO') + await countName('MD')
-    data.card2 =  await countName('FS') 
-    data.card3 = await sumLoan('DFFarmers')
-        + await sumLoan1('EF')
-        + await sumLoan('GGCF')
-        + await DisbursementAmount()
-        + await sumLoan1('VC')
-        + await sumLoan1('SCV')
-        + await sumLoan('SCF')
-        + await sumLoan1('FC')
-        + await sumLoan('MC')
-        + await sumLoan('GGCI')
+    data.card2 = await countName('FS') 
+    const test =await sumLoan('MC')
+    await console.log(test)
+    data.card3 = await sumLoan('DF')//
+   
+        + await sumLoan1('EF')//
+        // + await sumLoan('GGCF')
+        + await DisbursementAmount() //
+        + await sumLoan1('VC')//
+        // + await sumLoan1('SCV')
+        // + await sumLoan('SCF')
+        + await sumLoan1('FC')//
+        + await sumLoan('MC')//
+        // + await sumLoan('GGCI')
     
         // + await sumLoan('DFFarmers')
-        + await sumLoan1('EFP')
-        + await sumLoan1('RC')
+        // + await sumLoan1('EFP')
+        + await sumLoan1('RC')//
         
         // + await sumLoan1('RC')
     
