@@ -169,7 +169,7 @@ router.get('/aggregate', async (req, res) => {
     //            num += element.DisbursementAmount
     //         });
     data.card7 = await countName('FO') + await countName('MD')
-    data.card2 = await countName('FS')
+    data.card2 = 0
     data.card3 = await sumLoan('DFFarmers')
         + await sumLoan1('EF')
         + await sumLoan('GGCF')
