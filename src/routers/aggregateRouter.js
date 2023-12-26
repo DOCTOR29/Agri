@@ -12,6 +12,15 @@ const countName = async function (varr) {
     });
     return num
 }
+const totalFarmerEF = async function (varr) {
+    const varr1 = require(`../models/model${varr}`)
+    const formMB = await varr1.find()
+    var num = 0
+    formMB.forEach(element => {
+       num+=element.TotalFarmers
+    });
+    return num
+}
 const DisbursementAmount = async function () {
     const varr1 = require(`../models/modelSCFP`)
     const formSCFP = await varr1.find()
@@ -79,25 +88,25 @@ router.get('/aggregate/data', async (req, res) => {
     //         });
     data.card7 = await countName('FO') + await countName('MD')
     data.card2 = await countName('FS')
-    const test =await sumLoan('DF')
-    console.log(test)
-    data.card3 = await sumLoan('DF')
-        
-        + await sumLoan1('EF')
-        + await sumLoan('GGCF')
-        + await sumLoan1('SCFP')
+    // const test =await sumLoan('DF')
+    // console.log(test)
+    data.card3 = await sumLoan('DF')//
+   
+    + await sumLoan1('EF')//
+    // + await sumLoan('GGCF')
+    + await DisbursementAmount() //
+    + await sumLoan1('VC')//
+    // + await sumLoan1('SCV')
+    // + await sumLoan('SCF')
+    + await sumLoan1('FC')//
+    + await sumLoan('MC')//
+    // + await sumLoan('GGCI')
 
-        + await DisbursementAmount()
-        + await sumLoan1('VC')
-        + await sumLoan1('SCV')
-        + await sumLoan('SCF')
-        + await sumLoan1('FC')
-        + await sumLoan('MC')
-        + await sumLoan('GGCI')
+    // + await sumLoan('DFFarmers')
+    // + await sumLoan1('EFP')
+    + await sumLoan1('RC')//
     
-        // + await sumLoan('DFFarmers')
-        + await sumLoan1('EFP')
-        + await sumLoan1('RC')
+    // + await sumLoan1('RC')
     data.card4 = await countName('VI') 
                  + await countName('EI') 
                  + await countName('FI') 
@@ -107,18 +116,17 @@ router.get('/aggregate/data', async (req, res) => {
     data.card6 = await transactionData('FT')
         + await transactionData('MTR')
     data.card1 =
-    + await countName('FS') 
-      +  await countName('MB')
-    //    + data.card2
-       + data.card4
-        + data.card5
+    + await countName('FS')// 
+       + await countName('MB')//
+        + data.card4//
+        + data.card5//
         + await countName('SCF')
-        + await countName('FC')
-        + await countName('MC')
-        + await countName('GGCF')
-        + await countName('DFFarmers')
-        + await countName('RC')
-        + await countName('EG')
+        + await countName('FC')//
+        + await countName('MC')//
+        // + await countName('GGCF')
+        + await countName('DF')
+        + await countName('RC')//
+        + await totalFarmerEF('EF')
     
         try {
             const fields = [
@@ -173,8 +181,23 @@ router.get('/aggregate', async (req, res) => {
     //         });
     data.card7 = await countName('FO') + await countName('MD')
     data.card2 = await countName('FS') 
-    const test =await sumLoan('MC')
-    await console.log(test)
+//     const test = await sumLoan('MC')
+// const test1 = await sumLoan('DF')//
+   
+//         const test2 = await sumLoan1('EF')//
+//         // + await sumLoan('GGCF')
+//         const test3 = await DisbursementAmount() //
+//         const test4 = await sumLoan1('VC')//
+//         // + await sumLoan1('SCV')
+//         // + await sumLoan('SCF')
+//         const test5 = await sumLoan1('FC')//
+//         const test6 = await sumLoan('MC')//
+//         // + await sumLoan('GGCI')
+    
+//         // + await sumLoan('DFFarmers')
+//         // + await sumLoan1('EFP')
+//         const test7 = await sumLoan1('RC')//
+//     await console.log(test1, test2, test3, test4, test5, test6, test7);
     data.card3 = await sumLoan('DF')//
    
         + await sumLoan1('EF')//
@@ -202,18 +225,18 @@ router.get('/aggregate', async (req, res) => {
     data.card6 = await transactionData('FT')
         + await transactionData('MTR')
     data.card1 =
-        + await countName('FS') 
-       + await countName('MB')
-        + data.card4
-        + data.card5
+        + await countName('FS')// 
+       + await countName('MB')//
+        + data.card4//
+        + data.card5//
         + await countName('SCF')
-        + await countName('FC')
-        + await countName('MC')
-        + await countName('GGCF')
-        + await countName('DFFarmers')
-        + await countName('RC')
-        + await countName('EG')
-    
+        + await countName('FC')//
+        + await countName('MC')//
+        // + await countName('GGCF')
+        + await countName('DF')
+        + await countName('RC')//
+        + await totalFarmerEF('EF')
+    console.log(data.card1)
     res.render('aggregateDash', {data})
 })
 
