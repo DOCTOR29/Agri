@@ -12,6 +12,18 @@ const countName = async function (varr) {
     });
     return num
 }
+const countFemale = async function (varr) {
+    const varr1 = require(`../models/model${varr}`)
+    const formMB = await varr1.find()
+    var num = 0
+    formMB.forEach(element => {
+        if (element.Gender === 'Female' || element.Gender === 'female')
+            num++;
+        if (element.gender === 'Female' || element.gender === 'female')
+            num++;
+    });
+    return num
+}
 const totalFarmerEF = async function (varr) {
     const varr1 = require(`../models/model${varr}`)
     const formMB = await varr1.find()
@@ -71,6 +83,7 @@ router.get('/aggregate/data', async (req, res) => {
         card5: 0,
         card6: 0,
         card7: 0,
+        card8: 0,
         name1:'Total Beneficiaries',
         name2:'Savings Account Opened',
         name3:'Credit Disbursed',
@@ -78,6 +91,7 @@ router.get('/aggregate/data', async (req, res) => {
         name5:'Social Security Schemes',
         name6:'Digitization (Trnx in Lacs)',
         name7: 'Banking Outlets/ BCs Opened',
+        name8: 'Female Beneficiaries',
         dashName: 'Aggregate'
     }
     // const formSCFP = await formSCFP.find();
@@ -115,6 +129,8 @@ router.get('/aggregate/data', async (req, res) => {
                 + await countName('EA') 
     data.card6 = await transactionData('FT')
         + await transactionData('MTR')
+    
+    
     data.card1 =
     + await countName('FS')// 
        + await countName('MB')//
@@ -127,6 +143,21 @@ router.get('/aggregate/data', async (req, res) => {
         + await countName('DF')
         + await countName('RC')//
         + await totalFarmerEF('EF')
+    data.card8 =
+    + await countFemale('FS')// 
+       + await countFemale('MB')//
+        + await countFemale('VI') 
+        + await countFemale('EI') 
+        + await countFemale('FI') 
+        +await countFemale('FA') 
+       + await countFemale('EA') 
+        + await countFemale('SCF')
+        + await countFemale('FC')//
+        + await countFemale('MC')//
+        // + await countName('GGCF')
+        + await countFemale('DF')
+        + await countFemale('RC')//
+        // + await totalFarmerEF('EF')
     
         try {
             const fields = [
@@ -164,6 +195,7 @@ router.get('/aggregate', async (req, res) => {
         card5: 0,
         card6: 0,
         card7: 0,
+        card8: 0,
         name1:'Total Beneficiaries',
         name2:'Savings Account Opened',
         name3:'Credit Disbursed',
@@ -171,6 +203,7 @@ router.get('/aggregate', async (req, res) => {
         name5:'Social Security Schemes',
         name6:'Digitization (Trnx in Lacs)',
         name7: 'Banking Outlets/ BCs Opened',
+        name8: 'Female Beneficiaries',
         dashName: 'Aggregate'
     }
     // const formSCFP = await formSCFP.find();
@@ -235,7 +268,23 @@ router.get('/aggregate', async (req, res) => {
         // + await countName('GGCF')
         + await countName('DF')
         + await countName('RC')//
-        + await totalFarmerEF('EF')
+    + await totalFarmerEF('EF')
+    data.card8 =
+    + await countFemale('FS')// 
+       + await countFemale('MB')//
+        + await countFemale('VI') 
+        + await countFemale('EI') 
+        + await countFemale('FI') 
+        +await countFemale('FA') 
+       + await countFemale('EA') 
+        + await countFemale('SCF')
+        + await countFemale('FC')//
+        + await countFemale('MC')//
+        // + await countName('GGCF')
+        + await countFemale('DF')
+        + await countFemale('RC')//
+        // + await totalFarmerEF('EF')
+    
     console.log(data.card1)
     res.render('aggregateDash', {data})
 })
