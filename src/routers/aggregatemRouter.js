@@ -50,7 +50,7 @@ router.get('/aggregatem', async (req, res) => {
         card4: 9900,
         card5: 573,
         card6: 450581000,
-        card7: 187,
+        card7: 202,
         card8:15764,
         name1:'Total Beneficiaries',
         name2:'Savings Account Opened',
