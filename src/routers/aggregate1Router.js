@@ -232,7 +232,7 @@ router.get('/aggregate1', async (req, res) => {
     data.card5 = await sumLoan1('SCV')
     data.card10 = await countName('VI') 
                  + await countName('EI') 
-                 + await countName('FI') 
+                 + await countName('FI')  
         + await countName('DInsurance') 
         + await countName('escoi') 
     
@@ -260,6 +260,8 @@ router.get('/aggregate1', async (req, res) => {
        
     data.card8 = await countName('MB')
         + await countName('FS') 
+        + await countName('IS') 
+    
     data.card9 = await countName('FA') + await countName('EA')
     data.card11 = await transactionData('FT')
         + await transactionData('MTR')
