@@ -209,7 +209,7 @@ router.get('/esaf', async  (req, res) => {
     })
     formEB = await EB.find()
     formEB.forEach(entry => {
-        data.card9++
+        
         if (entry.Gender === 'Male') {
             male++
         }else{ female++}
