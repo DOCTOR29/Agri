@@ -78,11 +78,11 @@ router.get('/rangde', async  (req, res) => {
     }
     const donut3 = {
         // credit
-        data1: male,
-        data2: female,
+        data1: data.card8,
+        data2: 0,
         data3: 0,
-        name1: 'Male',
-        name2: 'Female',
+        name1: 'Value of Credit to farmers',
+        name2: '',
         name3: ''
     }
     if (donut3.data1 === 0 && donut3.data2 === 0) {
