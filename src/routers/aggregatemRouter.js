@@ -45,14 +45,14 @@ const sumLoan1 = async function (varr) {
 }
 router.get('/aggregatem', async (req, res) => {
     var data = {
-        card1: 33400,
-        card2: 13600,
-        card3: 103920,
-        card4: 11200,
-        card5:  655,
+        card1: 37228,
+        card2: 15309,
+        card3: 103928,
+        card4: 12500,
+        card5:  914,
         card6: 569670,
-        card7: 255,
-        card8: 17900,
+        card7: 280,
+        card8: 20009,
         name1:'Total Beneficiaries',
         name2:'Savings Account Opened',
         name3:'Credit Disbursed',
