@@ -45,14 +45,14 @@ const sumLoan1 = async function (varr) {
 }
 router.get('/aggregatem', async (req, res) => {
     var data = {
-        card1: 37228,
-        card2: 15309,
-        card3: 103928,
-        card4: 12500,
-        card5:  914,
-        card6: 569670,
-        card7: 280,
-        card8: 20009,
+        card1: req.query.card1 || 37228,
+        card2: req.query.card2 || 15309,
+        card3:  req.query.card3 || 103928,
+        card4: req.query.card4 || 12500,
+        card5: req.query.card5|| 914,
+        card6: req.query.card6 || 569670,
+        card7: req.query.card7 || 280,
+        card8:req.query.card8 || 20009,
         name1:'Total Beneficiaries',
         name2:'Savings Account Opened',
         name3:'Credit Disbursed',
@@ -65,7 +65,7 @@ router.get('/aggregatem', async (req, res) => {
     }
   
     
-    
+    console.log(req.query)
     res.render('aggregateDash', {data})
 })
 router.get('/aggregatem/data', async (req, res) => { 
