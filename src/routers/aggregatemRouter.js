@@ -50,7 +50,7 @@ router.get('/aggregatem', async (req, res) => {
         card3:  req.query.card3 || 103928,
         card4: req.query.card4 || 12500,
         card5: req.query.card5|| 914,
-        card6: req.query.card6 || 569670,
+        card6: req.query.card6 || 734789230.11,
         card7: req.query.card7 || 280,
         card8:req.query.card8 || 20009,
         name1:'Total Beneficiaries',
