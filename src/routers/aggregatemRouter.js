@@ -47,7 +47,7 @@ router.get('/aggregatem', async (req, res) => {
     var data = {
         card1: req.query.card1 || 37228,
         card2: req.query.card2 || 15309,
-        card3:  req.query.card3 || 103928,
+        card3:  req.query.card3 || 1359.74,
         card4: req.query.card4 || 12500,
         card5: req.query.card5|| 914,
         card6: req.query.card6 || 734789230.11,
