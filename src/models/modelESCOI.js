@@ -10,7 +10,7 @@ const insuranceSchema = new mongoose.Schema({
     required: true
   },
   APARTDistricts: {
-    type: [String], // Use an array if there can be multiple districts
+    type: String, // Use an array if there can be multiple districts
     required: true
   },
   APARTBlock: {
