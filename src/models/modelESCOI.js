@@ -25,11 +25,11 @@ const insuranceSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Age: {
+  PhoneNumber: {
     type: Number,
     required: true
   },
-  AgentCode: {
+  AdhaarNumber: {
     type: String,
     required: true
   },
