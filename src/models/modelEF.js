@@ -22,7 +22,7 @@ const disbursementSchema = new mongoose.Schema({
     required: true
   },
   FIGNameOrCode: {
-    type: Number,
+    type: String,
     required: true
   },
   BranchOrCSP: {
