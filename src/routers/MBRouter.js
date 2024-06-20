@@ -45,7 +45,7 @@ router.get(`/form/${routName}`, async (req, res) => {
 
         const fields = [
             "SlNo",
-   "AccountOpeningDate",
+   "TransactionDate",
    "APARTDistrict",
    "APARTBlock",
    "Village",

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const yourSchemaName = new mongoose.Schema({
   "SlNo": Number,
-   "AccountOpeningDate": Date,
+   "TransactionDate": Date,
    "APARTDistrict": String,
    "APARTBlock": String,
    "Village": String,
