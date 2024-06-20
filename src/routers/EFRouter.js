@@ -58,7 +58,7 @@ router.get(`/form/${routName}`, async (req, res) => {
             "ValueChain",
             "TotalFarmers",
             "FarmersTakingCreditForFirstTime",
-            "FPOName"
+           
         ]
         const csv = json2csv(formData, { fields})
         // req.flash('message', 'Download Success')
