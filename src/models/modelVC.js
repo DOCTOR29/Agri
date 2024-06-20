@@ -26,15 +26,7 @@ const disbursementSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Age: {
-    type: Number,
-    required: true
-  },
-  Gender: {
-    type: String,
-    enum: ['Male', 'Female'],
-    required: true
-  },
+  
   LoanAmount: {
     type: Number,
     required: true
