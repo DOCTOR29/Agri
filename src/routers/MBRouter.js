@@ -50,12 +50,11 @@ router.get(`/form/${routName}`, async (req, res) => {
    "APARTBlock",
    "Village",
    "Name",
-   "Age",
+   
    "AgentCode",
    "Gender",
-   "ExitingBankAccount",
-   "SavingsAccountNumber",
-   "BankName"
+  
+  
 
 
 

@@ -7,12 +7,10 @@ const yourSchemaName = new mongoose.Schema({
    "APARTBlock": String,
    "Village": String,
    "Name": String,
-   "Age": Number,
+  
    "AgentCode": String,
    "Gender": String,
-   "ExitingBankAccount": String,
-   "SavingsAccountNumber": Number,
-   "BankName": String
+   
 });
 
 const MB = mongoose.model('MB', yourSchemaName);
