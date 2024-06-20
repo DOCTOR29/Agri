@@ -25,10 +25,7 @@ const accountSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Age: {
-    type: Number,
-    required: true
-  },
+  
   AgentCode: {
     type: String,
     required: true
