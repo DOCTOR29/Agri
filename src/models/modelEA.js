@@ -25,7 +25,7 @@ const enrolmentSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Age: {
+  Amount: {
     type: Number,
     required: true
   },
