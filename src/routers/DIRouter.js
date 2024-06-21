@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const {rmdir} = require('fs')
-const DI = require('../models/modelDInsurance')
+const DInsurance = require('../models/modelDInsurance')
 const json2csv = require('json2csv').parse
 const uploadiile = require('../middleware/upload.js');
 const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
-router.get('/di', (req, res) => {
+router.get('/DInsurance', (req, res) => {
     const dir = path.join(__dirname, '../../resources')
  
     rmdir(dir, { recursive: true, force: true }, err => {
@@ -20,24 +20,24 @@ router.get('/di', (req, res) => {
 }
 )
 
-router.post('/form/di', async(req, res) => {
+router.post('/form/DInsurance', async(req, res) => {
     try {
-        const regForm = new DI({
+        const regForm = new DInsurance({
             ...req.body
         })
         // console.log(req.body)
         await regForm.save();
         req.flash('message', ' Successfully Entry Updated.')
-        res.redirect('/di')
+        res.redirect('/DInsurance')
     } catch (error) {
         console.log(error)
         res.status(400).send(error)  
     }
 })
 
-router.get('/form/di', async (req, res) => {
+router.get('/form/DInsurance', async (req, res) => {
     try {
-        const formData = await DI.find()
+        const formData = await DInsurance.find()
 
         const fields = [
             "dateOfIssuance",
@@ -67,7 +67,7 @@ router.get('/form/di', async (req, res) => {
         res.status(500).send()
     }
 })
-    router.post('/form/di/bulk', uploadiile.single('DInsurance'), csvController.upload)
+    router.post('/form/DInsurance/bulk', uploadiile.single('DInsurance'), csvController.upload)
 
 
 module.exports = router

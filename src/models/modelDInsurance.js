@@ -58,6 +58,6 @@ const insuranceSchema = new mongoose.Schema({
   }
 });
 
-const DI = mongoose.model('DI', insuranceSchema);
+const DInsurance = mongoose.model('DInsurance', insuranceSchema);
 
-module.exports = DI;
+module.exports = DInsurance;

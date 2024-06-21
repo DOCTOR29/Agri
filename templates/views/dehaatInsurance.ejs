@@ -14,7 +14,7 @@
             <%= message %>
         </h1>
     <h1>Dehaat Insurance</h1>
-    <form action="/form/di" method="POST">
+    <form action="/form/DInsurance" method="POST">
         <label for="dateOfIssuance">Date of Issuance of Policy:</label>
         <input type="date" id="dateOfIssuance" name="dateOfIssuance" required>
 
@@ -67,11 +67,11 @@
     </form>
                                                                                         
       <h2>Or Upload Bulk (CSV)</h2>
-      <form action="/form/di/bulk" method="POST" enctype="multipart/form-data">
-          <input type="file" name="DI" id="file">
+      <form action="/form/DInsurance/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="DInsurance" id="file">
           <input class="submit-btn" type="submit" name="Submit" id="">
       </form>
-      <a href="/form/di"> <button class="submit-btn">Download CSV</button></a>
+      <a href="/form/DInsurance"> <button class="submit-btn">Download CSV</button></a>
     </div>
 </body>
 </html>
