@@ -3,7 +3,7 @@
 const express = require('express')
 const DFF = require('../models/modelDFFarmers')
 const DF = require('../models/modelDF')//ss
-const DI = require('../models/modelDInsurance')
+const DInsurance = require('../models/modelDInsurance')
 const json2csv = require('json2csv').parse
 const router = express.Router()
 
@@ -16,7 +16,7 @@ router.get('/dehaat/data', async (req, res) => {
     var countMale = 0, countFemale = 0 
     const formDF = await DF.find()
     const formDFF = await DFF.find()
-    const formDI = await DI.find()
+    const formDI = await DInsurance.find()
 
     var data = {
         card1:0,
@@ -142,7 +142,7 @@ router.get('/dehaat', async  (req, res) => {
     var countMale = 0, countFemale = 0 
     const formDF = await DF.find()
     const formDFF = await DFF.find()
-    const formDI = await DI.find()
+    const formDI = await DInsurance.find()
 
     var data = {
         card1:0,
