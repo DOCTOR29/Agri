@@ -3,6 +3,7 @@ const path = require('path')
 const { default: millify } = require("millify");
 
 require('./db/conn.js');
+const DCRouter = require('./routers/DCRouter.js')
 const DFFRouter = require('./routers/DFFRouter.js')
 const DFSRouter = require('./routers/DFSRouter.js')
 const DBRouter = require('./routers/DBRouter.js')
@@ -103,6 +104,7 @@ app.set('view engine', 'ejs');
 app.set('views', templatePath);
 
 //Routers
+app.use(DCRouter)
 app.use(DFFRouter)
 app.use(DFSRouter)
 app.use(dashRouter)
