@@ -47,11 +47,7 @@ const insuranceSchema = new mongoose.Schema({
     enum: ['Yes', 'No'],
     required: true
   },
-  isCropInsurance: {
-    type: String,
-    enum: ['Yes', 'No'],
-    required: true
-  },
+  
   insurancePremium: {
     type: Number,
     required: true
