@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samunnati Data: Input products</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Samunnati Data: Input products</h1>
+    <form action="/form/<%-routName%>" method="POST">
+        <label for="baseProductId">Base Product ID:</label>
+        <input type="text" id="baseProductId" name="baseProductId" required>
+
+        <label for="baseProductName">Base Product Name:</label>
+        <input type="text" id="baseProductName" name="baseProductName" required>
+
+        <label for="varietyId">Variety ID:</label>
+        <input type="text" id="varietyId" name="varietyId" required>
+
+        <label for="varietyName">Variety Name:</label>
+        <input type="text" id="varietyName" name="varietyName" required>
+
+        <label for="ownerFirstName">Owner First Name:</label>
+        <input type="text" id="ownerFirstName" name="ownerFirstName" required>
+
+        <label for="ownerProfileKey">Owner Profile Key:</label>
+        <input type="text" id="ownerProfileKey" name="ownerProfileKey" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required>
+
+        <label for="unit">Unit:</label>
+        <input type="text" id="unit" name="unit" required>
+
+        <label for="productLevel3Title">Product Level 3 Title:</label>
+        <input type="text" id="productLevel3Title" name="productLevel3Title" required>
+
+        <label for="createdTS">Created Timestamp:</label>
+        <input type="datetime-local" id="createdTS" name="createdTS" required>
+
+        <label for="lut">Last Updated Timestamp (LUT):</label>
+        <input type="datetime-local" id="lut" name="lut" required>
+
+        <label for="productLevel2Title">Product Level 2 Title:</label>
+        <input type="text" id="productLevel2Title" name="productLevel2Title" required>
+
+        <label for="productLevel1Title">Product Level 1 Title:</label>
+        <input type="text" id="productLevel1Title" name="productLevel1Title" required>
+
+        <label for="isPublished">Is Published:</label>
+        <input type="checkbox" id="isPublished" name="isPublished" value="true">
+
+        <label for="isBulkOrder">Is Bulk Order:</label>
+        <input type="checkbox" id="isBulkOrder" name="isBulkOrder" value="true">
+
+        <label for="isForReview">Is For Review:</label>
+        <input type="checkbox" id="isForReview" name="isForReview" value="true">
+
+        <label for="mrp">MRP:</label>
+        <input type="number" id="mrp" name="mrp" step="0.01" required>
+
+        <label for="pricePerUnit">Price Per Unit:</label>
+        <input type="number" id="pricePerUnit" name="pricePerUnit" step="0.01" required>
+
+        <label for="manufacturerLocation">Manufacturer Location:</label>
+        <input type="text" id="manufacturerLocation" name="manufacturerLocation" required>
+
+        <label for="attachments">Attachments:</label>
+        <textarea id="attachments" name="attachments"></textarea>
+
+        <label for="tradeSpecifications">Trade Specifications:</label>
+        <textarea id="tradeSpecifications" name="tradeSpecifications"></textarea>
+    
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="<%-routName.toUpperCase()%>" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/<%-routName%>"> <button class="submit-btn">Download CSV</button></a>
+    </div>
+</body>
+</html>

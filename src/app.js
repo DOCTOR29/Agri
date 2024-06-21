@@ -4,6 +4,7 @@ const { default: millify } = require("millify");
 
 require('./db/conn.js');
 const DCRouter = require('./routers/DCRouter.js')
+
 const DFFRouter = require('./routers/DFFRouter.js')
 const DFSRouter = require('./routers/DFSRouter.js')
 const DBRouter = require('./routers/DBRouter.js')
@@ -30,7 +31,7 @@ const MDRouter = require('./routers/MDRouter.js')
 const MCRouter = require('./routers/MCRouter.js')
 const MBSRouter = require('./routers/MBSRouter.js')
 const samRouter = require('./routers/SAMRouter.js')
-
+const SDRouter = require('./routers/SDRouter.js')
 const SDiFRouter = require('./routers/SDiFRouter.js')
 const SCVRouter = require('./routers/SCVRouter.js')
 const SCFPRouter = require('./routers/SCFPRouter.js')
@@ -105,6 +106,7 @@ app.set('views', templatePath);
 
 //Routers
 app.use(DCRouter)
+
 app.use(DFFRouter)
 app.use(DFSRouter)
 app.use(dashRouter)
@@ -135,6 +137,7 @@ app.use(ITRouter)
 app.use(samRouter)
 
 app.use(MBSRouter)
+app.use(SDRouter)
 app.use(SDiFRouter)
 app.use(SCVRouter)
 app.use(SCFPRouter)
