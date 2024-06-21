@@ -47,11 +47,11 @@ router.get('/form/di', async (req, res) => {
              "aaprtBlock",
              "village",
              "name",
-             "age",
+             "phone",
              "gender",
              "landHolding",
              "isFirstTimeInsurance",
-             "isCropInsurance",
+            
              "insurancePremium",
              "insuranceCoverage"
            
@@ -67,7 +67,7 @@ router.get('/form/di', async (req, res) => {
         res.status(500).send()
     }
 })
-    router.post('/form/di/bulk', uploadiile.single('DI'), csvController.upload)
+    router.post('/form/di/bulk', uploadiile.single('DInsurance'), csvController.upload)
 
 
 module.exports = router
