@@ -49,7 +49,7 @@ router.get('/form/db', async (req, res) => {
             "age",
             "gender",
             "landHolding",
-            "valueChain"
+            "FPOFPCName"
         
         ]
         const csv = json2csv(formData, { fields})

@@ -11,7 +11,7 @@ const beneficiarySchema = new mongoose.Schema({
   age: { type: Number, required: true },
   gender: { type: String, enum: ["Male", "Female"], required: true },
   landHolding: { type: String, required: true },
-  valueChain: { type: String, required: true },
+  FPOFPCName: { type: String, required: true },
 });
 
 const DB = mongoose.model("DB", beneficiarySchema);
