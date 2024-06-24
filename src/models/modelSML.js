@@ -35,7 +35,7 @@ const yourSchemaName = new mongoose.Schema({
     required: true
   },
   OrderVolume: {
-    type: Number,
+    type: String,
     required: true
   },
   OrderValue: {
