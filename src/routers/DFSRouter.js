@@ -52,7 +52,7 @@ router.get('/form/dfs', async (req, res) => {
         const csv = json2csv(formData, { fields})
         req.flash('message', 'Download Success')
         res.attachment('Dehaat_Field_Surveys.csv').send(csv)
-        res.redirect('/dfs')
+        // res.redirect('/dfs')
     } catch (error) {
         console.log(error)
         res.status(500).send()
