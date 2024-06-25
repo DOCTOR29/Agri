@@ -16,7 +16,7 @@ router.get(`/${routName}`, (req, res) => {
     rmdir(dir, { recursive: true, force: true }, err => {
         console.log(`${dir} is deleted!`);
     });
-    res.render(routName.toUpperCase(), {
+    res.render(routName, {
         routName,
         message: req.flash('message') || ""
     });

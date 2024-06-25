@@ -19,7 +19,7 @@ router.get(`/${routName}`, (req, res) => {
 
         console.log(`${dir} is deleted!`);
       });
-    res.render(routName.toUpperCase(), {
+    res.render(routName, {
         routName,
         message: req.flash('message') || ""
     })
