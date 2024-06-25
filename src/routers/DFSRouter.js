@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const {rmdir, readdir} = require('fs')
-const DFS = require('../models/modelDFS')
+const DFSS = require('../models/modelDFSS')
 const json2csv = require('json2csv').parse
 const uploadFile = require('../middleware/upload.js');
 const csvController = require('../controllers/csvUploadController.js');
 const path = require('path')
 
-router.get('/dfs', (req, res) => {
+router.get('/dfss', (req, res) => {
     const dir = path.join(__dirname, '../../resources')
  
     rmdir(dir, { recursive: true, force: true }, err => {
@@ -20,23 +20,23 @@ router.get('/dfs', (req, res) => {
 }
 )
 
-router.post('/form/dfs', async(req, res) => {
+router.post('/form/dfss', async(req, res) => {
     try {
-        const regForm = new DFS({
+        const regForm = new DFSS({
             ...req.body
         })
         console.log(req.body)
         await regForm.save();
         req.flash('message', ' Successfully Entry Updated.')
-        res.redirect('/dfs')
+        res.redirect('/dfss')
     } catch (error) {
         res.status(400).send(error)  
     }
 })
 
-router.get('/form/dfs', async (req, res) => {
+router.get('/form/dfss', async (req, res) => {
     try {
-        const formData = await DFS.find()
+        const formData = await DFSS.find()
 
         const fields = [
            "noOfFieldsurveysConducted",
@@ -58,7 +58,7 @@ router.get('/form/dfs', async (req, res) => {
         res.status(500).send()
     }
 })
-    router.post('/form/dfs/bulk', uploadFile.single('DFS'), csvController.upload)
+    router.post('/form/dfss/bulk', uploadFile.single('DFSS'), csvController.upload)
 
 
 module.exports = router

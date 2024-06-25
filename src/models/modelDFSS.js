@@ -36,6 +36,6 @@ const surveySchema = new mongoose.Schema({
   }
 });
  
-const DFS = mongoose.model('DFS', surveySchema);
+const DFSS = mongoose.model('DFSS', surveySchema);
  
-module.exports = DFS;
+module.exports = DFSS;

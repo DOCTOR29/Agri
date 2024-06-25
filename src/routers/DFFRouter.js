@@ -14,7 +14,7 @@ router.post('/form/dff', async (req, res) => {
         const regForm = new DFF({
             ...req.body
         })
-        console.log(req.body)
+        
         await regForm.save();
         req.flash('message', ' Successfully Entry Updated.')
         res.redirect('/dff')
