@@ -46,27 +46,17 @@ router.get(`/form/${routName}`, async (req, res) => {
         const formData = await routNameU.find()
 
         const fields = [
-            "baseProductId",
+            "slNo",
+    "date",
+    "APARTDistrict",
+    "APARTBlock",
+    "ownerName",
     "baseProductName",
-    "varietyId",
-    "varietyName",
-    "ownerFirstName",
-    "ownerProfileKey",
+    "productTitle",
     "quantity",
-    "unit",
-    "productLevel3Title",
-    "createdTS",
-    "lut",
-    "productLevel2Title",
-    "productLevel1Title",
-    "isPublished",
-    "isBulkOrder",
-    "isForReview",
     "mrp",
     "pricePerUnit",
-    "manufacturerLocation",
-    "attachments",
-    "tradeSpecifications"
+    "manufacturerLocation"
 
         ]
         const csv = json2csv(formData, { fields})
