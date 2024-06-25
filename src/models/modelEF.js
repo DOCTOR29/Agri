@@ -49,10 +49,7 @@ const disbursementSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  FPOName: {
-    type: String,
-    required: true
-  }
+ 
 });
 
 const EF = mongoose.model('EF', disbursementSchema);
