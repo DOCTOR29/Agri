@@ -81,6 +81,7 @@ const RFORouter = require('./routers/RFORouter');
 const RFERouter = require('./routers/RFERouter');
 const RACRouter = require('./routers/RACRouter');
 const RNBRouter = require('./routers/RNBRouter');
+const MORouter = require('./routers/MORouter');
 
 
 
@@ -188,6 +189,10 @@ app.use(RFORouter);
 app.use(RFERouter);
 app.use(RACRouter);
 app.use(RNBRouter);
+
+//mbs
+app.use(MORouter);
+
 
 app.get('/ui', (req, res) => {
     res.render('index2')
