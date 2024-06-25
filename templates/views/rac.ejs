@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rangde Area Covered under HYV Potato</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+        <h1>Rangde Area Covered under HYV Potato</h1>
+        <form action="/form/<%-routName%>" method="POST">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br><br>
+
+            <label for="apartDistrict">APART District:</label>
+            <input type="text" id="apartDistrict" name="apartDistrict" required><br><br>
+
+            <label for="apartBlock">APART Block:</label>
+            <input type="text" id="apartBlock" name="apartBlock" required><br><br>
+
+            <label for="village">Village:</label>
+            <input type="text" id="village" name="village" required><br><br>
+
+            <label for="nameOfFPC">Name of FPC:</label>
+            <input type="text" id="nameOfFPC" name="nameOfFPC" required><br><br>
+
+            <label for="amountOfSeedsDistributed">Amount of Seeds Distributed:</label>
+            <input type="number" id="amountOfSeedsDistributed" name="amountOfSeedsDistributed" required><br><br>
+
+            <label for="areaCovered">Area Covered:</label>
+            <input type="number" id="areaCovered" name="areaCovered" required><br><br>
+
+            <input class="submit-btn" type="submit" value="Submit">
+        </form>
+
+        <h2>Or Upload Bulk (CSV)</h2>
+        <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
+            <input type="file" name="<%-routName.toUpperCase()%>" id="file">
+            <input class="submit-btn" type="submit" name="Submit" id="">
+        </form>
+        <a href="/form/<%-routName%>"> <button class="submit-btn">Download CSV</button></a>
+    </div>
+</body>
+</html>

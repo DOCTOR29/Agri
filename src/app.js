@@ -77,6 +77,11 @@ const aggregatemRouter = require('./routers/aggregatemRouter')
 const aggregate1Router = require('./routers/aggregate1Router')
 const aggregate1mRouter = require('./routers/aggregate1mRouter')
 
+const RFORouter = require('./routers/RFORouter');
+const RFERouter = require('./routers/RFERouter');
+const RACRouter = require('./routers/RACRouter');
+const RNBRouter = require('./routers/RNBRouter');
+
 
 
 
@@ -178,6 +183,11 @@ app.use(aggregateRouter)
 app.use(aggregate1Router)
 app.use(aggregatemRouter)
 app.use(aggregate1mRouter)
+//range
+app.use(RFORouter);
+app.use(RFERouter);
+app.use(RACRouter);
+app.use(RNBRouter);
 
 app.get('/ui', (req, res) => {
     res.render('index2')
