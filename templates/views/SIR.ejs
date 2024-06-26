@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samunati Input RFQs lead genegrated</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Samunati Input RFQs lead genegrated </h1>
+    <form action="/form/<%-routName%>" method="POST">
+        <label for="slNo">Serial Number:</label>
+        <input type="number" id="slNo" name="slNo" placeholder="Serial Number" required><br><br>
+        
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        
+        <label for="APARTDistrict">APART District:</label>
+        <input type="text" id="APARTDistrict" name="APARTDistrict" placeholder="APART District" required><br><br>
+        
+        <label for="APARTBlock">APART Block:</label>
+        <input type="text" id="APARTBlock" name="APARTBlock" placeholder="APART Block" required><br><br>
+        
+        <label for="FPC">FPC:</label>
+        <input type="text" id="FPC" name="FPC" placeholder="FPC" required><br><br>
+        
+        <label for="product">Product:</label>
+        <input type="text" id="product" name="product" placeholder="Product" required><br><br>
+        
+        <label for="rfqsID">RFQs ID:</label>
+        <input type="text" id="rfqsID" name="rfqsID" placeholder="RFQs ID" required><br><br>
+        
+        <label for="rfqVolume">RFQ Volume:</label>
+        <input type="text" id="rfqVolume" name="rfqVolume" placeholder="RFQ Volume" required><br><br>
+        
+        <label for="orderValue">Order Value:</label>
+        <input type="number" id="orderValue" name="orderValue" placeholder="Order Value" required><br><br>
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="<%-routName.toUpperCase()%>" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/<%-routName%>"> <button class="submit-btn">Download CSV</button></a>
+    </div>
+</body>
+</html>
