@@ -31,13 +31,17 @@ const agentSchema = new mongoose.Schema({
   },
   EmailID: {
     type: String,
-    required: true
+    
   },
   Age: {
     type: Number,
     required: true
   },
   AgentCode: {
+    type: String,
+    required: true
+  },
+  Bank: {
     type: String,
     required: true
   },

@@ -83,6 +83,7 @@ const RACRouter = require('./routers/RACRouter');
 const RNBRouter = require('./routers/RNBRouter');
 const MORouter = require('./routers/MORouter');
 const SIRRouter = require('./routers/SIRRouter');
+const IIRouter = require('./routers/IIRouter');
 
 
 
@@ -194,6 +195,7 @@ app.use(RNBRouter);
 //mbs
 app.use(MORouter);
 app.use(SIRRouter);
+app.use(IIRouter);
 
 
 app.get('/ui', (req, res) => {

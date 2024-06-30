@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integra Insurance</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Integra Insurance</h1>
+    <form action="/form/<%-routName%>" method="POST">
+        <label for="slNo">Serial Number:</label>
+        <input type="number" id="slNo" name="slNo" placeholder="Serial Number" required><br><br>
+        
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        
+        <label for="apartDistricts">APART District:</label>
+        <input type="text" id="apartDistricts" name="apartDistricts" placeholder="APART District" required><br><br>
+        
+        <label for="blocks">Blocks:</label>
+        <input type="text" id="blocks" name="blocks" placeholder="Blocks" required><br><br>
+        
+        <label for="apartBlock">APART Block:</label>
+        <input type="text" id="apartBlock" name="apartBlock" placeholder="APART Block" required><br><br>
+        
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village" placeholder="Village" required><br><br>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name" required><br><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Age" required><br><br>
+        
+        <label for="agentCode">Agent Code:</label>
+        <input type="text" id="agentCode" name="agentCode" placeholder="Agent Code" required><br><br>
+        
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender" placeholder="Gender" required><br><br>
+        
+        <label for="insuranceType">Insurance Type:</label>
+        <select id="insuranceType" name="insuranceType" required>
+            <option value="General">General</option>
+            <option value="Life">Life</option>
+            <option value="Crop">Crop</option>
+        </select><br><br>
+        
+        <label for="insuranceCoverage">Insurance Coverage:</label>
+        <input type="number" id="insuranceCoverage" name="insuranceCoverage" placeholder="Insurance Coverage" required><br><br>
+        
+        <label for="firstTimeInsurance">First Time Insurance:</label>
+        <select id="firstTimeInsurance" name="firstTimeInsurance" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+      
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="<%-routName.toUpperCase()%>" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/<%-routName%>"> <button class="submit-btn">Download CSV</button></a>
+    </div>
+</body>
+</html>
