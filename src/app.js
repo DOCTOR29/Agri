@@ -84,6 +84,7 @@ const RNBRouter = require('./routers/RNBRouter');
 const MORouter = require('./routers/MORouter');
 const SIRRouter = require('./routers/SIRRouter');
 const IIRouter = require('./routers/IIRouter');
+const ICCRouter = require('./routers/ICCRouter');
 
 
 
@@ -196,6 +197,7 @@ app.use(RNBRouter);
 app.use(MORouter);
 app.use(SIRRouter);
 app.use(IIRouter);
+app.use(ICCRouter);
 
 
 app.get('/ui', (req, res) => {
