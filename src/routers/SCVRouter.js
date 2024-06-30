@@ -52,6 +52,8 @@ router.get(`/form/${SCV}`, async (req, res) => {
             "Village",
             "NameOfVLE",
             "LoanAmount",
+            "PhoneNumber",
+            "Gender",
             "Tenure"
           
         ]

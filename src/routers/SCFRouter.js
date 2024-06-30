@@ -52,7 +52,7 @@ router.get(`/form/${SCF}`, async (req, res) => {
              "apartBlock",
              "village",
              "name",
-             "age",
+             "phoneNumber",
              "agentCode",
              "gender",
              "loanAmount",

@@ -29,6 +29,14 @@ const loanSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  PhoneNumber: {
+    type: Number,
+    required: true
+  },
+  Gender: {
+    type: String,
+    required: true
+  },
   Tenure: {
     type: Number,
     required: true
