@@ -25,7 +25,7 @@ const enrollmentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  age: {
+  AadharPhone: {
     type: Number,
     required: true,
   },
