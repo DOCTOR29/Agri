@@ -52,7 +52,7 @@ router.get(`/form/${routName}`, async (req, res) => {
             "APARTBlocks",
             "Village",
             "Name",
-            "Age",
+            "PhoneNumber",
             "AgentCode",
             "Gender",
             "InsuranceType",
