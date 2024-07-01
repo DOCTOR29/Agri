@@ -34,11 +34,11 @@ const samunnatiDataSchema = new mongoose.Schema({
         required: true
     },
     mrp: {
-        type: Number,
+        type: String,
         required: true
     },
     pricePerUnit: {
-        type: Number,
+        type: String,
         required: true
     },
     manufacturerLocation: {
