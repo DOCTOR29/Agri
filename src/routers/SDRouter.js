@@ -55,7 +55,7 @@ router.get(`/form/${routName}`, async (req, res) => {
     "productTitle",
     "quantity",
     "mrp",
-    "pricePerUnit",
+    "salesPerUnit",
     "manufacturerLocation"
 
         ]

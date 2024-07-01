@@ -37,7 +37,7 @@ const samunnatiDataSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    pricePerUnit: {
+    salesPerUnit: {
         type: String,
         required: true
     },
