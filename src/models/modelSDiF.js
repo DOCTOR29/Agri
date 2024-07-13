@@ -25,7 +25,7 @@ const onboardingSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Age: {
+  Phone: {
     type: Number,
     required: true
   }

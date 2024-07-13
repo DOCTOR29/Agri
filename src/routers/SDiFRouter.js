@@ -52,7 +52,7 @@ router.get(`/form/${samdigitfpo}`, async (req, res) => {
             "APARTBlock",
             "Village",
             "Name",
-            "Age"
+            "Phone"
           
         ]
         const csv = json2csv(formData, { fields})
