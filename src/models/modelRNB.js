@@ -29,7 +29,11 @@ const RNBschema = new mongoose.Schema({
         type: String,
         required: true,
         enum: ['Male', 'Female']
-    }
+    },
+    phone: {
+        type: String,
+        required: true
+    },
 });
 
 module.exports = mongoose.model('RNB', RNBschema);

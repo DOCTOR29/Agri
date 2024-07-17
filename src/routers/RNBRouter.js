@@ -47,7 +47,8 @@ router.get(`/form/${routName}`, async (req, res) => {
             "village",
             "nameOfFPC",
             "nameOfFarmers",
-            "gender"
+            "gender",
+            "phone",
         ];
       
         const csv = json2csv(formData, { fields });
