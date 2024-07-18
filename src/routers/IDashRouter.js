@@ -228,6 +228,11 @@ router.get('/integra', async  (req, res) => {
         data.card13+= ( entry.CashIn + entry.CashOut)
        
     })
+    formII = await II.find()
+    formII.forEach(entry => {
+        data.card11++
+       
+    })
     
     const donut1 = {
         //beneficiary
