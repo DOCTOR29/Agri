@@ -6,6 +6,7 @@ const IS = require('../models/modelIS')
 const IA = require('../models/modelIA')
 const IO = require('../models/modelIO')
 const IT = require('../models/modelIT')
+const II = require('../models/modelII')
 const json2csv = require('json2csv').parse
 router.get('/integra/data', async (req, res) => {
     var data = {
@@ -73,6 +74,11 @@ router.get('/integra/data', async (req, res) => {
     formIO = await IO.find()
     formIO.forEach(entry => {
         data.card12++
+       
+    })
+    formII = await II.find()
+    formII.forEach(entry => {
+        data.card11++
        
     })
     formIT = await IT.find()
