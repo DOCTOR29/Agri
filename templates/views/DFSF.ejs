@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dehaat Financial Support to FPOs</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            <%= message %>
+        </h1>
+    <h1>Dehaat Financial Support to FPOs</h1>
+    <form action="/form/<%-routName%>" method="POST">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="typeOfFinancingSupport">Type of Financing Support:</label>
+        <input type="text" id="typeOfFinancingSupport" name="typeOfFinancingSupport" required><br><br>
+
+        <label for="APARTDistrict">APART District:</label>
+        <input type="text" id="APARTDistrict" name="APARTDistrict" required><br><br>
+
+        <label for="APARTBlock">APART Block:</label>
+        <input type="text" id="APARTBlock" name="APARTBlock" required><br><br>
+
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village" required><br><br>
+
+        <label for="nameOfFPOFPC">Name of FPO/FPC:</label>
+        <input type="text" id="nameOfFPOFPC" name="nameOfFPOFPC"><br><br>
+
+        <label for="CINofFPC">CIN of FPC:</label>
+        <input type="text" id="CINofFPC" name="CINofFPC"><br><br>
+
+        <label for="amountOfFinancingSupport">Amount of Financing Support:</label>
+        <input type="number" id="amountOfFinancingSupport" name="amountOfFinancingSupport" required><br><br>
+
+        <label for="financingSupportPartner">Financing Support Partner:</label>
+        <input type="text" id="financingSupportPartner" name="financingSupportPartner"><br><br>
+
+        <label for="documentForEvidencing">Document for Evidencing:</label>
+        <input type="text" id="documentForEvidencing" name="documentForEvidencing"><br><br>
+
+        <label for="valueChain">Value Chain:</label>
+        <input type="text" id="valueChain" name="valueChain"><br><br>
+
+        <label for="remarks">Remarks:</label>
+        <input type="text" id="remarks" name="remarks"><br><br>
+
+
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+
+      <h2>Or Upload Bulk (CSV)</h2>
+      <form action="/form/<%-routName%>/bulk" method="POST" enctype="multipart/form-data">
+          <input type="file" name="<%-routName.toUpperCase()%>" id="file">
+          <input class="submit-btn" type="submit" name="Submit" id="">
+      </form>
+      <a href="/form/<%-routName%>"> <button class="submit-btn">Download CSV</button></a>
+    </div>
+</body>
+</html>
