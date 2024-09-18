@@ -18,7 +18,7 @@ const gradingSchema = new mongoose.Schema({
         required: true
     },
     GradingScore: {
-        type: Number,
+        type: String,
         required: true
     }
 });
