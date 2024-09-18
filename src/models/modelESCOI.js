@@ -40,7 +40,7 @@ const insuranceSchema = new mongoose.Schema({
   },
   InsuranceType: {
     type: String,
-    enum: ['Fisheries', 'Others'],
+   
     required: true
   },
   InsuranceCoverage: {
