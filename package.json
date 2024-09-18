@@ -1,4 +1,9 @@
 {
+  
+    "engines": {
+      "node": "10.2.4"
+    },
+  
   "name": "agri",
   "version": "1.0.0",
   "description": "",
