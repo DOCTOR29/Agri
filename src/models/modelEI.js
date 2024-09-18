@@ -44,7 +44,7 @@ const insuranceSchema = new mongoose.Schema({
     required: true
   },
   InsuranceCoverage: {
-    type: Number,
+    type: text,
     required: true
   },
   WhetherFirstTimeInsuranceAvailed: {
