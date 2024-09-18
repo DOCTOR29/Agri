@@ -86,6 +86,7 @@ const SIRRouter = require('./routers/SIRRouter');
 const IIRouter = require('./routers/IIRouter');
 const ICCRouter = require('./routers/ICCRouter');
 const DFSFRouter = require('./routers/DFSFRouter');
+const XGRouter = require('./routers/XGRouter');
 
 
 
@@ -200,6 +201,7 @@ app.use(SIRRouter);
 app.use(IIRouter);
 app.use(ICCRouter);
 app.use(DFSFRouter);
+app.use(XGRouter);
 
 
 app.get('/ui', (req, res) => {
