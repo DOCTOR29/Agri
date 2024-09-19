@@ -25,7 +25,7 @@ const disbursementSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Phone: {
+  Age: {
     type: Number,
     required: true
   },
