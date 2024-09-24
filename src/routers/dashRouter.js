@@ -145,6 +145,7 @@ router.get('/dehaat', async  (req, res) => {
     const formDF = await DF.find()
     const formDFF = await DFF.find()
     const formDI = await DInsurance.find()
+    const formDFSF = await DFSF.find()
 
     var data = {
         card1:0,
