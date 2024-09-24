@@ -242,7 +242,7 @@ router.get('/dehaat', async  (req, res) => {
     }
     const donut3 = {
         data1: sumLoanAmountDFSF,
-        data2: sumLoanAmount,
+        data2: sumLoanAmountFPO,
         name1: 'Ratio of Value of Credit to FPO',
         name2: 'Value of credit to individual farmers'
     }
@@ -260,7 +260,7 @@ router.get('/dehaat', async  (req, res) => {
     data.card2 = sumLoanAmountDFSF
     
     data.card7 = financingFarmersCount
-    data.card8 = sumLoanAmount
+    data.card8 = sumLoanAmountFPO
     
     data.card11 = insuranceCount
 
