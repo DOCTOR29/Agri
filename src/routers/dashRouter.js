@@ -257,10 +257,10 @@ router.get('/dehaat', async  (req, res) => {
 
     
     data.card1 = countFinancing
-    data.card2 = sumLoanAmountFPO
+    data.card2 = sumLoanAmountDFSF
     
     data.card7 = financingFarmersCount
-    data.card8 = sumLoanAmountDFSF
+    data.card8 = sumLoanAmount
     
     data.card11 = insuranceCount
 
