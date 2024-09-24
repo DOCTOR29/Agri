@@ -136,6 +136,7 @@ router.get('/dehaat/data', async (req, res) => {
 
 router.get('/dehaat', async  (req, res) => {
     var countFinancing = 0;
+    var sumLoanAmountDFSF = 0;
     var sumLoanAmountFPO = 0;
     var financingFarmersCount = 0;
     var sumLoanAmount = 0;
