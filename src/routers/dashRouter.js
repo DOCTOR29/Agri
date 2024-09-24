@@ -9,7 +9,9 @@ const json2csv = require('json2csv').parse
 const router = express.Router()
 
 router.get('/dehaat/data', async (req, res) => {
+   
     var countFinancing = 0;
+    var sumLoanAmountDFSF = 0;
     var sumLoanAmountFPO = 0;
     var financingFarmersCount = 0;
     var sumLoanAmount = 0;
@@ -18,6 +20,7 @@ router.get('/dehaat/data', async (req, res) => {
     const formDF = await DF.find()
     const formDFF = await DFF.find()
     const formDI = await DInsurance.find()
+    const formDFSF = await DFSF.find()
 
     var data = {
         card1:0,
@@ -46,10 +49,17 @@ router.get('/dehaat/data', async (req, res) => {
         name10: 'APY',
         name11: 'Insurance',
         name12: 'BC Agents',
-        dashName: 'Dehaat'
+        dashName: 'Go Green'
     }
-    
-    
+    const image = '../assets/img/Dehaat.png'
+    const offerings = {
+        data1: "1. Digitaization fo agri value chain",
+        data2: "2. Insurance",
+        data3: "3. Credit",
+        data4: "",
+        
+
+    }
     formDI.forEach((entry) => {
         insuranceCount++
         if(entry.gender ==='Male')
@@ -68,6 +78,15 @@ router.get('/dehaat/data', async (req, res) => {
             countFemale++
         }
     })
+    formDFSF.forEach((entry) => {
+        // financingFarmersCount++
+        sumLoanAmountDFSF += entry.amountOfFinancingSupport
+        // if(entry.gender ==='Male')
+        // { countMale++ }
+        // else {
+        //     countFemale++
+        // }
+    })
 
     formDF.forEach(() => countFinancing++)
 
@@ -78,7 +97,17 @@ router.get('/dehaat/data', async (req, res) => {
     const donut1 = {
         male: countMale,
         female: countFemale,
+        name1: 'Male',
+        name2: "Female",
 
+    }
+
+    if (donut1.male === 0 && donut1.female === 0) {
+        donut1.male = 100
+        donut1.female = 0
+        donut1.name1 = 'NA'
+        donut1.name2 = 'NA'
+        
     }
     const donut2 = {
         data1: 100,
@@ -87,48 +116,43 @@ router.get('/dehaat/data', async (req, res) => {
         name2: "NA"
     }
     const donut3 = {
-        data1: sumLoanAmountFPO,
-        data2: sumLoanAmount,
+        data1: sumLoanAmountDFSF,
+        data2: sumLoanAmountFPO,
         name1: 'Ratio of Value of Credit to FPO',
         name2: 'Value of credit to individual farmers'
+    }
+    if (donut3.data1 === 0 && donut3.data2 === 0) {
+        donut3.data1 = 100
+        donut3.data2 = 0
+        donut3.name1 = 'NA'
+        donut3.name2 = 'NA'
+    
+        
     }
 
     
     data.card1 = countFinancing
-    data.card2 = sumLoanAmountFPO
+    data.card2 = sumLoanAmountDFSF
     
     data.card7 = financingFarmersCount
-    data.card8 = sumLoanAmount
+    data.card8 = sumLoanAmountFPO
     
     data.card11 = insuranceCount
- 
-    try {
 
-        const fields = [
-            { label: 'Transaction', value: 'card13' },
-            { label: 'Number of FPO Receiving Credit', value: 'card1' },
-            { label: 'Value of Credit to FPOs', value: 'card2' },
-            { label: 'Number of VLEs receiving credit', value: 'card3' },
-            { label: 'Value of Credit received by VLES', value: 'card4' },
-            { label: 'Number of FIGs receiving credit', value: 'card5' },
-            { label: 'Value of credit to FIGs', value: 'card6' },
-            { label: 'Farmers receiving credit', value: 'card7' },
-            { label: 'Value of Credit to farmers', value: 'card8' },
-            { label: 'Savings Account', value: 'card9' },
-            {label: 'APY', value: 'card10' },
-            { label: 'Insurance', value: 'card1' },
-            { label: 'BC Agents', value: 'card12' }
-    
-        ]
-       
-        const csv = json2csv(data, {fields});
-        // req.flash('message', 'Download Success')
-        res.attachment(`${data.dashName}.csv`).send(csv)
-        // res.redirect('/ci')
-    } catch (error) {
-        console.log(error)
-        res.status(500).send()
+    for (const key in data) {
+        if (data[key] === 0) {
+            data[key] = 'NA'
+            
+        }
     }
+    res.render('MBSdash', {
+        data,
+        offerings,
+        image,
+        dashName:  'Dehaat test',
+        donut1, donut2 ,donut3
+       
+    })
     
 })
 

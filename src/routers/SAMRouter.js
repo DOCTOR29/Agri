@@ -160,6 +160,7 @@ router.get('/samunnati', async  (req, res) => {
     formSCFP = await SCFP.find()
     formSCV = await SCV.find()
     formSCF = await SCF.find()
+    
 
     formSCF.forEach(element => {
         data.card7++
