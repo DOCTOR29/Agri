@@ -2,6 +2,7 @@
 //router for dehaat
 const express = require('express')
 const DFF = require('../models/modelDFFarmers')
+const DFSF = require('../models/modelDFSF')
 const DF = require('../models/modelDF')//ss
 const DInsurance = require('../models/modelDInsurance')
 const json2csv = require('json2csv').parse
@@ -200,6 +201,15 @@ router.get('/dehaat', async  (req, res) => {
             countFemale++
         }
     })
+    formDFSF.forEach((entry) => {
+        // financingFarmersCount++
+        sumLoanAmountDFSF += entry.amountOfFinancingSupport
+        // if(entry.gender ==='Male')
+        // { countMale++ }
+        // else {
+        //     countFemale++
+        // }
+    })
 
     formDF.forEach(() => countFinancing++)
 
@@ -229,7 +239,7 @@ router.get('/dehaat', async  (req, res) => {
         name2: "NA"
     }
     const donut3 = {
-        data1: sumLoanAmountFPO,
+        data1: sumLoanAmountDFSF,
         data2: sumLoanAmount,
         name1: 'Ratio of Value of Credit to FPO',
         name2: 'Value of credit to individual farmers'
@@ -248,7 +258,7 @@ router.get('/dehaat', async  (req, res) => {
     data.card2 = sumLoanAmountFPO
     
     data.card7 = financingFarmersCount
-    data.card8 = sumLoanAmount
+    data.card8 = sumLoanAmountDFSF
     
     data.card11 = insuranceCount
 
